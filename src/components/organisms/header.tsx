@@ -52,15 +52,16 @@ const SVG_ICONS = [
 ];
 
 export const Header = () => (
-  <header className="fixed bottom-0 right-0 left-0 w-full h-12 bg-gray-700 md:p-8 md:min-w-56 md:w-56 lg:min-w-64 lg:w-64">
+  <header className="fixed bottom-0 right-0 left-0 w-full h-12 bg-gray-700 md:top-0 md:w-64 md:min-w-64 md:h-full md:p-8">
     <nav className="h-full md:pt-4">
-      <ul className="flex h-full md:m-0">
+      <ul className="flex h-full md:flex-col md:py-2">
         {SVG_ICONS.map(({ name, link, icon }) => (
           <li key={name} className="flex-grow md:mb-4 md:flex-grow-0">
             <Link href={link}>
-              <a className="flex justify-center items-center h-full uppercase">
-                <span className="inline-block w-5 text-center md:w-5">
-                  {icon}
+              <a className="flex justify-center items-center h-full uppercase md:items-start">
+                <span className="inline-block w-5 text-center md:flex md:items-center md:w-full">
+                  <span className="md:inline-block md:w-5 md:mr-3">{icon}</span>
+                  <span className="hidden md:inline">{name}</span>
                 </span>
               </a>
             </Link>
