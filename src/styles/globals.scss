@@ -2,6 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'vars';
-@import 'mixins';
-@import 'base';
+/*
+ ** Global
+ */
+
+body {
+  @apply bg-gray-900 text-base leading-relaxed;
+
+  /* stylelint-disable */
+  font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', YuGothic,
+    'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ',
+    Meiryo, 'ＭＳ ゴシック', sans-serif;
+  /* stylelint-enable */
+}
+
+a {
+  @apply inline-block text-white no-underline;
+
+  &:hover {
+    @apply hover:text-opacity-90;
+  }
+}
+
+::selection {
+  @apply bg-gray-400 text-white;
+}
+
+.container {
+  @apply px-4 md:px-8 lg:px-16;
+
+  @media (min-width: 1024px) {
+    min-width: 980px;
+    width: 980px;
+  }
+}
+
+/*
+ ** Utility
+ */
+
+.loadingAnimation {
+  @apply inline-block relative w-20 h-20;
+
+  & > div {
+    @apply inline-block absolute left-2 w-4 bg-white;
+    animation: loadingAnimation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+
+  & > div:nth-child(1) {
+    @apply left-2;
+    animation-delay: -0.24s;
+  }
+
+  & > div:nth-child(2) {
+    @apply left-8;
+    animation-delay: -0.12s;
+  }
+
+  & > div:nth-child(3) {
+    @apply left-14;
+    animation-delay: 0;
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    @apply top-2 h-4;
+  }
+
+  50%,
+  100% {
+    @apply top-6 h-8;
+  }
+}
