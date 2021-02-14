@@ -3,6 +3,7 @@
  */
 
 body {
+  background-color: $COLOR_VERY_DARK_YELLOW;
   /* stylelint-disable */
   font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', YuGothic,
     'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ',
@@ -10,11 +11,6 @@ body {
   /* stylelint-enable */
   font-size: 16px;
   line-height: 1.8;
-}
-
-ul {
-  padding-left: 0;
-  list-style: none;
 }
 
 a {

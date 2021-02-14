@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { DefaultTemplate } from '@/components/templates/default-template';
 
 export default function Home() {
   return (
@@ -8,20 +9,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Welcome!</h1>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=typescript-nextjs-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{` `}
-          <img src="/vercel.svg" alt="Vercel Logo" />
-        </a>
-      </footer>
+      <DefaultTemplate>
+        <h1>Hello World!</h1>
+      </DefaultTemplate>
     </div>
   );
 }
