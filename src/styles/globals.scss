@@ -7,7 +7,7 @@
  */
 
 body {
-  @apply bg-gray-100 dark:bg-gray-900 text-base leading-relaxed;
+  @apply bg-gray-100 dark:bg-gray-900 text-base dark:text-white leading-relaxed;
 
   /* stylelint-disable */
   font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', YuGothic,
