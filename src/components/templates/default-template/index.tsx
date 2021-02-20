@@ -1,16 +1,19 @@
 import { FC } from 'react';
 import { Header } from '@/components/organisms/header';
+import { Card } from '@/components/organisms/card';
 
 export const DefaultTemplate: FC = ({ children }) => (
-  <div className="flex w-full min-h-screen pt-4 pb-12 md:flex-row-reverse md:pl-14 pt-8 pr-8 pb-8 pl-16">
+  <div className="flex flex-col-reverse w-full min-h-screen md:flex-row">
     <Header />
-    <main className="flex-grow pt-8 pr-8 pb-8 pr-16">
-      <div className="container flex items-center justify-center h-96">
+    <main className="flex-grow pt-4 pb-12 md:py-8 md:pr-8 md:pl-64">
+      {/* loadingContainer: flex items-center justify-center */}
+      <div className="container">
         {/* <div className="loadingAnimation">
           <div />
           <div />
           <div />
         </div> */}
+        <Card />
         {children}
       </div>
     </main>

@@ -9,9 +9,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DefaultTemplate>
-        <h1>Hello World!</h1>
-      </DefaultTemplate>
+      <DefaultTemplate>some contents</DefaultTemplate>
     </div>
   );
 }
