@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import Image from 'next/image';
+import { FC } from 'react';
 import { useQuery } from 'react-query';
 import * as utils from '@/utils';
 
