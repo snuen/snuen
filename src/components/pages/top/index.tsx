@@ -70,18 +70,18 @@ export const Top = () => {
       </Head>
 
       <DefaultTemplate>
-        <Section heading={data.aboutTitle}>
+        <Section headingText={data.aboutTitle} headingLevel="two">
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
         </Section>
-        <Section heading={data.skillsTitle}>
+        <Section headingText={data.skillsTitle} headingLevel="two">
           <ul
             className="flex items-center"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: skills }}
           />
         </Section>
-        <Section heading={data.socialTitle}>
+        <Section headingText={data.socialTitle} headingLevel="two">
           <ul className="flex items-center">
             {data.socialContent.map((o) => (
               <li className="mr-4" key={o.socialName}>
