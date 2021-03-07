@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { DefaultTemplate } from '@/components/templates/default-template';
 import { Section } from '@/components/organisms/section';
+import { Skills } from '@/components/molecules/skills';
 import * as utils from '@/utils';
 
 const socialIconReducer = (iconName: string) => {
@@ -53,15 +54,6 @@ export const Top = () => {
     return null;
   }
 
-  const skills = data.skillsContent
-    .split(`,`)
-    .map((s) => {
-      const st = s.trim();
-      const stl = st.toLowerCase();
-      return `<li class="h-6 px-2 mr-2 border rounded text-xs leading-6 text-${stl}">${st}</li>`;
-    })
-    .join(``);
-
   return (
     <>
       <Head>
@@ -75,11 +67,7 @@ export const Top = () => {
           <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
         </Section>
         <Section headingText={data.skillsTitle} headingLevel="two">
-          <ul
-            className="flex items-center"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: skills }}
-          />
+          <Skills skillsText={data.skillsContent} />
         </Section>
         <Section headingText={data.socialTitle} headingLevel="two">
           <ul className="flex items-center">
