@@ -64,7 +64,7 @@ export const Projects = () => {
                 </Stack>
               ))}
             </Section>
-            <div className="h-7" />
+            <div className="h-6" />
             <Section headingText={data.projectSortTitle2} headingLevel="three">
               {data.projectSortContent2.map((o) => (
                 <Stack link={o.link} title={o.title} key={o.title}>
