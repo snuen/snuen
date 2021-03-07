@@ -58,7 +58,6 @@ export const Top = () => {
     <>
       <Head>
         <title>MrSung | Portfolio site of Sungjoon Park (MrSung)</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <DefaultTemplate>

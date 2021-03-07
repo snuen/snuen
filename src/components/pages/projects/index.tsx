@@ -48,7 +48,6 @@ export const Projects = () => {
     <>
       <Head>
         <title>Projects | Portfolio site of Sungjoon Park (MrSung)</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <DefaultTemplate>
