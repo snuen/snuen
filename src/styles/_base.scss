@@ -12,6 +12,10 @@ a {
   @apply inline-block no-underline hover:opacity-80;
 }
 
+p {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
 ::selection {
   @apply dark:bg-gray-400 dark:text-white;
 }

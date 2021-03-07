@@ -27,7 +27,7 @@ export const Section: FC<ISectionProps> = ({
 
   return (
     <section className={margin}>
-      <h2 className={`mb-3 font-bold ${fontSize}`}>{headingText}</h2>
+      <h2 className={`mb-2 font-bold ${fontSize}`}>{headingText}</h2>
       {children}
     </section>
   );

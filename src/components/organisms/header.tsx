@@ -50,7 +50,7 @@ export const Header = () => {
                     <span className="md:inline-block md:w-5 md:mr-3">
                       {icon}
                     </span>
-                    <span className="hidden md:inline-block md:align-middle">
+                    <span className="hidden md:inline-block md:align-middle md:mt-0.5">
                       {name}
                     </span>
                   </span>

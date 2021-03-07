@@ -59,7 +59,7 @@ export const Projects = () => {
             <Section headingText={data.projectSortTitle1} headingLevel="three">
               {data.projectSortContent1.map((o) => (
                 <Stack link={o.link} title={o.title} key={o.title}>
-                  <p className="mb-4">{o.desc}</p>
+                  <p className="mt-1 mb-3">{o.desc}</p>
                   <Skills skillsText={o.skills} />
                 </Stack>
               ))}
@@ -68,7 +68,7 @@ export const Projects = () => {
             <Section headingText={data.projectSortTitle2} headingLevel="three">
               {data.projectSortContent2.map((o) => (
                 <Stack link={o.link} title={o.title} key={o.title}>
-                  <p className="mb-4">{o.desc}</p>
+                  <p className="mt-1 mb-3">{o.desc}</p>
                   <Skills skillsText={o.skills} />
                 </Stack>
               ))}

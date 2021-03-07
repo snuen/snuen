@@ -46,7 +46,7 @@ export const Work = () => {
           <div className="mt-7">
             {data.workContents.map((o) => (
               <Section headingText={o.title} headingLevel="three" key={o.title}>
-                <h4>
+                <h4 className="mb-2">
                   {o.subtitle}
                   <br />
                   <small>{o.term}</small>
