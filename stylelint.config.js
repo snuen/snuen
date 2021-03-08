@@ -1,11 +1,9 @@
 const sortOrderSmacss = require('stylelint-config-property-sort-order-smacss/generate');
 
 module.exports = {
-  processors: ['stylelint-processor-styled-components'],
   extends: [
     'stylelint-config-standard',
     'stylelint-config-property-sort-order-smacss',
-    'stylelint-config-styled-components',
   ],
   plugins: [
     'stylelint-order',
