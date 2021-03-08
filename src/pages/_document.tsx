@@ -15,9 +15,16 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html prefix="og: http://ogp.me/ns#">
         <Head>
+          <meta property="og:title" content="MrSung" />
+          <meta
+            property="og:description"
+            content="Portfolio site of Sungjoon Park (MrSung)"
+          />
           <meta property="og:image" content="/icon-ogp.png" />
+          <meta property="og:url" content="https://mrsung.dev/" />
+          <meta property="og:type" content="website" />
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="apple-touch-icon"
