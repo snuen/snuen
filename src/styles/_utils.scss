@@ -3,106 +3,67 @@
  */
 
 .text-html {
-  background-color: #f16529;
   border-color: #f16529;
+  background-color: #f16529;
   color: rgba(#000, 0.7);
 }
 
 .text-css {
-  background-color: #2965f1;
   border-color: #2965f1;
+  background-color: #2965f1;
   color: #fff;
 }
 
 .text-javascript {
-  background-color: #f7df1e;
   border-color: #f7df1e;
+  background-color: #f7df1e;
   color: rgba(#000, 0.7);
 }
 
 .text-typescript {
-  background-color: #007acc;
   border-color: #007acc;
+  background-color: #007acc;
   color: #fff;
 }
 
 .text-vue {
-  background-color: #42b883;
   border-color: #42b883;
+  background-color: #42b883;
   color: #fff;
 }
 
 .text-nuxt {
-  background-color: #108775;
   border-color: #108775;
+  background-color: #108775;
   color: #fff;
 }
 
 .text-react {
-  background-color: #00d8ff;
   border-color: #00d8ff;
+  background-color: #00d8ff;
   color: #fff;
 }
 
 .text-gatsby {
-  background-color: #639;
   border-color: #639;
+  background-color: #639;
   color: #fff;
 }
 
 .text-next {
-  background-color: #fafafa;
   border-color: #eaeaea;
+  background-color: #fafafa;
   color: #111;
 }
 
 .text-webpack {
-  background-color: #1d78c1;
   border-color: #1d78c1;
+  background-color: #1d78c1;
   color: #fff;
 }
 
 .text-wordpress {
-  background-color: #21759b;
   border-color: #21759b;
+  background-color: #21759b;
   color: #fff;
-}
-
-/**
- * loading animation
- */
-
-.loadingAnimation {
-  @apply inline-block relative w-20 h-20;
-
-  & > div {
-    @apply inline-block absolute left-2 w-4 dark:bg-white;
-    animation: loadingAnimation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-  }
-
-  & > div:nth-child(1) {
-    @apply left-2;
-    animation-delay: -0.24s;
-  }
-
-  & > div:nth-child(2) {
-    @apply left-8;
-    animation-delay: -0.12s;
-  }
-
-  & > div:nth-child(3) {
-    @apply left-14;
-    animation-delay: 0;
-  }
-}
-
-@keyframes loadingAnimation {
-  0% {
-    @apply top-2 h-4;
-  }
-
-  50%,
-  100% {
-    @apply top-6 h-8;
-  }
 }
