@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FC } from 'react';
 import { useQuery } from 'react-query';
 import * as utils from '@/utils';
@@ -64,7 +63,7 @@ export const Card = () => {
         className="mr-4 mb-2 sm:mr-6 sm:mb-0 md:mr-8 overflow-hidden"
         style={{ minWidth: 250, minHeight: 250 }}
       >
-        <Image src="/avatar.png" alt="avatar" width="250" height="250" />
+        <img src="/avatar.png" alt="avatar" width="250" height="250" />
       </div>
       <div>
         <h1 className="text-3xl font-bold mb-4">{data.cardName}</h1>
