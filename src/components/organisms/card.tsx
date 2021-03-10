@@ -38,25 +38,6 @@ export const Card = () => {
     utils.httpClient.fetchRetry(`card`),
   );
 
-  if (isLoading) {
-    return (
-      <div className="loadingAnimation">
-        <div />
-        <div />
-        <div />
-      </div>
-    );
-  }
-
-  if (isError) {
-    // @ts-expect-error: not important
-    return <>{error.message}</>;
-  }
-
-  if (typeof data === `undefined`) {
-    return null;
-  }
-
   return (
     <div className="flex flex-col mb-6 md:flex-row md:items-center">
       <div
@@ -65,24 +46,37 @@ export const Card = () => {
       >
         <img src="/avatar.png" alt="avatar" width="250" height="250" />
       </div>
-      <div>
-        <h1 className="text-3xl font-bold mb-4">{data.cardName}</h1>
-        <div className="mb-2">
-          <LinkExternal href={data.cardAccountLink}>
-            {data.cardAccountName}
-          </LinkExternal>
-        </div>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.cardDescription }} />
-        <dl className="mt-2">
-          <dt>{data.cardBottomTitle}</dt>
-          <dd>
-            <LinkExternal href={data.cardBlogLink}>
-              {data.cardBottomName}
-            </LinkExternal>
-          </dd>
-        </dl>
-      </div>
+      {(() => {
+        if (isError) {
+          // @ts-expect-error: not important
+          return <>{error.message}</>;
+        }
+
+        if (isLoading || typeof data === `undefined`) {
+          return null;
+        }
+
+        return (
+          <div>
+            <h1 className="text-3xl font-bold mb-4">{data.cardName}</h1>
+            <div className="mb-2">
+              <LinkExternal href={data.cardAccountLink}>
+                {data.cardAccountName}
+              </LinkExternal>
+            </div>
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: data.cardDescription }} />
+            <dl className="mt-2">
+              <dt>{data.cardBottomTitle}</dt>
+              <dd>
+                <LinkExternal href={data.cardBlogLink}>
+                  {data.cardBottomName}
+                </LinkExternal>
+              </dd>
+            </dl>
+          </div>
+        );
+      })()}
     </div>
   );
 };
