@@ -35,15 +35,6 @@ export const Projects = () => {
     () => utils.httpClient.fetchRetry(`projects`),
   );
 
-  if (isError) {
-    // @ts-expect-error: not important
-    return <>{error.message}</>;
-  }
-
-  if (isLoading || typeof data === `undefined`) {
-    return null;
-  }
-
   return (
     <>
       <Head>
@@ -51,29 +42,50 @@ export const Projects = () => {
       </Head>
 
       <DefaultTemplate>
-        <Section headingText={data.projectOverviewTitle} headingLevel="two">
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.projectOverviewDesc }} />
-          <div className="mt-8">
-            <Section headingText={data.projectSortTitle1} headingLevel="three">
-              {data.projectSortContent1.map((o) => (
-                <Stack link={o.link} title={o.title} key={o.title}>
-                  <p className="mt-1 mb-3">{o.desc}</p>
-                  <Skills skillsText={o.skills} />
-                </Stack>
-              ))}
+        {(() => {
+          if (isError) {
+            // @ts-expect-error: not important
+            return <>{error.message}</>;
+          }
+
+          if (isLoading || typeof data === `undefined`) {
+            return null;
+          }
+
+          return (
+            <Section headingText={data.projectOverviewTitle} headingLevel="two">
+              <div
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: data.projectOverviewDesc }}
+              />
+              <div className="mt-8">
+                <Section
+                  headingText={data.projectSortTitle1}
+                  headingLevel="three"
+                >
+                  {data.projectSortContent1.map((o) => (
+                    <Stack link={o.link} title={o.title} key={o.title}>
+                      <p className="mt-1 mb-3">{o.desc}</p>
+                      <Skills skillsText={o.skills} />
+                    </Stack>
+                  ))}
+                </Section>
+                <div className="h-6" />
+                <Section
+                  headingText={data.projectSortTitle2}
+                  headingLevel="three"
+                >
+                  {data.projectSortContent2.map((o) => (
+                    <Stack link={o.link} title={o.title} key={o.title}>
+                      <p className="mt-1 mb-3">{o.desc}</p>
+                      <Skills skillsText={o.skills} />
+                    </Stack>
+                  ))}
+                </Section>
+              </div>
             </Section>
-            <div className="h-6" />
-            <Section headingText={data.projectSortTitle2} headingLevel="three">
-              {data.projectSortContent2.map((o) => (
-                <Stack link={o.link} title={o.title} key={o.title}>
-                  <p className="mt-1 mb-3">{o.desc}</p>
-                  <Skills skillsText={o.skills} />
-                </Stack>
-              ))}
-            </Section>
-          </div>
-        </Section>
+          );
+        })()}
       </DefaultTemplate>
     </>
   );

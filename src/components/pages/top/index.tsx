@@ -45,15 +45,6 @@ export const Top = () => {
     utils.httpClient.fetchRetry(`meee`),
   );
 
-  if (isError) {
-    // @ts-expect-error: not important
-    return <>{error.message}</>;
-  }
-
-  if (isLoading || typeof data === `undefined`) {
-    return null;
-  }
-
   return (
     <>
       <Head>
@@ -61,28 +52,43 @@ export const Top = () => {
       </Head>
 
       <DefaultTemplate>
-        <Section headingText={data.aboutTitle} headingLevel="two">
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
-        </Section>
-        <Section headingText={data.skillsTitle} headingLevel="two">
-          <Skills skillsText={data.skillsContent} />
-        </Section>
-        <Section headingText={data.socialTitle} headingLevel="two">
-          <ul className="flex items-center">
-            {data.socialContent.map((o) => (
-              <li className="mr-4" key={o.socialName}>
-                <a
-                  href={o.socialLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {socialIconReducer(o.socialName)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Section>
+        {(() => {
+          if (isError) {
+            // @ts-expect-error: not important
+            return <>{error.message}</>;
+          }
+
+          if (isLoading || typeof data === `undefined`) {
+            return null;
+          }
+
+          return (
+            <>
+              <Section headingText={data.aboutTitle} headingLevel="two">
+                {/* eslint-disable-next-line react/no-danger */}
+                <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
+              </Section>
+              <Section headingText={data.skillsTitle} headingLevel="two">
+                <Skills skillsText={data.skillsContent} />
+              </Section>
+              <Section headingText={data.socialTitle} headingLevel="two">
+                <ul className="flex items-center">
+                  {data.socialContent.map((o) => (
+                    <li className="mr-4" key={o.socialName}>
+                      <a
+                        href={o.socialLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {socialIconReducer(o.socialName)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            </>
+          );
+        })()}
       </DefaultTemplate>
     </>
   );

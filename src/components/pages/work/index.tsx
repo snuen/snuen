@@ -23,15 +23,6 @@ export const Work = () => {
     utils.httpClient.fetchRetry(`work`),
   );
 
-  if (isError) {
-    // @ts-expect-error: not important
-    return <>{error.message}</>;
-  }
-
-  if (isLoading || typeof data === `undefined`) {
-    return null;
-  }
-
   return (
     <>
       <Head>
@@ -39,23 +30,42 @@ export const Work = () => {
       </Head>
 
       <DefaultTemplate>
-        <Section headingText={data.workTitle} headingLevel="two">
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.workDesc }} />
-          <div className="mt-7">
-            {data.workContents.map((o) => (
-              <Section headingText={o.title} headingLevel="three" key={o.title}>
-                <h4 className="mb-2">
-                  {o.subtitle}
-                  <br />
-                  <small>{o.term}</small>
-                </h4>
+        {(() => {
+          if (isError) {
+            // @ts-expect-error: not important
+            return <>{error.message}</>;
+          }
+
+          if (isLoading || typeof data === `undefined`) {
+            return null;
+          }
+
+          return (
+            <>
+              <Section headingText={data.workTitle} headingLevel="two">
                 {/* eslint-disable-next-line react/no-danger */}
-                <div dangerouslySetInnerHTML={{ __html: o.desc }} />
+                <div dangerouslySetInnerHTML={{ __html: data.workDesc }} />
+                <div className="mt-7">
+                  {data.workContents.map((o) => (
+                    <Section
+                      headingText={o.title}
+                      headingLevel="three"
+                      key={o.title}
+                    >
+                      <h4 className="mb-2">
+                        {o.subtitle}
+                        <br />
+                        <small>{o.term}</small>
+                      </h4>
+                      {/* eslint-disable-next-line react/no-danger */}
+                      <div dangerouslySetInnerHTML={{ __html: o.desc }} />
+                    </Section>
+                  ))}
+                </div>
               </Section>
-            ))}
-          </div>
-        </Section>
+            </>
+          );
+        })()}
       </DefaultTemplate>
     </>
   );
