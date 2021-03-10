@@ -39,9 +39,9 @@ export const Card = () => {
   );
 
   return (
-    <div className="flex flex-col mb-6 md:flex-row md:items-center">
+    <div className="flex flex-col mb-6 md:mb-8 md:flex-row md:items-center">
       <div
-        className="mr-4 mb-2 sm:mr-6 sm:mb-0 md:mr-8 overflow-hidden"
+        className="mr-4 mb-6 sm:mr-6 md:mb-0 md:mr-8 overflow-hidden"
         style={{ minWidth: 250, minHeight: 250 }}
       >
         <img src="/avatar.png" alt="avatar" width="250" height="250" />
