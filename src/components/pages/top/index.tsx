@@ -6,6 +6,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import { DefaultTemplate } from '@/components/templates/default-template';
+import { CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
 import { ITopProps } from '@/pages/index';
@@ -30,25 +31,31 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => (
       <title>MrSung | Portfolio site of Sungjoon Park (MrSung)</title>
     </Head>
 
-    <DefaultTemplate commonData={commonData}>
-      <Section headingText={data.aboutTitle} headingLevel="two">
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
-      </Section>
-      <Section headingText={data.skillsTitle} headingLevel="two">
-        <Skills skillsText={data.skillsContent} />
-      </Section>
-      <Section headingText={data.socialTitle} headingLevel="two">
-        <ul className="flex items-center">
-          {data.socialContent.map((o) => (
-            <li className="mr-4" key={o.socialName}>
-              <a href={o.socialLink} target="_blank" rel="noopener noreferrer">
-                {socialIconReducer(o.socialName)}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Section>
-    </DefaultTemplate>
+    <CardContext.Provider value={commonData}>
+      <DefaultTemplate>
+        <Section headingText={data.aboutTitle} headingLevel="two">
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
+        </Section>
+        <Section headingText={data.skillsTitle} headingLevel="two">
+          <Skills skillsText={data.skillsContent} />
+        </Section>
+        <Section headingText={data.socialTitle} headingLevel="two">
+          <ul className="flex items-center">
+            {data.socialContent.map((o) => (
+              <li className="mr-4" key={o.socialName}>
+                <a
+                  href={o.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {socialIconReducer(o.socialName)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      </DefaultTemplate>
+    </CardContext.Provider>
   </>
 );
