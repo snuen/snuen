@@ -1,7 +1,4 @@
-import { QueryClient } from 'react-query';
 import fetch from 'isomorphic-unfetch';
-
-export const queryClient = new QueryClient();
 
 const FETCH_COUNT = 3;
 // eslint-disable-next-line consistent-return
