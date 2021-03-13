@@ -1,6 +1,8 @@
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
+import '@/styles/base.css';
+import '@/styles/utils.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <ThemeProvider attribute="class">
