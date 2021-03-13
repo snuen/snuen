@@ -24,13 +24,13 @@ const socialIconReducer = (iconName: string) => {
   }
 };
 
-export const Top = ({ pageData: data }: ITopProps) => (
+export const Top = ({ pageData: data, commonData }: ITopProps) => (
   <>
     <Head>
       <title>MrSung | Portfolio site of Sungjoon Park (MrSung)</title>
     </Head>
 
-    <DefaultTemplate>
+    <DefaultTemplate commonData={commonData}>
       <Section headingText={data.aboutTitle} headingLevel="two">
         {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />

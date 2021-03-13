@@ -5,13 +5,13 @@ import { Skills } from '@/components/molecules/skills';
 import { IProjectsProps } from '@/pages/projects';
 import { Stack } from './stack';
 
-export const Projects = ({ pageData: data }: IProjectsProps) => (
+export const Projects = ({ pageData: data, commonData }: IProjectsProps) => (
   <>
     <Head>
       <title>Projects | Portfolio site of Sungjoon Park (MrSung)</title>
     </Head>
 
-    <DefaultTemplate>
+    <DefaultTemplate commonData={commonData}>
       <Section headingText={data.projectOverviewTitle} headingLevel="two">
         <div
           // eslint-disable-next-line react/no-danger

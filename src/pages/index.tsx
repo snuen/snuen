@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { ICardData } from '@/components/organisms/card';
 import { Top as PageComponent } from '@/components/pages/top';
 import * as utils from '@/utils';
 
@@ -19,18 +20,23 @@ interface IMeData {
 
 export interface ITopProps {
   pageData: IMeData;
+  commonData: ICardData;
 }
 
-const Top = ({ pageData }: ITopProps) => <PageComponent pageData={pageData} />;
+const Top = ({ pageData, commonData }: ITopProps) => (
+  <PageComponent pageData={pageData} commonData={commonData} />
+);
 
 export default Top;
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageData = await utils.httpClient.fetchRetry(`meee`);
+  const commonData = await utils.httpClient.fetchRetry(`card`);
 
   return {
     props: {
       pageData,
+      commonData,
     },
   };
 };

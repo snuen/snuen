@@ -3,13 +3,13 @@ import { DefaultTemplate } from '@/components/templates/default-template';
 import { Section } from '@/components/organisms/section';
 import { IWorkProps } from '@/pages/work';
 
-export const Work = ({ pageData: data }: IWorkProps) => (
+export const Work = ({ pageData: data, commonData }: IWorkProps) => (
   <>
     <Head>
       <title>Work | Portfolio site of Sungjoon Park (MrSung)</title>
     </Head>
 
-    <DefaultTemplate>
+    <DefaultTemplate commonData={commonData}>
       <Section headingText={data.workTitle} headingLevel="two">
         {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: data.workDesc }} />
