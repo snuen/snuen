@@ -3,7 +3,7 @@ import { DefaultTemplate } from '@/components/templates/default-template';
 import { Section } from '@/components/organisms/section';
 import { IWorkProps } from '@/pages/work';
 
-export const Work = ({ data }: IWorkProps) => (
+export const Work = ({ pageData: data }: IWorkProps) => (
   <>
     <Head>
       <title>Work | Portfolio site of Sungjoon Park (MrSung)</title>

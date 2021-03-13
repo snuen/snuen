@@ -5,7 +5,7 @@ import { Skills } from '@/components/molecules/skills';
 import { IProjectsProps } from '@/pages/projects';
 import { Stack } from './stack';
 
-export const Projects = ({ data }: IProjectsProps) => (
+export const Projects = ({ pageData: data }: IProjectsProps) => (
   <>
     <Head>
       <title>Projects | Portfolio site of Sungjoon Park (MrSung)</title>

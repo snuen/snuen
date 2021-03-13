@@ -26,19 +26,21 @@ interface IProjectsData {
 }
 
 export interface IProjectsProps {
-  data: IProjectsData;
+  pageData: IProjectsData;
 }
 
-const Projects = ({ data }: IProjectsProps) => <PageComponent data={data} />;
+const Projects = ({ pageData }: IProjectsProps) => (
+  <PageComponent pageData={pageData} />
+);
 
 export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await utils.httpClient.fetchRetry(`projects`);
+  const pageData = await utils.httpClient.fetchRetry(`projects`);
 
   return {
     props: {
-      data,
+      pageData,
     },
   };
 };

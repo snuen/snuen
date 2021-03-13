@@ -24,7 +24,7 @@ const socialIconReducer = (iconName: string) => {
   }
 };
 
-export const Top = ({ data }: ITopProps) => (
+export const Top = ({ pageData: data }: ITopProps) => (
   <>
     <Head>
       <title>MrSung | Portfolio site of Sungjoon Park (MrSung)</title>

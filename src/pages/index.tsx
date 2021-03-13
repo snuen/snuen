@@ -18,19 +18,19 @@ interface IMeData {
 }
 
 export interface ITopProps {
-  data: IMeData;
+  pageData: IMeData;
 }
 
-const Top = ({ data }: ITopProps) => <PageComponent data={data} />;
+const Top = ({ pageData }: ITopProps) => <PageComponent pageData={pageData} />;
 
 export default Top;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await utils.httpClient.fetchRetry(`meee`);
+  const pageData = await utils.httpClient.fetchRetry(`meee`);
 
   return {
     props: {
-      data,
+      pageData,
     },
   };
 };

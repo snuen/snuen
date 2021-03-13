@@ -17,19 +17,21 @@ interface IWorkData {
 }
 
 export interface IWorkProps {
-  data: IWorkData;
+  pageData: IWorkData;
 }
 
-const Work = ({ data }: IWorkProps) => <PageComponent data={data} />;
+const Work = ({ pageData }: IWorkProps) => (
+  <PageComponent pageData={pageData} />
+);
 
 export default Work;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await utils.httpClient.fetchRetry(`work`);
+  const pageData = await utils.httpClient.fetchRetry(`work`);
 
   return {
     props: {
-      data,
+      pageData,
     },
   };
 };
