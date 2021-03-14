@@ -36,6 +36,13 @@
         "jsx": "never"
       }
     ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      "ignorePackages",
+      {
+        "*.stories.*": "never"
+      }
+    ],
     "quotes": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
