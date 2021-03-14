@@ -22,8 +22,10 @@ p {
 
 .container {
   @apply px-4 md:px-8 lg:px-16;
+}
 
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+  .container {
     width: 980px;
     min-width: 980px;
   }

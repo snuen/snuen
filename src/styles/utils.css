@@ -5,7 +5,7 @@
 .text-html {
   border-color: #f16529;
   background-color: #f16529;
-  color: rgba(#000, 0.7);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-css {
@@ -17,7 +17,7 @@
 .text-javascript {
   border-color: #f7df1e;
   background-color: #f7df1e;
-  color: rgba(#000, 0.7);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-typescript {
