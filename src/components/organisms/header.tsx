@@ -1,30 +1,24 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import {
-  IconMe,
-  IconProjects,
-  IconWork,
-  IconMoon,
-  IconSun,
-} from '@/components/atoms/icons';
+import { Icon, IconType } from '@/components/atoms/icon';
 import * as utils from '@/utils';
 
 const MENU_ITEMS = [
   {
     name: `me`,
     link: `/`,
-    icon: <IconMe />,
+    icon: <Icon type={IconType.Me} />,
   },
   {
     name: `projects`,
     link: `/projects`,
-    icon: <IconProjects />,
+    icon: <Icon type={IconType.Projects} />,
   },
   {
     name: `work`,
     link: `/work`,
-    icon: <IconWork />,
+    icon: <Icon type={IconType.Work} />,
   },
 ];
 
@@ -58,6 +52,7 @@ export const Header = () => {
               </Link>
             </li>
           ))}
+
           {isClient && (
             <li
               key="mode"
@@ -71,7 +66,7 @@ export const Header = () => {
                 className="flex justify-center items-center w-full h-full uppercase focus:outline-none md:w-6 md:h-6"
               >
                 <span className="inline-block w-5 h-5 text-center md:flex md:items-center md:w-full">
-                  {isDarkTheme ? <IconSun /> : <IconMoon />}
+                  <Icon type={isDarkTheme ? IconType.Sun : IconType.Moon} />
                 </span>
               </button>
             </li>

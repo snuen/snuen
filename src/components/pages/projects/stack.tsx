@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IconExternalLink } from '@/components/atoms/icons';
+import { Icon, IconType } from '@/components/atoms/icon';
 
 interface IStackTitleAndIconProps {
   title: IStackProps['title'];
@@ -11,7 +11,7 @@ const StackTitleAndIcon = ({ title, isValidLink }: IStackTitleAndIconProps) => (
     {title}
     {isValidLink && (
       <span className="inline-block align-middle w-4 h-4 mb-0.5 ml-1">
-        <IconExternalLink />
+        <Icon type={IconType.ExternalLink} />
       </span>
     )}
   </span>

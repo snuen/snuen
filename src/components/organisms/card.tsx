@@ -1,5 +1,5 @@
 import { FC, createContext, useContext } from 'react';
-import { IconExternalLink } from '@/components/atoms/icons';
+import { Icon, IconType } from '@/components/atoms/icon';
 
 export interface ICardData {
   createdAt: string;
@@ -28,7 +28,7 @@ const LinkExternal: FC<ILinkExternalProps> = ({ href, children }) => (
   >
     {children}
     <span className="inline-block w-4 h-4 ml-1">
-      <IconExternalLink />
+      <Icon type={IconType.ExternalLink} />
     </span>
   </a>
 );
