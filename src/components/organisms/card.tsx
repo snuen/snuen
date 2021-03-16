@@ -27,9 +27,7 @@ const LinkExternal: FC<ILinkExternalProps> = ({ href, children }) => (
     className="inline-flex items-center"
   >
     {children}
-    <span className="inline-block w-4 h-4 ml-1">
-      <Icon type={IconType.ExternalLink} />
-    </span>
+    <Icon type={IconType.ExternalLink} className="inline-block w-4 h-4 ml-1" />
   </a>
 );
 

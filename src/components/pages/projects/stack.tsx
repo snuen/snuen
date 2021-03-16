@@ -10,9 +10,10 @@ const StackTitleAndIcon = ({ title, isValidLink }: IStackTitleAndIconProps) => (
   <span className="text-gray-900 dark:text-white">
     {title}
     {isValidLink && (
-      <span className="inline-block align-middle w-4 h-4 mb-0.5 ml-1">
-        <Icon type={IconType.ExternalLink} />
-      </span>
+      <Icon
+        type={IconType.ExternalLink}
+        className="inline-block align-middle w-4 h-4 mb-0.5 ml-1"
+      />
     )}
   </span>
 );

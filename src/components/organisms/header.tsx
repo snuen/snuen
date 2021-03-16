@@ -8,17 +8,26 @@ const MENU_ITEMS = [
   {
     name: `me`,
     link: `/`,
-    icon: <Icon type={IconType.Me} />,
+    icon: (
+      <Icon type={IconType.Me} className="md:inline-block md:w-5 md:mr-3" />
+    ),
   },
   {
     name: `projects`,
     link: `/projects`,
-    icon: <Icon type={IconType.Projects} />,
+    icon: (
+      <Icon
+        type={IconType.Projects}
+        className="md:inline-block md:w-5 md:mr-3"
+      />
+    ),
   },
   {
     name: `work`,
     link: `/work`,
-    icon: <Icon type={IconType.Work} />,
+    icon: (
+      <Icon type={IconType.Work} className="md:inline-block md:w-5 md:mr-3" />
+    ),
   },
 ];
 
@@ -41,9 +50,7 @@ export const Header = () => {
                   }`}
                 >
                   <span className="inline-block w-5 text-center md:flex md:items-center md:w-full">
-                    <span className="md:inline-block md:w-5 md:mr-3">
-                      {icon}
-                    </span>
+                    {icon}
                     <span className="hidden md:inline-block md:align-middle md:mt-0.5">
                       {name}
                     </span>
@@ -65,9 +72,10 @@ export const Header = () => {
                 }}
                 className="flex justify-center items-center w-full h-full uppercase focus:outline-none md:w-6 md:h-6"
               >
-                <span className="inline-block w-5 h-5 text-center md:flex md:items-center md:w-full">
-                  <Icon type={isDarkTheme ? IconType.Sun : IconType.Moon} />
-                </span>
+                <Icon
+                  type={isDarkTheme ? IconType.Sun : IconType.Moon}
+                  className="inline-block w-5 h-5 text-center md:flex md:items-center md:w-full"
+                />
               </button>
             </li>
           )}
