@@ -1,10 +1,11 @@
+// eslint-disable-next-line no-shadow
 export enum IconType {
-  Me = 'Me',
-  Projects = 'Projects',
-  Work = 'Work',
-  Moon = 'Moon',
-  Sun = 'Sun',
-  ExternalLink = 'ExternalLink',
+  Me = `Me`,
+  Projects = `Projects`,
+  Work = `Work`,
+  Moon = `Moon`,
+  Sun = `Sun`,
+  ExternalLink = `ExternalLink`,
 }
 
 export interface IIconProps {
