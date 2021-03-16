@@ -9,9 +9,15 @@ export enum IconType {
 }
 
 export interface IIconProps {
+  /**
+   * Which type of icon to use
+   */
   type: IconType;
 }
 
+/**
+ * Primary UI component of Icon component
+ */
 export const Icon = ({ type }: IIconProps) => {
   switch (type) {
     case IconType.Me:
