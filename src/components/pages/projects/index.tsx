@@ -24,7 +24,11 @@ export const Projects = ({ pageData: data, commonData }: IProjectsProps) => (
               {data.projectSortContent1.map((o) => (
                 <Stack link={o.link} title={o.title} key={o.title}>
                   <p className="mt-1 mb-3">{o.desc}</p>
-                  <Skills skillsText={o.skills} />
+                  <Skills
+                    skillsText={o.skills}
+                    classNameUl="flex flex-wrap items-center -mb-2"
+                    classNameLi="h-6 px-2 mr-2 mb-2 border rounded text-xs leading-6"
+                  />
                 </Stack>
               ))}
             </Section>
@@ -33,7 +37,11 @@ export const Projects = ({ pageData: data, commonData }: IProjectsProps) => (
               {data.projectSortContent2.map((o) => (
                 <Stack link={o.link} title={o.title} key={o.title}>
                   <p className="mt-1 mb-3">{o.desc}</p>
-                  <Skills skillsText={o.skills} />
+                  <Skills
+                    skillsText={o.skills}
+                    classNameUl="flex flex-wrap items-center -mb-2"
+                    classNameLi="h-6 px-2 mr-2 mb-2 border rounded text-xs leading-6"
+                  />
                 </Stack>
               ))}
             </Section>

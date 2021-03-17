@@ -20,7 +20,7 @@ export interface IIconProps {
 }
 
 /**
- * Primary UI component of Icon component
+ * Icon component
  */
 export const Icon = ({ type, className }: IIconProps) => (
   <span className={className}>

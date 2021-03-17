@@ -38,7 +38,11 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => (
           <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />
         </Section>
         <Section headingText={data.skillsTitle} headingLevel="two">
-          <Skills skillsText={data.skillsContent} />
+          <Skills
+            skillsText={data.skillsContent}
+            classNameUl="flex flex-wrap items-center -mb-2"
+            classNameLi="h-6 px-2 mr-2 mb-2 border rounded text-xs leading-6"
+          />
         </Section>
         <Section headingText={data.socialTitle} headingLevel="two">
           <ul className="flex items-center">
