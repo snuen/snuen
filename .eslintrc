@@ -16,6 +16,7 @@
   },
   "plugins": ["import", "jsx-a11y", "react", "react-hooks", "prettier"],
   "extends": ["airbnb", "eslint-config-prettier"],
+  "ignorePatterns": ["stories"],
   "rules": {
     "prettier/prettier": "error",
     "camelcase": "off",
