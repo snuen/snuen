@@ -9,7 +9,7 @@ module.exports = {
     'stylelint-order',
     'stylelint-declaration-block-no-ignored-properties',
   ],
-  ignoreFiles: ['src/@types/**'],
+  ignoreFiles: ['src/@types/**', '**/stories/**/*.*'],
   rules: {
     'order/properties-order': [sortOrderSmacss()],
     'plugin/declaration-block-no-ignored-properties': true,
