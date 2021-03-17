@@ -20,7 +20,7 @@
     "stylelint": "stylelint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|scss|css)\" --write",
     "postinstall": "typesync",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
