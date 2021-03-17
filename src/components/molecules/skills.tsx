@@ -1,4 +1,4 @@
-interface ISkillsProps {
+export interface ISkillsProps {
   /**
    * Comma separated skills text
    */
