@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
-import '@/styles/globals.css';
+import '@/styles/tailwinds.css';
 import '@/styles/base.css';
 import '@/styles/utils.css';
 
