@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 const headingStyleReducer = (headingLevel: ISectionProps['headingLevel']) => {
   switch (headingLevel) {
     case `two`:
@@ -13,16 +11,29 @@ const headingStyleReducer = (headingLevel: ISectionProps['headingLevel']) => {
   }
 };
 
-interface ISectionProps {
+export interface ISectionProps {
+  /**
+   * Heading text
+   */
   headingText: string;
+  /**
+   * Which heading level
+   */
   headingLevel: 'two' | 'three' | 'four';
+  /**
+   * children react node
+   */
+  children: React.ReactNode;
 }
 
-export const Section: FC<ISectionProps> = ({
+/**
+ * Section component
+ */
+export const Section = ({
   headingText,
   headingLevel,
   children,
-}) => {
+}: ISectionProps) => {
   const { margin, fontSize } = headingStyleReducer(headingLevel);
 
   return (
