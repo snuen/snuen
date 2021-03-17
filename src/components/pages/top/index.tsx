@@ -21,7 +21,7 @@ const socialIconReducer = (iconName: string) => {
     case /instagram/.test(i):
       return <FontAwesomeIcon icon={faInstagram} />;
     default:
-      return undefined;
+      return <></>;
   }
 };
 
