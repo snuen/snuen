@@ -4,12 +4,14 @@ import { CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
 import { IProjectsProps } from '@/pages/projects';
+import { SITE_LEAD, SITE_META } from '@/misc/meta';
 import { Stack } from './stack';
 
 export const Projects = ({ pageData: data, commonData }: IProjectsProps) => (
   <>
     <Head>
-      <title>Projects | Portfolio site of Sungjoon Park (MrSung)</title>
+      <title>{`Projects | ${SITE_LEAD}`}</title>
+      <meta name="description" content={SITE_META} />
     </Head>
 
     <CardContext.Provider value={commonData}>

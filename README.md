@@ -5,6 +5,6 @@
 - 💻 Freelance front-end developer building a SaaS travel platform
 - ⚛️ Mainly using React/Redux/TypeScript
 - 📷 Part-time traveler/photographer
-- 🌱 Seeking a right size life
-- 🗻 Living in the city of Mt.Fuji
+- 🌱 Seeking a right sized life
+- 🗻 Living in the city near Mt.Fuji
 - 😄 Pronouns: he/him

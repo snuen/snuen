@@ -3,11 +3,13 @@ import { DefaultTemplate } from '@/components/templates/default-template';
 import { CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { IWorkProps } from '@/pages/work';
+import { SITE_LEAD, SITE_META } from '@/misc/meta';
 
 export const Work = ({ pageData: data, commonData }: IWorkProps) => (
   <>
     <Head>
-      <title>Work | Portfolio site of Sungjoon Park (MrSung)</title>
+      <title>{`Work | ${SITE_LEAD}`}</title>
+      <meta name="description" content={SITE_META} />
     </Head>
 
     <CardContext.Provider value={commonData}>

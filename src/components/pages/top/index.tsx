@@ -10,6 +10,7 @@ import { CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
 import { ITopProps } from '@/pages/index';
+import { GITHUB_USERNAME, SITE_LEAD, SITE_META } from '@/misc/meta';
 
 const socialIconReducer = (iconName: string) => {
   const i = iconName.toLowerCase();
@@ -28,7 +29,8 @@ const socialIconReducer = (iconName: string) => {
 export const Top = ({ pageData: data, commonData }: ITopProps) => (
   <>
     <Head>
-      <title>MrSung | Portfolio site of Sungjoon Park (MrSung)</title>
+      <title>{`${GITHUB_USERNAME} | ${SITE_LEAD}`}</title>
+      <meta name="description" content={SITE_META} />
     </Head>
 
     <CardContext.Provider value={commonData}>
