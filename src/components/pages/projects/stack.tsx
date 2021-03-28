@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Icon, IconType } from '@/components/atoms/icon';
 
 interface IStackTitleAndIconProps {
@@ -23,7 +22,7 @@ interface IStackProps {
   title: string;
 }
 
-export const Stack: FC<IStackProps> = ({ link, title, children }) => {
+export const Stack: React.FC<IStackProps> = ({ link, title, children }) => {
   const isDummyLink = link === `#`;
 
   return (

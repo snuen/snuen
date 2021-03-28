@@ -34,7 +34,7 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => (
     </Head>
 
     <CardContext.Provider value={commonData}>
-      <DefaultTemplate>
+      <DefaultTemplate isShowCard>
         <Section headingText={data.aboutTitle} headingLevel="two">
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: data.aboutContent }} />

@@ -1,4 +1,4 @@
-import { FC, createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { Icon, IconType } from '@/components/atoms/icon';
 
 export interface ICardData {
@@ -19,7 +19,7 @@ interface ILinkExternalProps {
   href: string;
 }
 
-const LinkExternal: FC<ILinkExternalProps> = ({ href, children }) => (
+const LinkExternal: React.FC<ILinkExternalProps> = ({ href, children }) => (
   <a
     href={href}
     target="_blank"
