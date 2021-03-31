@@ -26,7 +26,14 @@ p {
 
 @media (min-width: 1024px) {
   .container {
-    width: 980px;
-    min-width: 980px;
+    width: 900px;
+    min-width: 900px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    width: 1024px;
+    min-width: 1024px;
   }
 }
