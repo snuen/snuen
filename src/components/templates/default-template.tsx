@@ -17,7 +17,7 @@ export const DefaultTemplate = ({ isShowCard, children }: IDefaultTemplate) => (
         {children}
       </div>
       <div
-        className="hidden w-full max-w-xs h-full bg-contain lg:block"
+        className="hidden w-full max-w-xs h-full bg-contain 1.5xl:block"
         style={{ backgroundImage: `url(/concept-background.jpg)` }}
       />
     </main>
