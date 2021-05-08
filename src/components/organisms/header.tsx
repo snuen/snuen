@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { Icon, IconType } from '@/components/atoms/icon';
@@ -46,10 +46,9 @@ export const Header = () => {
   const isClient = hooks.useClient();
 
   const isDarkTheme = theme === `dark`;
-  const [lang, setLang] = useState<Lang | null>(null);
+  const [lang, setLang] = useState<Lang>(Lang.En);
 
   const setLangHandler = (l: Lang) => {
-    setLang(l);
     localStorage.setItem(`lang`, l);
     if (l === Lang.Ja) {
       router.replace(`/`, undefined, { locale: Lang.Ja });
@@ -64,6 +63,16 @@ export const Header = () => {
     }
     setLangHandler(Lang.En);
   };
+
+  useEffect(() => {
+    if (isClient && localStorage.getItem(`lang`) === Lang.Ja) {
+      router.replace(`/`, undefined, { locale: Lang.Ja });
+    }
+  }, []);
+
+  useEffect(() => {
+    setLang(router.locale as Lang);
+  }, [router.locale]);
 
   return (
     <header className="fixed bottom-0 right-0 left-0 w-full h-14 bg-gray-300 dark:bg-gray-700 md:top-0 md:w-64 md:h-full md:p-8">
@@ -113,7 +122,7 @@ export const Header = () => {
                 }
                 className={`${BUTTON_CLASS_NAME} ml-4`}
               >
-                {lang ?? Lang.En}
+                {lang}
               </button>
             </li>
           )}
