@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { Icon, IconType } from '@/components/atoms/icon';
@@ -31,11 +32,34 @@ const MENU_ITEMS = [
   },
 ];
 
+const BUTTON_CLASS_NAME = `flex justify-center items-center w-full h-full uppercase focus:outline-none md:w-6 md:h-6`;
+
+// eslint-disable-next-line no-shadow
+enum Lang {
+  En = `en`,
+  Ja = `ja`,
+}
+
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const { asPath } = useRouter();
   const isClient = hooks.useClient();
+
   const isDarkTheme = theme === `dark`;
+  const [lang, setLang] = useState<Lang | null>(null);
+
+  // eslint-disable-next-line no-shadow
+  const setLangHandler = (lang: Lang) => {
+    setLang(lang);
+    localStorage.setItem(`lang`, lang);
+  };
+  const langModeHandler = (key: string | null) => {
+    if (key === null || key === Lang.En) {
+      setLangHandler(Lang.Ja);
+      return;
+    }
+    setLangHandler(Lang.En);
+  };
 
   return (
     <header className="fixed bottom-0 right-0 left-0 w-full h-14 bg-gray-300 dark:bg-gray-700 md:top-0 md:w-64 md:h-full md:p-8">
@@ -63,19 +87,26 @@ export const Header = () => {
           {isClient && (
             <li
               key="mode"
-              className="flex-grow md:mt-auto md:mb-4 md:flex-grow-0"
+              className="flex flex-grow md:mt-auto md:mb-4 md:flex-grow-0"
             >
               <button
                 type="button"
                 onClick={() => {
                   setTheme(isDarkTheme ? `light` : `dark`);
                 }}
-                className="flex justify-center items-center w-full h-full uppercase focus:outline-none md:w-6 md:h-6"
+                className={BUTTON_CLASS_NAME}
               >
                 <Icon
                   type={isDarkTheme ? IconType.Sun : IconType.Moon}
                   className="inline-block w-5 h-5 text-center md:flex md:items-center md:w-full"
                 />
+              </button>
+              <button
+                type="button"
+                onClick={() => langModeHandler(localStorage.getItem(`lang`))}
+                className={`${BUTTON_CLASS_NAME} ml-4`}
+              >
+                {lang ?? Lang.En}
               </button>
             </li>
           )}
