@@ -32,7 +32,7 @@ const MENU_ITEMS = [
   },
 ];
 
-const BUTTON_CLASS_NAME = `flex justify-center items-center w-full h-full uppercase focus:outline-none border-l border-dashed border-gray-500 dark:border-gray-400 md:border-l-0 md:w-6 md:h-6`;
+const BUTTON_CLASS_NAME = `flex justify-center items-center w-full h-full uppercase focus:outline-none border-l border-dashed border-gray-500 dark:border-gray-400 md:border-l-0 md:w-6 md:h-6 md:mr-4`;
 
 // eslint-disable-next-line no-shadow
 export enum Lang {
@@ -121,7 +121,7 @@ export const Header = () => {
                 onClick={() =>
                   langModeHandler(localStorage.getItem(`lang`) as Lang)
                 }
-                className={`${BUTTON_CLASS_NAME} md:ml-4`}
+                className={BUTTON_CLASS_NAME}
               >
                 {lang}
               </button>
