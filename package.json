@@ -21,6 +21,7 @@
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|scss|css)\" --write",
     "postinstall": "typesync",
     "storybook": "start-storybook -p 7007",
+    "storybook:no-cache": "start-storybook --no-manager-cache -p 7007",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
