@@ -48,12 +48,11 @@ export const Header = () => {
   const isDarkTheme = theme === `dark`;
   const [lang, setLang] = useState<Lang | null>(null);
 
-  // eslint-disable-next-line no-shadow
-  const setLangHandler = (lang: Lang) => {
-    setLang(lang);
-    localStorage.setItem(`lang`, lang);
+  const setLangHandler = (l: Lang) => {
+    setLang(l);
+    localStorage.setItem(`lang`, l);
   };
-  const langModeHandler = (key: string | null) => {
+  const langModeHandler = (key: Lang | null) => {
     if (key === null || key === Lang.En) {
       setLangHandler(Lang.Ja);
       return;
@@ -103,7 +102,9 @@ export const Header = () => {
               </button>
               <button
                 type="button"
-                onClick={() => langModeHandler(localStorage.getItem(`lang`))}
+                onClick={() =>
+                  langModeHandler(localStorage.getItem(`lang`) as Lang)
+                }
                 className={`${BUTTON_CLASS_NAME} ml-4`}
               >
                 {lang ?? Lang.En}
