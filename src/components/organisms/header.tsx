@@ -48,30 +48,31 @@ export const Header = () => {
   const isDarkTheme = theme === `dark`;
   const [lang, setLang] = useState<Lang>(Lang.En);
 
-  const setLangHandler = (l: Lang) => {
+  const routeHandler = (l: Lang) => {
     localStorage.setItem(`lang`, l);
     if (l === Lang.Ja) {
-      router.replace(`/`, undefined, { locale: Lang.Ja });
+      router.replace(router.pathname, undefined, { locale: Lang.Ja });
       return;
     }
-    router.replace(`/`, undefined, { locale: Lang.En });
+    router.replace(router.pathname, undefined, { locale: Lang.En });
   };
   const langModeHandler = (key: Lang | null) => {
     if (key === null || key === Lang.En) {
-      setLangHandler(Lang.Ja);
+      routeHandler(Lang.Ja);
       return;
     }
-    setLangHandler(Lang.En);
+    routeHandler(Lang.En);
   };
 
   useEffect(() => {
     if (isClient && localStorage.getItem(`lang`) === Lang.Ja) {
-      router.replace(`/`, undefined, { locale: Lang.Ja });
+      router.replace(router.pathname, undefined, { locale: Lang.Ja });
     }
   }, []);
 
   useEffect(() => {
-    setLang(router.locale as Lang);
+    const l = router.locale as Lang;
+    setLang(l === Lang.Ja ? Lang.En : Lang.Ja);
   }, [router.locale]);
 
   return (
