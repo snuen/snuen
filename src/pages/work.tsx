@@ -8,12 +8,17 @@ interface IWorkData {
   updatedAt: string;
   workTitle: string;
   workDesc: string;
+  workDescJa: string;
   workContents: {
     fieldId: string;
     title: string;
     subtitle: string;
     term: string;
     desc: string;
+    titleJa: string;
+    subtitleJa: string;
+    termJa: string;
+    descJa: string;
   }[];
 }
 

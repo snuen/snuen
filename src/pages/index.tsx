@@ -8,6 +8,7 @@ interface IMeData {
   updatedAt: string;
   aboutTitle: string;
   aboutContent: string;
+  aboutContentJa: string;
   skillsTitle: string;
   skillsContent: string;
   socialTitle: string;

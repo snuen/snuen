@@ -35,7 +35,7 @@ const MENU_ITEMS = [
 const BUTTON_CLASS_NAME = `flex justify-center items-center w-full h-full uppercase focus:outline-none md:w-6 md:h-6`;
 
 // eslint-disable-next-line no-shadow
-enum Lang {
+export enum Lang {
   En = `en`,
   Ja = `ja`,
 }

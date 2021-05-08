@@ -7,13 +7,15 @@ interface IProjectsData {
   createdAt: string;
   updatedAt: string;
   projectOverviewTitle: string;
-  projectOverviewDesc: string;
+  projectDesc: string;
+  projectDescJa: string;
   projectSortTitle1: string;
   projectSortContent1: {
     fieldId: string;
     title: string;
     link: string;
     desc: string;
+    descJa: string;
     skills: string;
   }[];
   projectSortTitle2: string;
@@ -22,6 +24,7 @@ interface IProjectsData {
     title: string;
     link: string;
     desc: string;
+    descJa: string;
     skills: string;
   }[];
 }

@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { Icon, IconType } from '@/components/atoms/icon';
+import { Lang } from './header';
 
 export interface ICardData {
   createdAt: string;
@@ -8,6 +10,7 @@ export interface ICardData {
   cardAccountName: string;
   cardAccountLink: string;
   cardDescription: string;
+  cardDescriptionJa: string;
   cardBottomTitle: string;
   cardBottomName: string;
   cardBlogLink: string;
@@ -33,6 +36,7 @@ const LinkExternal: React.FC<ILinkExternalProps> = ({ href, children }) => (
 
 export const Card = () => {
   const data = useContext(CardContext);
+  const { locale } = useRouter();
 
   return (
     <div className="flex flex-col mb-6 md:mb-8 md:flex-row md:items-center">
@@ -49,8 +53,15 @@ export const Card = () => {
             {data.cardAccountName}
           </LinkExternal>
         </div>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.cardDescription }} />
+        <div
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html:
+              locale === Lang.Ja
+                ? data.cardDescriptionJa
+                : data.cardDescription,
+          }}
+        />
         <dl className="mt-2">
           <dt>{data.cardBottomTitle}</dt>
           <dd>
