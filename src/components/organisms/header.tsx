@@ -42,7 +42,7 @@ enum Lang {
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
-  const { asPath } = useRouter();
+  const router = useRouter();
   const isClient = hooks.useClient();
 
   const isDarkTheme = theme === `dark`;
@@ -51,6 +51,11 @@ export const Header = () => {
   const setLangHandler = (l: Lang) => {
     setLang(l);
     localStorage.setItem(`lang`, l);
+    if (l === Lang.Ja) {
+      router.replace(`/`, undefined, { locale: Lang.Ja });
+      return;
+    }
+    router.replace(`/`, undefined, { locale: Lang.En });
   };
   const langModeHandler = (key: Lang | null) => {
     if (key === null || key === Lang.En) {
@@ -69,7 +74,8 @@ export const Header = () => {
               <Link href={link}>
                 <a
                   className={`flex justify-center items-center h-full uppercase md:items-start${
-                    asPath !== link && ` text-gray-500 dark:text-gray-400`
+                    router.asPath !== link &&
+                    ` text-gray-500 dark:text-gray-400`
                   }`}
                 >
                   <span className="inline-block w-5 text-center md:flex md:items-center md:w-full">
