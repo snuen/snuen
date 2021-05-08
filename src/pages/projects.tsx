@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { ICardData } from '@/components/organisms/card';
 import { Projects as PageComponent } from '@/components/pages/projects';
-import * as utils from '@/utils';
+import { httpClient } from '@/utils';
 
 interface IProjectsData {
   createdAt: string;
@@ -38,8 +38,8 @@ const Projects = ({ pageData, commonData }: IProjectsProps) => (
 export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await utils.httpClient.fetchRetry(`projects`);
-  const commonData = await utils.httpClient.fetchRetry(`card`);
+  const pageData = await httpClient.fetchRetry(`projects`);
+  const commonData = await httpClient.fetchRetry(`card`);
 
   return {
     props: {

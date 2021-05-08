@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { Icon, IconType } from '@/components/atoms/icon';
-import * as utils from '@/utils';
+import { hooks } from '@/utils';
 
 const MENU_ITEMS = [
   {
@@ -34,7 +34,7 @@ const MENU_ITEMS = [
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const { asPath } = useRouter();
-  const isClient = utils.hooks.useClient();
+  const isClient = hooks.useClient();
   const isDarkTheme = theme === `dark`;
 
   return (
