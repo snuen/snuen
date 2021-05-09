@@ -49,6 +49,13 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
               }}
             />
           </Section>
+          <Section headingText={data.siteDescTitle} headingLevel="two">
+            <p>
+              {locale === Lang.Ja
+                ? data.siteDescContentJa
+                : data.siteDescContent}
+            </p>
+          </Section>
           <Section headingText={data.skillsTitle} headingLevel="two">
             <Skills
               skillsText={data.skillsContent}
@@ -70,13 +77,6 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
                 </li>
               ))}
             </ul>
-          </Section>
-          <Section headingText={data.siteDescTitle} headingLevel="two">
-            <p>
-              {locale === Lang.Ja
-                ? data.siteDescContentJa
-                : data.siteDescContent}
-            </p>
           </Section>
           <Section headingText={data.creditTitle} headingLevel="two">
             <div
