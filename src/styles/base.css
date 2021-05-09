@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  @apply inline-block no-underline hover:opacity-80;
+  @apply inline-block no-underline text-black dark:text-white hover:opacity-80;
 }
 
 p {
