@@ -71,6 +71,14 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
               ))}
             </ul>
           </Section>
+          <Section headingText={data.creditTitle} headingLevel="two">
+            <div
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: data.creditContent,
+              }}
+            />
+          </Section>
         </DefaultTemplate>
       </CardContext.Provider>
     </>

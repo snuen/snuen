@@ -17,6 +17,8 @@ interface IMeData {
     socialName: string;
     socialLink: string;
   }[];
+  creditTitle: string;
+  creditContent: string;
 }
 
 export interface ITopProps {
