@@ -71,6 +71,13 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
               ))}
             </ul>
           </Section>
+          <Section headingText={data.siteDescTitle} headingLevel="two">
+            <p>
+              {locale === Lang.Ja
+                ? data.siteDescContentJa
+                : data.siteDescContent}
+            </p>
+          </Section>
           <Section headingText={data.creditTitle} headingLevel="two">
             <div
               // eslint-disable-next-line react/no-danger

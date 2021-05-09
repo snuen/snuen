@@ -17,6 +17,9 @@ interface IMeData {
     socialName: string;
     socialLink: string;
   }[];
+  siteDescTitle: string;
+  siteDescContent: string;
+  siteDescContentJa: string;
   creditTitle: string;
   creditContent: string;
 }
