@@ -20,11 +20,8 @@ export const Skills = ({
   skillsText,
   classNameUl,
   classNameLi,
-}: ISkillsProps) => {
-  if (typeof skillsText === `undefined`) {
-    return null;
-  }
-  return (
+}: ISkillsProps) =>
+  typeof skillsText === `undefined` ? null : (
     <ul className={classNameUl}>
       {skillsText.split(`,`).map((skillText) => {
         const st = skillText.trim();
@@ -38,4 +35,3 @@ export const Skills = ({
       })}
     </ul>
   );
-};
