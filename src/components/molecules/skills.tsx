@@ -2,7 +2,7 @@ export interface ISkillsProps {
   /**
    * Comma separated skills text
    */
-  skillsText: string;
+  skillsText?: string;
   /**
    * TailwindCSS classNames for ul tag
    */
@@ -20,17 +20,22 @@ export const Skills = ({
   skillsText,
   classNameUl,
   classNameLi,
-}: ISkillsProps) => (
-  <ul className={classNameUl}>
-    {skillsText.split(`,`).map((skillText) => {
-      const st = skillText.trim();
-      const stl = st.toLowerCase();
+}: ISkillsProps) => {
+  if (typeof skillsText === `undefined`) {
+    return null;
+  }
+  return (
+    <ul className={classNameUl}>
+      {skillsText.split(`,`).map((skillText) => {
+        const st = skillText.trim();
+        const stl = st.toLowerCase();
 
-      return (
-        <li key={stl} className={`${classNameLi} text-${stl}`}>
-          {st}
-        </li>
-      );
-    })}
-  </ul>
-);
+        return (
+          <li key={stl} className={`${classNameLi} text-${stl}`}>
+            {st}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
