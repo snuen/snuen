@@ -62,7 +62,7 @@
 .text-next {
   border-color: #eaeaea;
   background-color: #fafafa;
-  color: #111;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-webpack {
@@ -75,4 +75,10 @@
   border-color: #21759b;
   background-color: #21759b;
   color: #fff;
+}
+
+.text-firebase {
+  border-color: ##FFCB2B);
+  background-color: ##FFCB2B);
+  color: rgba(0, 0, 0, 0.7);
 }
