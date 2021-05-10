@@ -47,7 +47,6 @@ export const Header = () => {
   const [lang, setLang] = useState<Lang>(Lang.En);
 
   const routeHandler = (l: Lang) => {
-    localStorage.setItem(`lang`, l);
     if (l === Lang.Ja) {
       router.replace(router.pathname, undefined, { locale: Lang.Ja });
       return;
@@ -61,12 +60,6 @@ export const Header = () => {
     }
     routeHandler(Lang.En);
   };
-
-  useEffect(() => {
-    if (isClient && localStorage.getItem(`lang`) === Lang.Ja) {
-      router.replace(router.pathname, undefined, { locale: Lang.Ja });
-    }
-  }, []);
 
   useEffect(() => {
     const l = router.locale as Lang;
@@ -117,7 +110,7 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() =>
-                  langModeHandler(localStorage.getItem(`lang`) as Lang)
+                  langModeHandler(lang === Lang.Ja ? Lang.En : Lang.Ja)
                 }
                 className="flex justify-center items-center w-full h-full uppercase focus:outline-none border-l border-dashed border-gray-500 dark:border-gray-400 md:border-l-0 md:w-6 md:h-6 md:ml-4"
               >
