@@ -30,6 +30,16 @@ const MENU_ITEMS = [
       <Icon type={IconType.Work} className="md:inline-block md:w-5 md:mr-3" />
     ),
   },
+  {
+    name: `contact`,
+    link: `https://drift.me/sungjoon512`,
+    icon: (
+      <Icon
+        type={IconType.Contact}
+        className="md:inline-block md:w-5 md:mr-3"
+      />
+    ),
+  },
 ];
 
 // eslint-disable-next-line no-shadow
@@ -72,21 +82,41 @@ export const Header = () => {
         <ul className="flex h-full md:flex-col md:py-2">
           {MENU_ITEMS.map(({ name, link, icon }) => (
             <li key={name} className="flex-grow md:mb-4 md:flex-grow-0">
-              <Link href={link}>
+              {!link.startsWith(`http`) ? (
+                <Link href={link}>
+                  <a
+                    className={`flex justify-center items-center h-full uppercase md:items-start${
+                      router.asPath !== link &&
+                      ` text-gray-500 dark:text-gray-400`
+                    }`}
+                  >
+                    <span className="inline-block w-5 text-center md:flex md:items-center md:w-full">
+                      {icon}
+                      <span className="hidden md:inline-block md:align-middle md:mt-0.5">
+                        {name}
+                      </span>
+                    </span>
+                  </a>
+                </Link>
+              ) : (
                 <a
-                  className={`flex justify-center items-center h-full uppercase md:items-start${
-                    router.asPath !== link &&
-                    ` text-gray-500 dark:text-gray-400`
-                  }`}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex justify-center items-center h-full uppercase md:items-start text-gray-500 dark:text-gray-400"
                 >
                   <span className="inline-block w-5 text-center md:flex md:items-center md:w-full">
                     {icon}
                     <span className="hidden md:inline-block md:align-middle md:mt-0.5">
                       {name}
+                      <Icon
+                        type={IconType.ExternalLink}
+                        className="inline-block w-4 h-4 ml-2 pt-0.5"
+                      />
                     </span>
                   </span>
                 </a>
-              </Link>
+              )}
             </li>
           ))}
 
