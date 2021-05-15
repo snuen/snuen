@@ -6,7 +6,13 @@ import { CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
 import { IProjectsProps } from '@/pages/projects';
-import { SITE_LEAD, SITE_META } from '@/misc/meta';
+import {
+  GITHUB_USERNAME,
+  SITE_LEAD,
+  SITE_META,
+  SITE_LEAD_JA,
+  SITE_META_JA,
+} from '@/misc/meta';
 import { Stack } from './stack';
 
 export const Projects = ({ pageData: data, commonData }: IProjectsProps) => {
@@ -15,8 +21,17 @@ export const Projects = ({ pageData: data, commonData }: IProjectsProps) => {
   return (
     <>
       <Head>
-        <title>{`Projects | ${SITE_LEAD}`}</title>
-        <meta name="description" content={SITE_META} />
+        <title>{`Projects | ${GITHUB_USERNAME} | ${
+          locale === Lang.Ja ? SITE_LEAD_JA : SITE_LEAD
+        }`}</title>
+        <meta
+          name="description"
+          content={locale === Lang.Ja ? SITE_META_JA : SITE_META}
+        />
+        <meta
+          property="og:description"
+          content={locale === Lang.Ja ? SITE_LEAD_JA : SITE_LEAD}
+        />
       </Head>
 
       <CardContext.Provider value={commonData}>

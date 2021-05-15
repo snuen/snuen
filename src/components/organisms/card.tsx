@@ -7,6 +7,7 @@ export interface ICardData {
   createdAt: string;
   updatedAt: string;
   cardName: string;
+  cardNameJa: string;
   cardAccountName: string;
   cardAccountLink: string;
   cardDescription: string;
@@ -47,7 +48,15 @@ export const Card = () => {
         <img src="/avatar.png" alt="avatar" width="250" height="250" />
       </div>
       <div>
-        <h1 className="text-3xl font-bold mb-4">{data.cardName}</h1>
+        <h1
+          className={
+            locale === Lang.Ja
+              ? `text-3xl font-bold mb-2`
+              : `text-3xl font-bold mb-4`
+          }
+        >
+          {locale === Lang.Ja ? data.cardNameJa : data.cardName}
+        </h1>
         <div className="mb-2">
           <LinkExternal href={data.cardAccountLink}>
             {data.cardAccountName}
