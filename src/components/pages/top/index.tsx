@@ -97,7 +97,10 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
             <div
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
-                __html: data.creditContent,
+                __html:
+                  locale === Lang.Ja
+                    ? data.creditContentJa
+                    : data.creditContent,
               }}
             />
           </Section>

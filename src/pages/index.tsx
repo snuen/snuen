@@ -22,6 +22,7 @@ interface IMeData {
   siteDescContentJa: string;
   creditTitle: string;
   creditContent: string;
+  creditContentJa: string;
 }
 
 export interface ITopProps {
