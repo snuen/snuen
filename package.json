@@ -11,7 +11,7 @@
     "typescript"
   ],
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 5120",
     "build": "next build",
     "build:no-cache": "run-s clean build",
     "start": "next start",
