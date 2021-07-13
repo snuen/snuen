@@ -16,10 +16,12 @@ export const DefaultTemplate = ({ isShowCard, children }: IDefaultTemplate) => (
         {isShowCard && <Card />}
         {children}
       </div>
-      <div
-        className="hidden w-full max-w-xs h-full bg-gradient-global-warming bg-contain 1.5xl:block"
-        style={{ backgroundImage: `url(/concept-background.jpg)` }}
-      />
+      <div className="hidden w-full max-w-xs h-full bg-gradient-global-warming 1.5xl:block">
+        <div
+          className="w-full h-full bg-contain"
+          style={{ backgroundImage: `url(/concept-background.jpg)` }}
+        />
+      </div>
     </main>
   </div>
 );
