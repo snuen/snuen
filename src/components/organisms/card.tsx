@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Icon, IconType } from '@/components/atoms/icon';
 import { Lang } from './header';
@@ -45,7 +46,7 @@ export const Card = () => {
         className="mr-4 mb-6 sm:mr-6 md:mb-0 md:mr-8 overflow-hidden"
         style={{ minWidth: 250, minHeight: 250 }}
       >
-        <img src="/avatar.png" alt="avatar" width="250" height="250" />
+        <Image src="/avatar.png" alt="avatar" width={250} height={250} />
       </div>
       <div>
         <h1
