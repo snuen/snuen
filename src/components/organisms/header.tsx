@@ -32,7 +32,7 @@ const MENU_ITEMS = [
   },
   {
     name: `contact`,
-    link: `https://drift.me/sungjoon512`,
+    link: `/contact`,
     icon: (
       <Icon
         type={IconType.Contact}

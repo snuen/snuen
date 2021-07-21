@@ -54,7 +54,7 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
       </Head>
 
       <CardContext.Provider value={commonData}>
-        <DefaultTemplate isShowCard>
+        <DefaultTemplate isShowCard isShowTextile>
           <Section headingText={data.aboutTitle} headingLevel="two">
             <div
               // eslint-disable-next-line react/no-danger

@@ -3,10 +3,15 @@ import { Card } from '@/components/organisms/card';
 
 interface IDefaultTemplate {
   isShowCard?: boolean;
+  isShowTextile?: boolean;
   children: React.ReactNode;
 }
 
-export const DefaultTemplate = ({ isShowCard, children }: IDefaultTemplate) => (
+export const DefaultTemplate = ({
+  isShowCard,
+  isShowTextile,
+  children,
+}: IDefaultTemplate) => (
   <div className="flex flex-col-reverse w-full min-h-screen md:flex-row">
     <Header />
     <main className="flex flex-grow pb-12 md:pb-0 md:pl-64">
@@ -16,12 +21,14 @@ export const DefaultTemplate = ({ isShowCard, children }: IDefaultTemplate) => (
         {isShowCard && <Card />}
         {children}
       </div>
-      <div className="hidden w-full max-w-xs h-full bg-gradient-global-warming 1.5xl:block">
-        <div
-          className="w-full h-full bg-contain"
-          style={{ backgroundImage: `url(/concept-background.jpg)` }}
-        />
-      </div>
+      {isShowTextile && (
+        <div className="hidden w-full max-w-xs h-full bg-gradient-global-warming 1.5xl:block">
+          <div
+            className="w-full h-full bg-contain"
+            style={{ backgroundImage: `url(/concept-background.jpg)` }}
+          />
+        </div>
+      )}
     </main>
   </div>
 );
