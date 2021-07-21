@@ -29,18 +29,26 @@ export const Contact = () => {
         />
       </Head>
 
-      <DefaultTemplate>
+      <DefaultTemplate isShowDrift>
         {locale === Lang.Ja ? (
           <>
-            <p>ご連絡は、sungjoon512[atmark]gmail.com までどうぞ！</p>
-            <p>
+            <p className="text-lg mb-2">
+              ご連絡は、右下の Drift messenger もしくは
+              <br />
+              sungjoon512[atmark]gmail.com までどうぞ！
+            </p>
+            <p className="text-lg">
               <small>（[atmark] は @ マークに変換してください）</small>
             </p>
           </>
         ) : (
           <>
-            <p>Feel free to contact me: sungjoon512[atmark]gmail.com</p>
-            <p>
+            <p className="text-lg mb-2">
+              Feel free to contact me via Drift messenger on the right bottom or
+              <br />
+              email: sungjoon512[atmark]gmail.com
+            </p>
+            <p className="text-lg">
               <small>（convert [atmark] to @）</small>
             </p>
           </>
