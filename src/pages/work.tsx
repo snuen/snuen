@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import { ICardData } from '@/components/organisms/card';
 import { Work as PageComponent } from '@/components/pages/work';
 import { httpClient } from '@/utils';
 
@@ -24,23 +23,20 @@ interface IWorkData {
 
 export interface IWorkProps {
   pageData: IWorkData;
-  commonData: ICardData;
 }
 
-const Work = ({ pageData, commonData }: IWorkProps) => (
-  <PageComponent pageData={pageData} commonData={commonData} />
+const Work = ({ pageData }: IWorkProps) => (
+  <PageComponent pageData={pageData} />
 );
 
 export default Work;
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageData = await httpClient.fetchRetry(`work`);
-  const commonData = await httpClient.fetchRetry(`card`);
 
   return {
     props: {
       pageData,
-      commonData,
     },
   };
 };
