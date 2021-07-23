@@ -19,7 +19,7 @@ import {
   SITE_META,
   SITE_LEAD_JA,
   SITE_META_JA,
-} from '@/misc/meta';
+} from '@/contents/meta';
 
 const socialIconReducer = (iconName: string) => {
   const i = iconName.toLowerCase();
@@ -55,7 +55,7 @@ export const Top = ({ pageData: data, commonData }: ITopProps) => {
       </Head>
 
       <CardContext.Provider value={commonData}>
-        <DefaultTemplate isShowCard isShowTextile>
+        <DefaultTemplate isShowCard>
           <Section headingText={data.aboutTitle} headingLevel="two">
             <div
               // eslint-disable-next-line react/no-danger

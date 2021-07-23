@@ -12,7 +12,7 @@ import {
   SITE_META,
   SITE_LEAD_JA,
   SITE_META_JA,
-} from '@/misc/meta';
+} from '@/contents/meta';
 import { Stack } from './stack';
 
 export const Projects = ({ pageData: data }: IProjectsProps) => {
@@ -34,7 +34,7 @@ export const Projects = ({ pageData: data }: IProjectsProps) => {
         />
       </Head>
 
-      <DefaultTemplate isShowTextile>
+      <DefaultTemplate>
         <Section headingText={data.projectOverviewTitle} headingLevel="two">
           <div
             // eslint-disable-next-line react/no-danger

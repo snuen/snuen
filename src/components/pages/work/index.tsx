@@ -11,7 +11,7 @@ import {
   SITE_META,
   SITE_LEAD_JA,
   SITE_META_JA,
-} from '@/misc/meta';
+} from '@/contents/meta';
 
 export const Work = ({ pageData: data }: IWorkProps) => {
   const { locale } = useRouter();
@@ -32,7 +32,7 @@ export const Work = ({ pageData: data }: IWorkProps) => {
         />
       </Head>
 
-      <DefaultTemplate isShowTextile>
+      <DefaultTemplate>
         <Section headingText={data.workTitle} headingLevel="two">
           <div
             // eslint-disable-next-line react/no-danger
