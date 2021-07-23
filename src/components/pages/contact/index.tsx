@@ -10,6 +10,7 @@ import {
   SITE_META,
   SITE_LEAD_JA,
   SITE_META_JA,
+  MAIL_ADDRESS,
 } from '@/contents/meta';
 
 export const Contact = () => {
@@ -38,7 +39,7 @@ export const Contact = () => {
               <p className="text-lg mb-2">
                 ご連絡は、
                 <span className="text-gray-900 dark:text-white border-b-2 border-gray-300 dark:border-gray-600">
-                  sungjoon512[atmark]gmail.com
+                  {MAIL_ADDRESS}
                 </span>
                 {` `}
                 までどうぞ！
@@ -53,7 +54,7 @@ export const Contact = () => {
               <p className="text-lg mb-2">
                 Feel free to contact me:{` `}
                 <span className="text-gray-900 dark:text-white border-b-2 border-gray-300 dark:border-gray-600">
-                  sungjoon512[atmark]gmail.com
+                  {MAIL_ADDRESS}
                 </span>
               </p>
               <p className="text-lg mb-6">

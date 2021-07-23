@@ -11,3 +11,5 @@ export const NAME_JA = `パク ソンジュン`;
 export const SITE_LEAD_JA = `${NAME_JA}のポートフォリオサイト（${GITHUB_USERNAME}）`;
 
 export const SITE_META_JA = `本サイトは、富士山の麓に住んでいるフリーランスフロントエンドエンジニア、${NAME_JA}のポートフォリオサイトです。`;
+
+export const MAIL_ADDRESS = `sungjoon512[atmark]gmail.com`;
