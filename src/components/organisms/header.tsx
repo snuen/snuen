@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
+
 import { Icon, IconType } from '@/components/atoms/icon';
 import { hooks } from '@/utils';
 

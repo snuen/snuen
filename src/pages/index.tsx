@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+
 import { ICardData } from '@/components/organisms/card';
 import { Top as PageComponent } from '@/components/pages/top';
 import { httpClient } from '@/utils';

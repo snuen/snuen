@@ -6,7 +6,7 @@ export const SITE_LEAD = `Portfolio site of ${NAME} (${GITHUB_USERNAME})`;
 
 export const SITE_META = `This is a portfolio site of ${NAME}, a freelance frontend developer based in the city at the foot of Mt.Fuji`;
 
-export const NAME_JA = `パクソンジュン`;
+export const NAME_JA = `パク ソンジュン`;
 
 export const SITE_LEAD_JA = `${NAME_JA}のポートフォリオサイト（${GITHUB_USERNAME}）`;
 

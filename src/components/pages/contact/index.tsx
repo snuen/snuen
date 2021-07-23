@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 import { DefaultTemplate } from '@/components/templates/default-template';
 import { Lang } from '@/components/organisms/header';
 import {

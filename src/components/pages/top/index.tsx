@@ -6,6 +6,7 @@ import {
   faSpotify,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
+
 import { DefaultTemplate } from '@/components/templates/default-template';
 import { Lang } from '@/components/organisms/header';
 import { CardContext } from '@/components/organisms/card';

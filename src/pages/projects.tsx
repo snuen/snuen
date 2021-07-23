@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+
 import { Projects as PageComponent } from '@/components/pages/projects';
 import { httpClient } from '@/utils';
 
