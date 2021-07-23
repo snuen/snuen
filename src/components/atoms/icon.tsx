@@ -129,7 +129,7 @@ export const Icon = ({ type, className }: IIconProps) => (
             </svg>
           );
         default:
-          return <></>;
+          return null;
       }
     })()}
   </span>
