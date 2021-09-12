@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -33,17 +34,17 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script
+          <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-LZWCFFXX4J"
           />
-          <script>{`
+          <Script>{`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-LZWCFFXX4J');
-          `}</script>
+          `}</Script>
         </Head>
         <body>
           <Main />
