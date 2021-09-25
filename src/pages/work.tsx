@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { Work as PageComponent } from '@/components/pages/work';
 import { httpClient } from '@/utils';
@@ -22,18 +22,14 @@ interface IWorkData {
   }[];
 }
 
-export interface IWorkProps {
-  pageData: IWorkData;
-}
-
-const Work = ({ pageData }: IWorkProps) => (
+const Work = ({ pageData }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <PageComponent pageData={pageData} />
 );
 
 export default Work;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await httpClient.fetchRetry(`work`);
+  const pageData = await httpClient.fetchRetry<IWorkData>(`work`);
 
   return {
     props: {
