@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch';
 const FETCH_COUNT = 2;
 
 // eslint-disable-next-line consistent-return
-export const fetchRetry = async <T>(path: string): Promise<T | undefined> => {
+export const fetchRetry = async (path: string): Promise<any> => {
   for (let i = 0; i < FETCH_COUNT; i += 1) {
     try {
       // eslint-disable-next-line no-await-in-loop

@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 
 import { ICardData } from '@/components/organisms/card';
 import { Top as PageComponent } from '@/components/pages/top';
@@ -26,18 +26,20 @@ interface IMeData {
   creditContentJa: string;
 }
 
-const Top = ({
-  pageData,
-  commonData,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
+export interface ITopProps {
+  pageData: IMeData;
+  commonData: ICardData;
+}
+
+const Top = ({ pageData, commonData }: ITopProps) => (
   <PageComponent pageData={pageData} commonData={commonData} />
 );
 
 export default Top;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await httpClient.fetchRetry<IMeData>(`meee`);
-  const commonData = await httpClient.fetchRetry<ICardData>(`card`);
+  const pageData = await httpClient.fetchRetry(`meee`);
+  const commonData = await httpClient.fetchRetry(`card`);
 
   return {
     props: {

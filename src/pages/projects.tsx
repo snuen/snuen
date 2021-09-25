@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 
 import { Projects as PageComponent } from '@/components/pages/projects';
 import { httpClient } from '@/utils';
@@ -29,16 +29,18 @@ interface IProjectsData {
   }[];
 }
 
-const Projects = ({
-  pageData,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
+export interface IProjectsProps {
+  pageData: IProjectsData;
+}
+
+const Projects = ({ pageData }: IProjectsProps) => (
   <PageComponent pageData={pageData} />
 );
 
 export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await httpClient.fetchRetry<IProjectsData>(`projects`);
+  const pageData = await httpClient.fetchRetry(`projects`);
 
   return {
     props: {
