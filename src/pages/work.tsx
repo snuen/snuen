@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
 import { Work as PageComponent } from '@/components/pages/work';
 import { httpClient } from '@/utils';
@@ -26,7 +26,7 @@ export interface IWorkProps {
   pageData: IWorkData;
 }
 
-const Work = ({ pageData }: IWorkProps) => (
+const Work: NextPage<IWorkProps> = ({ pageData }) => (
   <PageComponent pageData={pageData} />
 );
 

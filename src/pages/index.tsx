@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
 import { ICardData } from '@/components/organisms/card';
 import { Top as PageComponent } from '@/components/pages/top';
@@ -31,7 +31,7 @@ export interface ITopProps {
   commonData: ICardData;
 }
 
-const Top = ({ pageData, commonData }: ITopProps) => (
+const Top: NextPage<ITopProps> = ({ pageData, commonData }) => (
   <PageComponent pageData={pageData} commonData={commonData} />
 );
 
