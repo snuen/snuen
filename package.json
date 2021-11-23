@@ -20,11 +20,11 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "eslint --fix --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "stylelint": "stylelint \"src/**/*.{ts,tsx}\"",
-    "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|scss|css)\" --write",
-    "postinstall": "typesync",
+    "fmt:fix": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|scss|css)\" --write",
     "storybook": "start-storybook -p 7007",
     "storybook:no-cache": "start-storybook --no-manager-cache -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "postinstall": "typesync"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.36",
