@@ -1,9 +1,9 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "name": "mrsung",
+  "description": "Portfolio site of Sungjoon Park",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <oi@joaopedro.cc> (joaopedro.cc)",
+  "author": "Sungjoon Park <sungjoon512@gmail.com>",
   "license": "MIT",
   "keywords": [
     "nextjs",
