@@ -39,5 +39,11 @@ yarn-error.log*
 # storybook
 storybook-static
 
-# slides source
-src/slides
+# yarn (not using Zero-Installs)
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
