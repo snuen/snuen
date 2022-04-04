@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { DefaultTemplate } from '@/components/templates/default-template';
 import { Lang } from '@/components/organisms/header';
 import { Section } from '@/components/organisms/section';
-import { IWorkProps } from '@/pages/work';
 import {
   GITHUB_USERNAME,
   SITE_LEAD,
@@ -12,6 +11,29 @@ import {
   SITE_LEAD_JA,
   SITE_META_JA,
 } from '@/contents/meta';
+
+interface IWorkData {
+  createdAt: string;
+  updatedAt: string;
+  workTitle: string;
+  workDesc: string;
+  workDescJa: string;
+  workContents: {
+    fieldId: string;
+    title: string;
+    subtitle: string;
+    term: string;
+    desc: string;
+    titleJa: string;
+    subtitleJa: string;
+    termJa: string;
+    descJa: string;
+  }[];
+}
+
+export interface IWorkProps {
+  pageData: IWorkData;
+}
 
 export const Work = ({ pageData: data }: IWorkProps) => {
   const { locale } = useRouter();

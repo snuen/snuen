@@ -9,10 +9,9 @@ import {
 
 import { DefaultTemplate } from '@/components/templates/default-template';
 import { Lang } from '@/components/organisms/header';
-import { CardContext } from '@/components/organisms/card';
+import { ICardData, CardContext } from '@/components/organisms/card';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
-import { ITopProps } from '@/pages/index';
 import {
   GITHUB_USERNAME,
   SITE_LEAD,
@@ -34,6 +33,33 @@ const socialIconReducer = (iconName: string) => {
       return null;
   }
 };
+
+interface IMeData {
+  createdAt: string;
+  updatedAt: string;
+  aboutTitle: string;
+  aboutContent: string;
+  aboutContentJa: string;
+  skillsTitle: string;
+  skillsContent: string;
+  socialTitle: string;
+  socialContent: {
+    fieldId: string;
+    socialName: string;
+    socialLink: string;
+  }[];
+  siteDescTitle: string;
+  siteDescContent: string;
+  siteDescContentJa: string;
+  creditTitle: string;
+  creditContent: string;
+  creditContentJa: string;
+}
+
+export interface ITopProps {
+  pageData: IMeData;
+  commonData: ICardData;
+}
 
 export const Top = ({ pageData: data, commonData }: ITopProps) => {
   const { locale } = useRouter();

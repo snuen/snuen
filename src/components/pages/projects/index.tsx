@@ -5,7 +5,6 @@ import { DefaultTemplate } from '@/components/templates/default-template';
 import { Lang } from '@/components/organisms/header';
 import { Section } from '@/components/organisms/section';
 import { Skills } from '@/components/molecules/skills';
-import { IProjectsProps } from '@/pages/projects';
 import {
   GITHUB_USERNAME,
   SITE_LEAD,
@@ -13,7 +12,38 @@ import {
   SITE_LEAD_JA,
   SITE_META_JA,
 } from '@/contents/meta';
+
 import { Stack } from './stack';
+
+interface IProjectsData {
+  createdAt: string;
+  updatedAt: string;
+  projectOverviewTitle: string;
+  projectDesc: string;
+  projectDescJa: string;
+  projectSortTitle1: string;
+  projectSortContent1: {
+    fieldId: string;
+    title: string;
+    link: string;
+    desc: string;
+    descJa: string;
+    skills: string;
+  }[];
+  projectSortTitle2: string;
+  projectSortContent2: {
+    fieldId: string;
+    title: string;
+    link: string;
+    desc: string;
+    descJa: string;
+    skills: string;
+  }[];
+}
+
+export interface IProjectsProps {
+  pageData: IProjectsData;
+}
 
 export const Projects = ({ pageData: data }: IProjectsProps) => {
   const { locale } = useRouter();
