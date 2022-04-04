@@ -6,5 +6,4 @@
 - ⚛️ Mainly using React/Redux/TypeScript
 - 📷 Part-time traveler/photographer
 - 🌱 Seeking a right sized life
-- 🗻 Living in the city near Mt.Fuji
 - 😄 Pronouns: he/him
