@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { Icon, IconType } from '@/components/atoms/icon';
+
 import { Lang } from './header';
 
 export interface ICardData {

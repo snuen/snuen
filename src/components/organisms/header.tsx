@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 import { Icon, IconType } from '@/components/atoms/icon';
-import { hooks } from '@/utils';
+import { useClient } from '@/utils/hooks';
 
 const MENU_ITEMS = [
   {
@@ -52,7 +52,7 @@ export enum Lang {
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
-  const isClient = hooks.useClient();
+  const isClient = useClient();
 
   const isDarkTheme = theme === `dark`;
   const [lang, setLang] = useState<Lang>(Lang.En);

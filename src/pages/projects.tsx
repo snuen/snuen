@@ -4,7 +4,7 @@ import {
   IProjectsProps,
   Projects as PageComponent,
 } from '@/components/pages/projects';
-import { httpClient } from '@/utils';
+import * as httpClient from '@/utils/http-client';
 
 const Projects: NextPage<IProjectsProps> = ({ pageData }) => (
   <PageComponent pageData={pageData} />
