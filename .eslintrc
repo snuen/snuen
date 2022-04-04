@@ -14,8 +14,8 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["import", "jsx-a11y", "react", "react-hooks", "prettier"],
-  "extends": ["airbnb", "eslint-config-prettier"],
+  "plugins": ["import", "jsx-a11y", "react", "prettier"],
+  "extends": ["airbnb", "eslint-config-prettier", "next"],
   "ignorePatterns": ["stories", "slides"],
   "rules": {
     "prettier/prettier": "error",

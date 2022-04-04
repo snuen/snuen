@@ -19,8 +19,8 @@
     "tsc": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "eslint --fix --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "stylelint": "stylelint \"src/**/*.{ts,tsx}\"",
     "fmt:fix": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|scss|css)\" --write",
+    "stylelint": "stylelint \"src/**/*.{ts,tsx}\"",
     "storybook": "start-storybook -p 7007",
     "storybook:no-cache": "start-storybook --no-manager-cache -p 7007",
     "build-storybook": "build-storybook",
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@next/eslint-plugin-next": "^12.1.4",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-links": "^6.4.20",
