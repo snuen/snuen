@@ -1,4 +1,4 @@
-# Hi, [Sungjoon](https://mrsung.dev/) here 🎐
+# Hi, [Sungjoon](https://sjgently.dev/) here 🎐
 
 <img src="./concept-image.jpg" alt="concept image" width="240" height="192" align="right" />
 

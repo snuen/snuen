@@ -1,4 +1,4 @@
-export const GITHUB_USERNAME = `MrSung`;
+export const GITHUB_USERNAME = `sjgently`;
 
 export const NAME = `Sungjoon Park`;
 
