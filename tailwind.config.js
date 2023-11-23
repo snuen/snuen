@@ -2,11 +2,14 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			gridTemplateRows: {
+				layout: 'auto 1fr auto'
+			}
+		}
 	},
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['autumn', 'coffee'],
-		darkTheme: 'coffee'
+		themes: ['garden']
 	}
 };
