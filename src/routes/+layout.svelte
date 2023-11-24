@@ -52,7 +52,7 @@
 		</nav>
 	</header>
 	<main class="flex flex-grow pb-12 md:pb-0 md:pl-64">
-		<div class="container pt-4 md:pt-8 px-4 md:px-12">
+		<div class="container pt-4 md:pt-8 px-4 md:px-8 lg:px-12">
 			<slot />
 		</div>
 	</main>
