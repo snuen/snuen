@@ -5,7 +5,7 @@
 	import briefcase from '../assets/briefcase.svg';
 	import atSymbol from '../assets/at-symbol.svg';
 	import sun from '../assets/sun.svg';
-	// import moon from '../assets/moon.svg';
+	import moon from '../assets/moon.svg';
 
 	type NavListItem = {
 		label: string;
@@ -41,9 +41,11 @@
 					</li>
 				{/each}
 				<li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none md:mb-2">
-					<button type="button" class="flex justify-center w-10 h-full px-0 md:px-2">
-						<img src={sun} alt="" width="20" height="20" />
-					</button>
+					<label class="swap swap-rotate w-10 h-full px-0 md:px-2">
+						<input type="checkbox" class="theme-controller" value="" />
+						<img src={sun} alt="sun" width="20" height="20" class="swap-on" />
+						<img src={moon} alt="moon" width="20" height="20" class="swap-off" />
+					</label>
 				</li>
 				<li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none">
 					<button type="button" class="flex justify-center w-10 h-full px-0 md:px-2">EN</button>

@@ -1,2 +1,5 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
-<button class="btn">Hello daisyUI</button>
+<script lang="ts">
+	import Top from '../components/pages/top/index.svelte';
+</script>
+
+<Top />
