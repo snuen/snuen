@@ -47,9 +47,9 @@
 						<img src={moon} alt="moon" width="20" height="20" class="swap-off" />
 					</label>
 				</li>
-				<li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none">
+				<!-- <li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none">
 					<button type="button" class="flex justify-center w-10 h-full px-0 md:px-2">EN</button>
-				</li>
+				</li> -->
 			</ul>
 		</nav>
 	</header>
