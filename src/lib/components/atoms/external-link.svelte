@@ -1,5 +1,6 @@
 <script lang="ts">
-	import arrowTopRightOnSquare from '$lib/assets/images/arrow-top-right-on-square.svg';
+	import ArrowTopRightOnSquare from '$lib/components/svgs/arrow-top-right-on-square.svelte';
+	import Icon from '$lib/components/atoms/icon.svelte';
 
 	export let href: string;
 	export let text: string;
@@ -7,5 +8,7 @@
 
 <a {href} target="_blank" rel="noopener noreferrer" class="link inline-flex items-center"
 	>{text}
-	<img src={arrowTopRightOnSquare} alt="external link" class="inline-block w-4 h-4 ml-1" />
+	<Icon width="1rem" height="1rem" className="inline-block ml-1">
+		<ArrowTopRightOnSquare />
+	</Icon>
 </a>

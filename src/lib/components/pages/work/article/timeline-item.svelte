@@ -1,5 +1,6 @@
 <script lang="ts">
-	import checkCircle from '$lib/assets/images/check-circle.svg';
+	import CheckCircle from '$lib/components/svgs/check-circle.svelte';
+	import Icon from '$lib/components/atoms/icon.svelte';
 
 	import type { TimeItemProps } from './type';
 
@@ -14,7 +15,9 @@
 	<hr />
 {/if}
 <div class="timeline-middle">
-	<img src={checkCircle} alt="check circle" class="h-5 w-5" />
+	<Icon width="1.25rem" height="1.25rem" className="inline-block ml-1">
+		<CheckCircle />
+	</Icon>
 </div>
 <div class={'mb-10' + ' ' + (index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end')}>
 	<time class="font-mono italic">{time}</time>
