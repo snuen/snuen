@@ -1,5 +1,5 @@
 <script lang="ts">
-	import arrowTopRightOnSquare from '$lib/assets/arrow-top-right-on-square.svg';
+	import arrowTopRightOnSquare from '$lib/assets/images/arrow-top-right-on-square.svg';
 
 	export let href: string;
 	export let text: string;

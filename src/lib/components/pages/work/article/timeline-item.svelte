@@ -1,5 +1,5 @@
 <script lang="ts">
-	import checkCircle from '$lib/assets/check-circle.svg';
+	import checkCircle from '$lib/assets/images/check-circle.svg';
 
 	import type { TimeItemProps } from './type';
 

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import user from '$lib/assets/user.svg';
-	import squares2x2 from '$lib/assets/squares-2x2.svg';
-	import briefcase from '$lib/assets/briefcase.svg';
-	import atSymbol from '$lib/assets/at-symbol.svg';
-	import sun from '$lib/assets/sun.svg';
-	import moon from '$lib/assets/moon.svg';
+	import user from '$lib/assets/images/user.svg';
+	import squares2x2 from '$lib/assets/images/squares-2x2.svg';
+	import briefcase from '$lib/assets/images/briefcase.svg';
+	import atSymbol from '$lib/assets/images/at-symbol.svg';
+	import sun from '$lib/assets/images/sun.svg';
+	import moon from '$lib/assets/images/moon.svg';
 
 	type NavListItem = {
 		label: string;
