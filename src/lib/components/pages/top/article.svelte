@@ -16,7 +16,7 @@
 		<p>SvelteKitを用いて作りました。Vercel上でホスティングされています。</p>
 	</section>
 	<section class="mb-8">
-		<Heading level={2}>Favorite tech stack</Heading>
+		<Heading level={2}>Tech preference</Heading>
 		<p>宣言型UIフレームワークを用いた、ユーザーにとって使いやすいサイトを作ることが好きです。</p>
 		<p>細かいところまで気を遣った実装が得意です。</p>
 	</section>
