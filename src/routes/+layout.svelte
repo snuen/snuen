@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 
-	import '../app.css';
+	import '$lib/styles/app.css';
 	import User from '$lib/components/svgs/user.svelte';
 	import Squares2x2 from '$lib/components/svgs/squares-2x2.svelte';
 	import Briefcase from '$lib/components/svgs/briefcase.svelte';
