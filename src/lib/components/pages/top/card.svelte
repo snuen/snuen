@@ -17,7 +17,7 @@
 			<dt class="mb-1">External links:</dt>
 			<dd class="flex gap-4">
 				<ExternalLink href="https://github.com/sjgently" text="GitHub" />
-				<ExternalLink href="https://qiita.com/" text="Tech Blog" />
+				<ExternalLink href="https://zenn.dev/sjgently" text="Zenn" />
 			</dd>
 		</dl>
 	</div>
