@@ -11,6 +11,10 @@
 	import Moon from '$lib/components/svgs/moon.svelte';
 	import Icon from '$lib/components/atoms/icon.svelte';
 
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
+
 	type NavListItem = {
 		label: string;
 		href: string;
@@ -28,6 +32,15 @@
 		themeChange(false);
 	});
 </script>
+
+<svelte:head>
+	<title
+		>{data.siteName +
+			(data.pageName === ''
+				? ''
+				: ` | ${data.pageName.charAt(0).toUpperCase() + data.pageName.slice(1)}`)}</title
+	>
+</svelte:head>
 
 <div class="md:flex min-h-screen">
 	<header class="fixed right-0 bottom-0 left-0 md:top-0 md:w-64 md:py-10 md:px-6 bg-base-200">
