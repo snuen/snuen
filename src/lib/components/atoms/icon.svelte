@@ -1,16 +1,7 @@
 <script lang="ts">
-	export let width: string;
-	export let height: string;
-	export let className = '';
+	export let className = 'w-6 h-6';
 </script>
 
-<span class={className} data-icon-width={width} data-icon-height={height}>
+<span class={className}>
 	<slot />
 </span>
-
-<style>
-	span > * {
-		width: attr(data-icon-width inherit);
-		height: attr(data-icon-height inherit);
-	}
-</style>

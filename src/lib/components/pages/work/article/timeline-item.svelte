@@ -15,7 +15,7 @@
 	<hr />
 {/if}
 <div class="timeline-middle">
-	<Icon width="1.25rem" height="1.25rem" className="inline-block ml-1">
+	<Icon className="inline-block w-6 h-6 ml-1">
 		<CheckCircle />
 	</Icon>
 </div>

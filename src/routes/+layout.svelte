@@ -43,7 +43,7 @@
 							{href}
 							class="flex justify-center md:justify-start w-full h-full px-0 md:px-2 uppercase"
 						>
-							<Icon width="1.25rem" height="1.25rem">
+							<Icon className="w-4 h-4">
 								<Svg />
 							</Icon>
 							<span class="hidden sm:block">{label}</span>
@@ -58,13 +58,12 @@
 							value=""
 							data-toggle-theme="autumn,forest"
 						/>
-						<Icon width="1.25rem" height="1.25rem" className="swap-on">
+						<Icon className="swap-on w-6 h-6">
 							<Sun />
 						</Icon>
-						<Icon width="1.25rem" height="1.25rem" className="swap-off">
+						<Icon className="swap-off w-5 h-5">
 							<Moon />
 						</Icon>
-						<Sun />
 					</label>
 				</li>
 				<!-- <li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none">

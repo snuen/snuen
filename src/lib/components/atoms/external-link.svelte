@@ -8,7 +8,7 @@
 
 <a {href} target="_blank" rel="noopener noreferrer" class="link inline-flex items-center"
 	>{text}
-	<Icon width="1rem" height="1rem" className="inline-block ml-1">
+	<Icon className="inline-block w-4 h-4 ml-1">
 		<ArrowTopRightOnSquare />
 	</Icon>
 </a>
