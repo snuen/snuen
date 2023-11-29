@@ -63,13 +63,13 @@
 						</a>
 					</li>
 				{/each}
-				<li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none md:mb-2">
+				<li class="px-2 border-l border-dashed border-l-current md:border-none md:mb-2">
 					<label class="swap swap-rotate w-10 h-full px-0 md:px-2">
 						<input
 							type="checkbox"
 							class="theme-controller"
 							value=""
-							data-toggle-theme="autumn,forest"
+							data-toggle-theme="autumn,dim"
 						/>
 						<Icon className="swap-on w-6 h-6">
 							<Sun />
@@ -79,7 +79,7 @@
 						</Icon>
 					</label>
 				</li>
-				<!-- <li class="px-2 border-l border-dashed border-l-neutral-800 md:border-none">
+				<!-- <li class="px-2 border-l border-dashed border-l-current md:border-none">
 					<button type="button" class="flex justify-center w-10 h-full px-0 md:px-2">EN</button>
 				</li> -->
 			</ul>

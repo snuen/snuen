@@ -2,6 +2,9 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		colors: {
+			current: 'currentColor'
+		},
 		extend: {
 			gridTemplateRows: {
 				layout: 'auto 1fr auto'
@@ -10,6 +13,6 @@ export default {
 	},
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['autumn', 'forest']
+		themes: ['autumn', 'dim']
 	}
 };
