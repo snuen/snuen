@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heading from '$lib/components/atoms/heading.svelte';
+
 	import Project from './project.svelte';
 </script>
 

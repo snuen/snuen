@@ -12,7 +12,7 @@
 	<p class="mt-2">{description}</p>
 	<p class="flex gap-2 mt-2">
 		{#each tags as tag}
-			<span class="badge">{tag}</span>
+			<span class="badge border-current">{tag}</span>
 		{/each}
 	</p>
 </section>
