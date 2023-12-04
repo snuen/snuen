@@ -6,8 +6,8 @@ export default {
 			current: 'currentColor'
 		},
 		extend: {
-			gridTemplateRows: {
-				layout: 'auto 1fr auto'
+			gridTemplateColumns: {
+				layout: '16rem 1fr 16rem'
 			}
 		}
 	},
