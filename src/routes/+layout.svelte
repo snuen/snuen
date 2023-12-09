@@ -28,6 +28,23 @@
 		{ label: 'contact', href: '/contact', Svg: AtSymbol }
 	] as const satisfies readonly NavListItem[];
 
+	let themeTarget: string | undefined;
+	let currentTheme: string | undefined;
+	if (typeof window !== 'undefined') {
+		currentTheme = localStorage.getItem('theme') ?? 'autumn';
+		switch (currentTheme) {
+			case 'autumn':
+				themeTarget = 'dim';
+				break;
+			case 'dim':
+				themeTarget = 'autumn';
+				break;
+			default:
+				themeTarget = 'dim';
+				break;
+		}
+	}
+
 	onMount(() => {
 		themeChange(false);
 	});
@@ -44,7 +61,7 @@
 
 <div class="md:grid md:grid-cols-layout min-h-screen max-w-7xl">
 	<header
-		class="col-start-1 col-end-2 fixed right-0 bottom-0 left-0 md:top-0 md:w-64 md:py-10 md:px-6 bg-base-200 col-"
+		class="col-start-1 col-end-2 fixed right-0 bottom-0 left-0 md:top-0 z-10 md:w-64 md:py-10 md:px-6 bg-base-200"
 	>
 		<nav class="md:h-full">
 			<ul class="menu menu-horizontal md:menu-vertical flex px-0 md:h-full">
@@ -70,13 +87,15 @@
 						<input
 							type="checkbox"
 							class="theme-controller"
-							value=""
+							value={themeTarget}
 							data-toggle-theme="autumn,dim"
 						/>
-						<Icon className="swap-on w-6 h-6">
+						<Icon
+							className={'w-6 h-6' + ' ' + (currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
+						>
 							<Sun />
 						</Icon>
-						<Icon className="swap-off w-5 h-5">
+						<Icon className={'w-5 h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}>
 							<Moon />
 						</Icon>
 					</label>
@@ -87,10 +106,10 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="col-start-2 col-end-4 xl:col-end-3 flex flex-grow max-w-6xl pb-12 md:pb-0">
-		<div class="pt-4 md:pt-8 px-4 md:px-8 lg:px-12">
-			<slot />
-		</div>
+	<main
+		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-6xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
+	>
+		<slot />
 	</main>
 	<footer class="col-start-3 col-end-4 hidden xl:block w-64 bg-base-200" />
 </div>
