@@ -2,13 +2,11 @@
 	import CheckCircle from '$lib/components/svgs/check-circle.svelte';
 	import Icon from '$lib/components/atoms/icon.svelte';
 
-	import type { TimeItemProps } from './type';
-
-	export let index: TimeItemProps['index'];
-	export let type: TimeItemProps['type'];
-	export let time: TimeItemProps['time'];
-	export let title: TimeItemProps['title'];
-	export let description: TimeItemProps['description'];
+	export let index: number;
+	export let type: 'start' | 'end' | 'middle';
+	export let time: string;
+	export let title: string;
+	export let description: string;
 </script>
 
 {#if type === 'end' || type === 'middle'}

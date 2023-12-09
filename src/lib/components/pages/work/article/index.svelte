@@ -1,45 +1,20 @@
 <script lang="ts">
 	import Heading from '$lib/components/atoms/heading.svelte';
+	import contentJa from '$lib/contents/pages/work/content-ja.json';
 
 	import TimeItem from './timeline-item.svelte';
-	import type { TimeItemProps } from './type';
 
-	const timelineItems = [
-		{
-			time: '2020.7 - 現在',
-			title: '宿泊業界向けの価格最適化の業務アプリケーション',
-			description:
-				'リサーチャー、データサイエンティスト、デザイナー、フロントエンド／バックエンドエンジニアのチームで働いています。技術スタックに関しては、React / Redux / TypeScript を使用していて、GraphQL やその他の最新の技術にも手を広げています。'
-		},
-		{
-			time: '2019.4 - 2020.6',
-			title: '転職サービス',
-			description:
-				'事業側のメディア担当を中心に、時にはデザイナー、開発側フロントエンド、サーバーサイドと連携を取りながら、様々な規模の事業施策案件をこなしてきました。本格的に Vue.js を導入している現場であるので、Vue の知見を案件を通して得ることができています。'
-		},
-		{
-			time: '2019.2 - 2019.3',
-			title: '飲食店レビューサービス',
-			description:
-				'事業側の企画担当、バックエンド側と連携を取りながら、他のフリーランスエンジニアとともに、飲食系サービスのドメインの一つである、お気に入り登録サービスのフロントエンド実装と LP 作成を行いました。'
-		},
-		{
-			time: '2017.10 - 2019.1',
-			title: '就活サービス',
-			description:
-				'自社および他社のチームからなるディレクター、コーディングディレクター、デザイナーと連携しながら、事業側施策を実装しました。独自 JSP フレームワーク、jQuery の書き方、Ajax 通信などを中心に現場でのスキルを取得しました。コンパイラ・トランスパイラを通さない、ES5 での JS の書き方を習得しました。'
-		}
-	] as const satisfies readonly Omit<TimeItemProps, 'index' | 'type'>[];
+	const content = contentJa;
 </script>
 
 <article>
 	<Heading level={2}>Work</Heading>
 	<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-8">
-		{#each timelineItems as { time, title, description }, index (index)}
+		{#each content as { time, title, description }, index (time)}
 			<li>
 				<TimeItem
 					{index}
-					type={index === 0 ? 'start' : index === timelineItems.length - 1 ? 'end' : 'middle'}
+					type={index === 0 ? 'start' : index === content.length - 1 ? 'end' : 'middle'}
 					{time}
 					{title}
 					{description}

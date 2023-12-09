@@ -4,4 +4,5 @@
 
 <article>
 	<Heading level={2}>Contact</Heading>
+	<p>TBD</p>
 </article>

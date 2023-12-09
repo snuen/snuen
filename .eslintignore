@@ -14,3 +14,4 @@ yarn.lock
 
 # Added after initialization
 *.html
+*.md
