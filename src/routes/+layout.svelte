@@ -43,7 +43,9 @@
 </svelte:head>
 
 <div class="md:grid md:grid-cols-layout min-h-screen max-w-7xl">
-	<header class="fixed right-0 bottom-0 left-0 md:top-0 md:w-64 md:py-10 md:px-6 bg-base-200">
+	<header
+		class="col-start-1 col-end-2 fixed right-0 bottom-0 left-0 md:top-0 md:w-64 md:py-10 md:px-6 bg-base-200 col-"
+	>
 		<nav class="md:h-full">
 			<ul class="menu menu-horizontal md:menu-vertical flex px-0 md:h-full">
 				{#each navList as { label, href, Svg }, i ({ href })}
@@ -85,24 +87,10 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="flex flex-grow max-w-6xl pb-12 md:pb-0">
+	<main class="col-start-2 col-end-4 xl:col-end-3 flex flex-grow max-w-6xl pb-12 md:pb-0">
 		<div class="pt-4 md:pt-8 px-4 md:px-8 lg:px-12">
 			<slot />
 		</div>
 	</main>
-	<footer class="hidden xl:block w-64 bg-base-200" />
+	<footer class="col-start-3 col-end-4 hidden xl:block w-64 bg-base-200" />
 </div>
-
-<style>
-	header {
-		grid-column: 1 / 2;
-	}
-
-	main {
-		grid-column: 2 / 3;
-	}
-
-	footer {
-		grid-column: 3 / 4;
-	}
-</style>
