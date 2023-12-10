@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '$lib/styles/app.css';
 	import Header from '$lib/components/layout/header/index.svelte';
+	import Footer from '$lib/components/layout/footer/index.svelte';
 
 	import type { LayoutData } from './$types';
 
@@ -23,5 +24,5 @@
 	>
 		<slot />
 	</main>
-	<footer class="col-start-3 col-end-4 hidden xl:block w-64 bg-base-200" />
+	<Footer />
 </div>
