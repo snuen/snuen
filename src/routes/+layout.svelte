@@ -1,53 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { themeChange } from 'theme-change';
-
 	import '$lib/styles/app.css';
-	import User from '$lib/components/svgs/user.svelte';
-	import Squares2x2 from '$lib/components/svgs/squares-2x2.svelte';
-	import Briefcase from '$lib/components/svgs/briefcase.svelte';
-	import AtSymbol from '$lib/components/svgs/at-symbol.svelte';
-	import Sun from '$lib/components/svgs/sun.svelte';
-	import Moon from '$lib/components/svgs/moon.svelte';
-	import Icon from '$lib/components/atoms/icon.svelte';
+	import Header from '$lib/components/layout/header/index.svelte';
 
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
-
-	type NavListItem = {
-		label: string;
-		href: string;
-		Svg: unknown;
-	};
-
-	const navList = [
-		{ label: 'me', href: '/', Svg: User },
-		{ label: 'projects', href: '/projects', Svg: Squares2x2 },
-		{ label: 'work', href: '/work', Svg: Briefcase },
-		{ label: 'contact', href: '/contact', Svg: AtSymbol }
-	] as const satisfies readonly NavListItem[];
-
-	let themeTarget: string | undefined;
-	let currentTheme: string | undefined;
-	if (typeof window !== 'undefined') {
-		currentTheme = localStorage.getItem('theme') ?? 'autumn';
-		switch (currentTheme) {
-			case 'autumn':
-				themeTarget = 'dim';
-				break;
-			case 'dim':
-				themeTarget = 'autumn';
-				break;
-			default:
-				themeTarget = 'dim';
-				break;
-		}
-	}
-
-	onMount(() => {
-		themeChange(false);
-	});
 </script>
 
 <svelte:head>
@@ -60,52 +17,7 @@
 </svelte:head>
 
 <div class="md:grid md:grid-cols-layout min-h-screen max-w-7xl">
-	<header
-		class="col-start-1 col-end-2 fixed right-0 bottom-0 left-0 md:top-0 z-10 md:w-64 md:py-10 md:px-6 bg-base-200"
-	>
-		<nav class="md:h-full">
-			<ul class="menu menu-horizontal md:menu-vertical flex px-0 md:h-full">
-				{#each navList as { label, href, Svg }, i ({ href })}
-					<li
-						class={'flex-grow md:flex-grow-0 px-2' +
-							' ' +
-							(i === navList.length - 1 ? 'md:mb-auto' : 'md:mb-2')}
-					>
-						<a
-							{href}
-							class="flex justify-center md:justify-start w-full h-full px-0 md:px-2 uppercase"
-						>
-							<Icon className="w-4 h-4">
-								<Svg />
-							</Icon>
-							<span class="hidden sm:block">{label}</span>
-						</a>
-					</li>
-				{/each}
-				<li class="px-2 border-l border-dashed border-l-current md:border-none md:mb-2">
-					<label class="swap swap-rotate w-10 h-full px-0 md:px-2">
-						<input
-							type="checkbox"
-							class="theme-controller"
-							value={themeTarget}
-							data-toggle-theme="autumn,dim"
-						/>
-						<Icon
-							className={'w-6 h-6' + ' ' + (currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
-						>
-							<Sun />
-						</Icon>
-						<Icon className={'w-5 h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}>
-							<Moon />
-						</Icon>
-					</label>
-				</li>
-				<!-- <li class="px-2 border-l border-dashed border-l-current md:border-none">
-					<button type="button" class="flex justify-center w-10 h-full px-0 md:px-2">EN</button>
-				</li> -->
-			</ul>
-		</nav>
-	</header>
+	<Header />
 	<main
 		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-6xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
 	>
