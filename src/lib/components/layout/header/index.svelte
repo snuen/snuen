@@ -1,0 +1,15 @@
+<script lang="ts">
+	import NavLinks from './nav-links.svelte';
+	import ThemeController from './theme-controller.svelte';
+</script>
+
+<header
+	class="col-start-1 col-end-2 fixed right-0 bottom-0 left-0 md:top-0 z-10 md:w-64 md:py-10 md:px-6 bg-base-200"
+>
+	<nav class="md:h-full">
+		<ul class="menu menu-horizontal md:menu-vertical flex px-0 md:h-full">
+			<NavLinks />
+			<ThemeController />
+		</ul>
+	</nav>
+</header>

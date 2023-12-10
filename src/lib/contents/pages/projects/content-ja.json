@@ -1,0 +1,16 @@
+[
+	{
+		"type": "client",
+		"href": "https://www.harikae-co.com/",
+		"linkText": "Harikae",
+		"description": "ブランディングサイト／ファッションデザイナー・建築家",
+		"tags": ["Vue", "Nuxt"]
+	},
+	{
+		"type": "side",
+		"href": "https://lsdcamp-fes-2021.vercel.app/",
+		"linkText": "LSD.Camp Fes 2021",
+		"description": "オンラインフェスサイト",
+		"tags": ["TypeScript", "React", "Next"]
+	}
+]

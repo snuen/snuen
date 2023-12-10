@@ -1,18 +1,18 @@
-module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-  ],
-  darkMode: 'class', // or 'media' or 'class'
-  theme: {
-    extend: {
-      screens: {
-        '1.5xl': '1366px',
-      },
-    },
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		colors: {
+			current: 'currentColor'
+		},
+		extend: {
+			gridTemplateColumns: {
+				layout: '16rem 1fr 16rem'
+			}
+		}
+	},
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: ['autumn', 'dim']
+	}
 };
