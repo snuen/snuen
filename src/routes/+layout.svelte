@@ -15,6 +15,14 @@
 				? ''
 				: ` | ${data.pageName.charAt(0).toUpperCase() + data.pageName.slice(1)}`)}</title
 	>
+	<meta name="description" content="パク ソンジュンのポートフォリオサイト" />
+	<script>
+		const theme = localStorage.getItem('theme');
+		document.documentElement.setAttribute(
+			'data-theme',
+			theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dim' : 'autumn')
+		);
+	</script>
 </svelte:head>
 
 <div class="md:grid md:grid-cols-layout min-h-screen max-w-7xl">
