@@ -9,7 +9,7 @@
 	let themeTarget: string | undefined;
 	let currentTheme: string | undefined;
 	if (typeof window !== 'undefined') {
-		currentTheme = localStorage.getItem('theme') ?? 'autumn';
+		currentTheme = localStorage.getItem('theme') ?? undefined;
 		switch (currentTheme) {
 			case 'autumn':
 				themeTarget = 'dim';
@@ -18,7 +18,16 @@
 				themeTarget = 'autumn';
 				break;
 			default:
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					localStorage.setItem('theme', 'dim');
+					themeTarget = 'autumn';
+					currentTheme = 'dim';
+					break;
+				}
+
+				localStorage.setItem('theme', 'autumn');
 				themeTarget = 'dim';
+				currentTheme = 'autumn';
 				break;
 		}
 	}
