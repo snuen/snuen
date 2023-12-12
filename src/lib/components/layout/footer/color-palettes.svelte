@@ -20,7 +20,7 @@
 			textColor: 'black'
 		},
 		{
-			name: 'mossGreen',
+			name: 'moss green',
 			hex: '#8a9a5b',
 			textColor: 'black'
 		},
@@ -30,27 +30,27 @@
 			textColor: 'white'
 		},
 		{
-			name: 'darkTurquoise',
+			name: 'dark turquoise',
 			hex: '#00ced1',
 			textColor: 'black'
 		},
 		{
-			name: 'deepViolet',
+			name: 'deep violet',
 			hex: '#330066',
 			textColor: 'white'
 		},
 		{
-			name: 'chocolateBrown',
+			name: 'chocolate brown',
 			hex: '#3d1e1f',
 			textColor: 'white'
 		},
 		{
-			name: 'armyGreen',
+			name: 'army green',
 			hex: '#4b5320',
 			textColor: 'white'
 		},
 		{
-			name: 'orangeRed',
+			name: 'orange red',
 			hex: '#ff4500',
 			textColor: 'black'
 		}
