@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Heading from '$lib/components/atoms/heading.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error import markdown file
 	import AboutMeJaContent from '$lib/contents/pages/top/about-me-ja.md';
-	// @ts-ignore
+	// @ts-expect-error import markdown file
 	import TechPreferenceJaContent from '$lib/contents/pages/top/tech-preference-ja.md';
-	// @ts-ignore
+	// @ts-expect-error import markdown file
 	import UsesJaContent from '$lib/contents/pages/top/uses-ja.md';
 </script>
 
