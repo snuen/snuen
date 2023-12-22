@@ -45,10 +45,16 @@
 			value={themeTarget}
 			data-toggle-theme="autumn,dim"
 		/>
-		<Icon className={'w-6 h-6' + ' ' + (currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}>
+		<Icon
+			className={'w-5 h-5 md:w-6 md:h-6' +
+				' ' +
+				(currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
+		>
 			<Sun />
 		</Icon>
-		<Icon className={'w-5 h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}>
+		<Icon
+			className={'w-4 h-4 md:w-5 md:h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}
+		>
 			<Moon />
 		</Icon>
 	</label>
