@@ -61,17 +61,20 @@
 	};
 </script>
 
-<menu class="flex flex-col h-screen" style="min-height: 700px;">
+<menu class="grid grid-cols-2 h-screen" style="min-height: 700px;">
+	<li class="flex flex-col gap-2 px-2 justify-center items-center text-center text-sm">
+		<p class="text-sm">Personal Colors</p>
+	</li>
 	{#each colorList as { name, hex, textColor } ({ hex })}
 		<li
-			class="flex-grow flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
+			class="col-span-1 flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
 			style={`background-color: ${hex}; color: ${textColor};`}
 		>
 			{name}
 			<button
 				type="button"
 				on:click={() => handleClickButton(hex)}
-				class="btn btn-sm glass w-fit h-8 text-md"
+				class="btn btn-sm glass w-fit h-8 text-sm"
 			>
 				<Icon className="w-4 h-4">
 					<ClipBoardDocument />
