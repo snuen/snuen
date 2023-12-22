@@ -56,8 +56,18 @@
 		}
 	] as const satisfies ColorListItem[];
 
-	const handleClickButton = (hex: (typeof colorList)[number]['hex']) => {
+	const handleClickButton = (
+		hex: (typeof colorList)[number]['hex'],
+		currentTarget: EventTarget & HTMLButtonElement
+	) => {
 		navigator.clipboard.writeText(hex);
+		currentTarget.closest('[data-tip]')?.setAttribute('data-tip', 'copied!');
+	};
+
+	const handleMouseLeaveButton = (currentTarget: EventTarget & HTMLButtonElement) => {
+		setTimeout(() => {
+			currentTarget.closest('[data-tip]')?.setAttribute('data-tip', 'copy');
+		}, 300);
 	};
 </script>
 
@@ -71,16 +81,19 @@
 			style={`background-color: ${hex}; color: ${textColor};`}
 		>
 			{name}
-			<button
-				type="button"
-				on:click={() => handleClickButton(hex)}
-				class="btn btn-sm glass w-fit h-8 text-sm"
-			>
-				<Icon className="w-4 h-4">
-					<ClipBoardDocument />
-				</Icon>
-				{hex}</button
-			>
+			<div class="tooltip tooltip-bottom" data-tip="copy">
+				<button
+					type="button"
+					on:click={(ev) => handleClickButton(hex, ev.currentTarget)}
+					on:mouseleave={(ev) => handleMouseLeaveButton(ev.currentTarget)}
+					class="btn btn-sm glass w-fit h-8 text-sm"
+				>
+					<Icon className="w-4 h-4">
+						<ClipBoardDocument />
+					</Icon>
+					{hex}</button
+				>
+			</div>
 		</li>
 	{/each}
 </menu>
