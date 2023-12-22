@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 mb-6 md:mb-8">
-	<figure class="overflow-hidden">
+	<figure class="min-w-[250px] min-h-[250px] overflow-hidden">
 		<img src="/avatar.jpg" alt="avatar" width="250" height="250" />
 	</figure>
 	<div class="min-w-fit">
@@ -30,10 +30,3 @@
 		</dl>
 	</div>
 </div>
-
-<style>
-	figure {
-		min-width: 250px;
-		min-height: 250px;
-	}
-</style>

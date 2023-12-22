@@ -71,7 +71,7 @@
 	};
 </script>
 
-<menu class="grid grid-cols-2 h-screen" style="min-height: 700px;">
+<menu class="sticky top-0 grid grid-cols-2 h-screen min-h-[700px]">
 	<li class="flex flex-col gap-2 px-2 justify-center items-center text-center text-sm">
 		<p class="text-sm">Personal Colors</p>
 	</li>
