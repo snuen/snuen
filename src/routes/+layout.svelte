@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+
 	import '$lib/styles/app.css';
+	import Indicator from '$lib/components/layout/indicator.svelte';
 	import Header from '$lib/components/layout/header/index.svelte';
 	import Footer from '$lib/components/layout/footer/index.svelte';
 
@@ -26,6 +29,9 @@
 </svelte:head>
 
 <div class="min-h-screen md:grid md:grid-cols-layout md:max-w-7xl md:mx-auto">
+	{#if browser}
+		<Indicator />
+	{/if}
 	<Header />
 	<main
 		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-6xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
