@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
+	let isShow = false;
+
 	let windowWidth = window.innerWidth;
 	let windowHeight = window.innerHeight;
 
@@ -13,20 +17,31 @@
 		if (newHeight !== windowHeight) {
 			windowHeight = newHeight;
 		}
+
+		if (isShow) {
+			setTimeout(() => {
+				isShow = false;
+			}, 1500);
+			return;
+		}
+
+		isShow = true;
 	});
 </script>
 
-<div class="indicator hidden md:block">
-	<span class="indicator-item indicator-bottom indicator-start badge badge-secondary">
-		{windowWidth}px &times; {windowHeight}px
-	</span>
-</div>
+{#if isShow}
+	<div transition:fade={{ duration: 100 }}>
+		<span class="badge badge-info">
+			{windowWidth}px &times; {windowHeight}px
+		</span>
+	</div>
+{/if}
 
 <style>
-	.indicator {
+	div {
 		position: fixed;
-		bottom: 28px;
-		left: 80px;
+		bottom: 12px;
+		left: 12px;
 		z-index: 9999;
 	}
 </style>
