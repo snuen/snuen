@@ -10,5 +10,27 @@
 			"name": "📝 Tech blog",
 			"url": "https://zenn.dev/sjgently"
 		}
+	],
+	"sections": [
+		{
+			"title": "About me",
+			"paragraphs": [
+				"👋🏻 こんにちは。パク ソンジュンと申します。",
+				"20代中盤にWeb業界に転身し、主に人材の領域で働いてきました。",
+				"現在は、旅行領域で宿泊施設向けの業務支援SaaSの開発をしています。",
+				"人々がお互いの創造性や独自性を認め合うことで、よりよい社会を形作ることができると考えています。"
+			]
+		},
+		{
+			"title": "Technical preferences",
+			"paragraphs": [
+				"宣言型UIフレームワークを用いた、ユーザビリティのサイトを作ることが好きです。",
+				"細かいところまで気を遣った実装が得意です。"
+			]
+		},
+		{
+			"title": "Uses",
+			"paragraphs": ["SvelteKitを用いて作りました。Vercel上でホスティングされています。"]
+		}
 	]
 }
