@@ -34,7 +34,7 @@
 	{/if}
 	<Header />
 	<main
-		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-6xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
+		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-3xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
 	>
 		<slot />
 	</main>
