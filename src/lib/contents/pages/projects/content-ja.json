@@ -1,5 +1,12 @@
 [
 	{
+		"type": "side",
+		"href": "https://lsdcamp-fes-2021.vercel.app/",
+		"linkText": "LSD.Camp Fes 2021",
+		"description": "オンラインフェスサイト",
+		"tags": ["TypeScript", "React", "Next"]
+	},
+	{
 		"type": "client",
 		"href": "https://www.harikae-co.com/",
 		"linkText": "Harikae",
@@ -7,10 +14,10 @@
 		"tags": ["Vue", "Nuxt"]
 	},
 	{
-		"type": "side",
-		"href": "https://lsdcamp-fes-2021.vercel.app/",
-		"linkText": "LSD.Camp Fes 2021",
-		"description": "オンラインフェスサイト",
-		"tags": ["TypeScript", "React", "Next"]
+		"type": "client",
+		"href": "https://www.lucius.co.jp/",
+		"linkText": "Lucius",
+		"description": "コーポレートサイト／専門商社",
+		"tags": ["TypeScript", "React", "Astro"]
 	}
 ]
