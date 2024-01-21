@@ -7,6 +7,8 @@
 	let windowHeight = window.innerHeight;
 
 	window.addEventListener('resize', () => {
+		isShow = true;
+
 		let newWidth = window.innerWidth;
 		let newHeight = window.innerHeight;
 
@@ -18,14 +20,9 @@
 			windowHeight = newHeight;
 		}
 
-		if (isShow) {
-			setTimeout(() => {
-				isShow = false;
-			}, 1500);
-			return;
-		}
-
-		isShow = true;
+		setTimeout(() => {
+			isShow = false;
+		}, 1500);
 	});
 </script>
 
