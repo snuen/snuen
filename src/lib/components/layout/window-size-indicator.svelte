@@ -21,7 +21,7 @@
 		}
 
 		setTimeout(() => {
-			isShow = false;
+			isShow && (isShow = false);
 		}, 1500);
 	});
 </script>

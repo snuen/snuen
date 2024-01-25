@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 
 	import '$lib/styles/app.css';
-	import Indicator from '$lib/components/layout/indicator.svelte';
+	import WindowSizeIndicator from '$lib/components/layout/window-size-indicator.svelte';
 	import Header from '$lib/components/layout/header/index.svelte';
 	import Footer from '$lib/components/layout/footer/index.svelte';
 
@@ -30,7 +30,7 @@
 
 <div class="min-h-screen md:grid md:grid-cols-layout md:max-w-7xl md:mx-auto">
 	{#if browser}
-		<Indicator />
+		<WindowSizeIndicator />
 	{/if}
 	<Header />
 	<main
