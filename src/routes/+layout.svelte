@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import { browser } from '$app/environment';
 
 	import '$lib/styles/app.css';
@@ -33,10 +35,16 @@
 		<WindowSizeIndicator />
 	{/if}
 	<Header />
-	<main
-		class="col-start-2 col-end-4 xl:col-end-3 flex flex-col max-w-3xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
-	>
-		<slot />
-	</main>
+	<div class="col-start-2 col-end-4 xl:col-end-3">
+		{#key data.pageName}
+			<main
+				in:fly={{ y: 20, duration: 200, delay: 200 }}
+				out:fly={{ y: -20, duration: 200 }}
+				class="flex flex-col max-w-3xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
+			>
+				<slot />
+			</main>
+		{/key}
+	</div>
 	<Footer />
 </div>
