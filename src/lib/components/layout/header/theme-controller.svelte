@@ -37,25 +37,21 @@
 	});
 </script>
 
-<li class="px-2 border-l border-dashed border-l-current md:border-none md:mb-2">
-	<label class="swap swap-rotate w-10 h-full px-0 md:px-2">
-		<input
-			type="checkbox"
-			class="theme-controller"
-			value={themeTarget}
-			data-toggle-theme="autumn,dim"
-		/>
-		<Icon
-			className={'w-5 h-5 md:w-6 md:h-6' +
-				' ' +
-				(currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
-		>
-			<Sun />
-		</Icon>
-		<Icon
-			className={'w-4 h-4 md:w-5 md:h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}
-		>
-			<Moon />
-		</Icon>
-	</label>
-</li>
+<label class="swap swap-rotate w-10 h-full px-0 md:px-2">
+	<input
+		type="checkbox"
+		class="theme-controller"
+		value={themeTarget}
+		data-toggle-theme="autumn,dim"
+	/>
+	<Icon
+		className={'w-5 h-5 md:w-6 md:h-6' + ' ' + (currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
+	>
+		<Sun />
+	</Icon>
+	<Icon
+		className={'w-4 h-4 md:w-5 md:h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}
+	>
+		<Moon />
+	</Icon>
+</label>
