@@ -17,7 +17,6 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
-		"d3": "^7.8.5",
 		"theme-change": "^2.5.0"
 	},
 	"devDependencies": {
@@ -25,7 +24,6 @@
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/kit": "^2.4.3",
 		"@sveltejs/vite-plugin-svelte": "^3.0.1",
-		"@types/d3": "^7.4.3",
 		"@typescript-eslint/eslint-plugin": "^6.19.1",
 		"@typescript-eslint/parser": "^6.19.1",
 		"autoprefixer": "^10.4.17",
