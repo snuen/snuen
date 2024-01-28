@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
+	import { getIsMobile } from '$lib/utils/ua-helper';
+
+	const isMobile = getIsMobile();
+
 	let isShow = false;
 
 	let windowWidth = window.innerWidth;
@@ -26,7 +30,7 @@
 	});
 </script>
 
-{#if isShow}
+{#if !isMobile && isShow}
 	<div transition:fade={{ duration: 100 }}>
 		<span class="badge badge-info">
 			{windowWidth}px &times; {windowHeight}px
