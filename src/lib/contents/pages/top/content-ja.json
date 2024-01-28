@@ -14,7 +14,8 @@
 	"sections": [
 		{
 			"title": "About me",
-			"paragraphs": [
+			"element": "p",
+			"items": [
 				"👋🏻 こんにちは。パク ソンジュンと申します。",
 				"20代中盤にWeb業界に転身し、主に人材の領域で働いてきました。",
 				"現在は、旅行領域で宿泊施設向けの業務支援SaaSの開発をしています。",
@@ -23,14 +24,16 @@
 		},
 		{
 			"title": "Technical preferences",
-			"paragraphs": [
+			"element": "p",
+			"items": [
 				"宣言型UIフレームワークを用いた、ユーザビリティのサイトを作ることが好きです。",
 				"細かいところまで気を遣った実装が得意です。"
 			]
 		},
 		{
 			"title": "Uses",
-			"paragraphs": ["SvelteKitを用いて作りました。Vercel上でホスティングされています。"]
+			"element": "ul",
+			"items": ["TypeScript", "Svelte + SvelteKit", "Tailwind CSS + DaisyUI", "Vercel"]
 		}
 	]
 }

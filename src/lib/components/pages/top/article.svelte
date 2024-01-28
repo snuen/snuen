@@ -9,9 +9,17 @@
 	{#each content.sections as section, i (i)}
 		<section class="mb-8">
 			<Heading level={2}>{section.title}</Heading>
-			{#each section.paragraphs as paragraph, j (j)}
-				<p>{paragraph}</p>
-			{/each}
+			{#if section.element === 'p'}
+				{#each section.items as item, j (j)}
+					<p>{item}</p>
+				{/each}
+			{:else if section.element === 'ul'}
+				<ul class="list-disc list-inside">
+					{#each section.items as item, j (j)}
+						<li>{item}</li>
+					{/each}
+				</ul>
+			{/if}
 		</section>
 	{/each}
 </article>
