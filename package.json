@@ -17,6 +17,7 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
+		"felte": "^1.2.14",
 		"theme-change": "^2.5.0"
 	},
 	"devDependencies": {
