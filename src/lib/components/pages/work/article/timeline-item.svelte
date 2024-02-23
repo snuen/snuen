@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils/tw-helper';
+	import Icon from '$lib/styles/icon.svelte';
 	import CheckCircle from '$lib/components/svgs/check-circle.svelte';
-	import Icon from '$lib/components/atoms/icon.svelte';
 
 	export let index: number;
 	export let type: 'start' | 'end' | 'middle';
@@ -14,7 +14,7 @@
 	<hr />
 {/if}
 <div class="timeline-middle">
-	<Icon className="inline-block w-6 h-6 ml-1">
+	<Icon className={['inline-block', 'w-6', 'h-6', 'ml-1']}>
 		<CheckCircle />
 	</Icon>
 </div>

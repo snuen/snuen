@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 
+	import Icon from '$lib/styles/icon.svelte';
 	import Sun from '$lib/components/svgs/sun.svelte';
 	import Moon from '$lib/components/svgs/moon.svelte';
-	import Icon from '$lib/components/atoms/icon.svelte';
 
 	let themeTarget: string | undefined;
 	let currentTheme: string | undefined;
@@ -45,12 +45,18 @@
 		data-toggle-theme="autumn,dim"
 	/>
 	<Icon
-		className={'w-5 h-5 md:w-6 md:h-6' + ' ' + (currentTheme === 'autumn' ? 'swap-on' : 'swap-off')}
+		className={[
+			'w-5',
+			'h-5',
+			'md:w-6',
+			'md:h-6',
+			currentTheme === 'autumn' ? 'swap-on' : 'swap-off'
+		]}
 	>
 		<Sun />
 	</Icon>
 	<Icon
-		className={'w-4 h-4 md:w-5 md:h-5' + ' ' + (currentTheme === 'dim' ? 'swap-on' : 'swap-off')}
+		className={['w-4', 'h-4', 'md:w-5', 'md:h-5', currentTheme === 'dim' ? 'swap-on' : 'swap-off']}
 	>
 		<Moon />
 	</Icon>

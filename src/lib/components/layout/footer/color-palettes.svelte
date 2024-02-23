@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Icon from '$lib/styles/icon.svelte';
 	import ClipBoardDocument from '$lib/components/svgs/clipboard-document.svelte';
-	import Icon from '$lib/components/atoms/icon.svelte';
 
 	type ColorListItem = {
 		name: string;
@@ -88,7 +88,7 @@
 					on:mouseleave={(ev) => handleMouseLeaveButton(ev.currentTarget)}
 					class="btn btn-sm glass w-fit h-8 text-sm"
 				>
-					<Icon className="w-4 h-4">
+					<Icon className={['w-4', 'h-4']}>
 						<ClipBoardDocument />
 					</Icon>
 					{hex}</button
