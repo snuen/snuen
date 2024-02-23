@@ -7,7 +7,7 @@
 </script>
 
 {#if level === 1}
-	<h1 class={cn([...baseClassArray, 'text-1xl'])}>
+	<h1 class={cn([...baseClassArray, 'text-3xl'])}>
 		<slot />
 	</h1>
 {:else if level === 2}
@@ -15,7 +15,7 @@
 		<slot />
 	</h2>
 {:else if level === 3}
-	<h3 class={cn([...baseClassArray, 'text-3xl'])}>
+	<h3 class={cn([...baseClassArray, 'text-xl'])}>
 		<slot />
 	</h3>
 {/if}
