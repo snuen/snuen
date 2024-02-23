@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils/tw-helper';
 	import CheckCircle from '$lib/components/svgs/check-circle.svelte';
 	import Icon from '$lib/components/atoms/icon.svelte';
 
@@ -17,7 +18,7 @@
 		<CheckCircle />
 	</Icon>
 </div>
-<div class={'mb-10' + ' ' + (index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end')}>
+<div class={cn('mb-10', index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end')}>
 	<time class="font-mono italic">{time}</time>
 	<p class="text-lg font-semibold">{title}</p>
 	<p>{description}</p>
