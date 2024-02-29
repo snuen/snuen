@@ -17,8 +17,8 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
-		"felte": "^1.2.14",
-		"theme-change": "^2.5.0"
+		"theme-change": "^2.5.0",
+		"zod": "^3.22.4"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.41.2",
