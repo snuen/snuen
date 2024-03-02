@@ -16,28 +16,56 @@
 			"title": "About me",
 			"element": "p",
 			"items": [
-				"👋🏻 こんにちは。パク ソンジュンと申します。",
-				"20代中盤にWeb業界に転身し、主に人材の領域で働いてきました。",
-				"現在は、旅行領域で宿泊施設向けの業務支援SaaSの開発をしています。",
-				"人々がお互いの創造性や独自性を認め合うことで、よりよい社会を形作ることができると考えています。"
+				{
+					"text": "👋🏻 こんにちは。パク ソンジュンと申します。"
+				},
+				{
+					"text": "20代中盤にWeb業界に転身し、主に人材の領域で働いてきました。"
+				},
+				{
+					"text": "現在は、旅行領域で宿泊施設向けの業務支援SaaSの開発をしています。"
+				},
+				{
+					"text": "人々がお互いの創造性や独自性を認め合うことで、よりよい社会を形作ることができると考えています。"
+				}
 			]
 		},
 		{
 			"title": "Technical preferences",
 			"element": "p",
 			"items": [
-				"宣言型UIフレームワークを用いた、ユーザビリティのサイトを作ることが好きです。",
-				"細かいところまで気を遣った実装が得意です。"
+				{
+					"text": "宣言型UIフレームワークを用いた、ユーザビリティのサイトを作ることが好きです。"
+				},
+				{
+					"text": "細かいところまで気を遣った実装が得意です。"
+				}
 			]
 		},
 		{
 			"title": "Uses",
 			"element": "ul",
 			"items": [
-				"TypeScript",
-				"Svelte + SvelteKit",
-				"Tailwind CSS + DaisyUI",
-				"Vercel"
+				{
+					"text": "TypeScript",
+					"url": "https://www.typescriptlang.org/"
+				},
+				{
+					"text": "SvelteKit",
+					"url": "https://kit.svelte.dev/"
+				},
+				{
+					"text": "Tailwind CSS",
+					"url": "https://tailwindcss.com/"
+				},
+				{
+					"text": "DaisyUI",
+					"url": "https://daisyui.com/"
+				},
+				{
+					"text": "Vercel",
+					"url": "https://vercel.com/"
+				}
 			]
 		}
 	]

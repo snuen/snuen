@@ -11,12 +11,25 @@
 			<Heading level={2}>{section.title}</Heading>
 			{#if section.element === 'p'}
 				{#each section.items as item, j (j)}
-					<p>{item}</p>
+					<p>{item.text}</p>
 				{/each}
 			{:else if section.element === 'ul'}
 				<ul class="list-disc list-inside">
 					{#each section.items as item, j (j)}
-						<li>{item}</li>
+						{#if 'url' in item}
+							<li>
+								<a
+									href={item.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="link"
+								>
+									{item.text}
+								</a>
+							</li>
+						{:else}
+							<li>{item.text}</li>
+						{/if}
 					{/each}
 				</ul>
 			{/if}
