@@ -15,7 +15,11 @@
 			{/if}
 		</span>
 	</div>
-	<textarea {name} {placeholder} class="textarea textarea-bordered w-full h-24" />
+	<textarea
+		{name}
+		{placeholder}
+		class="textarea textarea-bordered w-full h-24"
+	/>
 	{#if errorText}
 		<div class="label">
 			<span class="label-text text-error">{errorText}</span>

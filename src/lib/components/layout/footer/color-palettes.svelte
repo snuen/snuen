@@ -64,7 +64,9 @@
 		currentTarget.closest('[data-tip]')?.setAttribute('data-tip', 'copied!');
 	};
 
-	const handleMouseLeaveButton = (currentTarget: EventTarget & HTMLButtonElement) => {
+	const handleMouseLeaveButton = (
+		currentTarget: EventTarget & HTMLButtonElement
+	) => {
 		setTimeout(() => {
 			currentTarget.closest('[data-tip]')?.setAttribute('data-tip', 'copy');
 		}, 300);
@@ -72,7 +74,9 @@
 </script>
 
 <menu class="sticky top-0 grid grid-cols-2 h-screen min-h-[700px]">
-	<li class="flex flex-col gap-2 px-2 justify-center items-center text-center text-sm">
+	<li
+		class="flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
+	>
 		<p class="text-sm">Personal Colors</p>
 	</li>
 	{#each colorList as { name, hex, textColor } ({ hex })}

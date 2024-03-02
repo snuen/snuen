@@ -9,7 +9,9 @@
 	<nav class="md:sticky md:top-10 md:h-[calc(100vh-5rem)]">
 		<ul class="menu menu-horizontal md:menu-vertical flex px-0 md:h-full">
 			<NavLinks />
-			<li class="px-2 border-l border-dashed border-l-current md:border-none md:mb-2">
+			<li
+				class="px-2 border-l border-dashed border-l-current md:border-none md:mb-2"
+			>
 				<ThemeController />
 			</li>
 		</ul>

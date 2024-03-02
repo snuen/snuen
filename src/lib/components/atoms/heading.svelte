@@ -3,7 +3,10 @@
 
 	export let level: 1 | 2 | 3;
 
-	const baseClassArray = ['font-semibold', 'my-[0.25em]'] as const satisfies Inputs;
+	const baseClassArray = [
+		'font-semibold',
+		'my-[0.25em]'
+	] as const satisfies Inputs;
 </script>
 
 {#if level === 1}

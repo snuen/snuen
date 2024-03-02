@@ -25,7 +25,10 @@
 		const theme = localStorage.getItem('theme');
 		document.documentElement.setAttribute(
 			'data-theme',
-			theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dim' : 'autumn')
+			theme ??
+				(window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dim'
+					: 'autumn')
 		);
 	</script>
 </svelte:head>

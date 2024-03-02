@@ -25,7 +25,10 @@
 			' ' +
 			(i === navList.length - 1 ? 'md:mb-auto' : 'md:mb-2')}
 	>
-		<a {href} class="flex justify-center md:justify-start w-full h-full px-0 md:px-2 uppercase">
+		<a
+			{href}
+			class="flex justify-center md:justify-start w-full h-full px-0 md:px-2 uppercase"
+		>
 			<Icon className={['w-4', 'h-4']}>
 				<Svg />
 			</Icon>

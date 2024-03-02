@@ -13,6 +13,9 @@ const contentErrorMessage = '本文を入力してください';
 export const contactFormSchema = z.object({
 	[nameFieldValue]: z.string().min(1, nameErrorMessage),
 	[emailFieldValue]: z.string().email(emailErrorMessage),
-	[websiteFieldValue]: z.union([z.string().url(websiteErrorMessage), z.literal('')]),
+	[websiteFieldValue]: z.union([
+		z.string().url(websiteErrorMessage),
+		z.literal('')
+	]),
 	[contentFieldValue]: z.string().min(1, contentErrorMessage)
 });

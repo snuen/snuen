@@ -5,12 +5,21 @@
 
 	import FormTextInput from './form-text-input.svelte';
 	import FormTextarea from './form-textarea.svelte';
-	import { nameFieldValue, emailFieldValue, websiteFieldValue, contentFieldValue } from './util';
+	import {
+		nameFieldValue,
+		emailFieldValue,
+		websiteFieldValue,
+		contentFieldValue
+	} from './util';
 
 	const form = getContext<ActionData>(contextKey);
 </script>
 
-<form method="POST" autocomplete="off" class="flex flex-col gap-4 items-start mt-6">
+<form
+	method="POST"
+	autocomplete="off"
+	class="flex flex-col gap-4 items-start mt-6"
+>
 	<FormTextInput
 		type="text"
 		name="name"

@@ -39,7 +39,10 @@ export const actions = {
 		});
 
 		if (!formParsedResult.success) {
-			return { success: false, errors: formParsedResult.error.errors };
+			return {
+				success: false,
+				errors: formParsedResult.error.errors
+			};
 		}
 
 		return { success: true };

@@ -6,7 +6,11 @@
 	export let text: string;
 </script>
 
-<a {href} target="_blank" rel="noopener noreferrer" class="link inline-flex items-center"
+<a
+	{href}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="link inline-flex items-center"
 	>{text}
 	<Icon className={['inline-block', 'w-4', 'h-4', 'l-1']}>
 		<ArrowTopRightOnSquare />

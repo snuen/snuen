@@ -56,7 +56,13 @@
 		<Sun />
 	</Icon>
 	<Icon
-		className={['w-4', 'h-4', 'md:w-5', 'md:h-5', currentTheme === 'dim' ? 'swap-on' : 'swap-off']}
+		className={[
+			'w-4',
+			'h-4',
+			'md:w-5',
+			'md:h-5',
+			currentTheme === 'dim' ? 'swap-on' : 'swap-off'
+		]}
 	>
 		<Moon />
 	</Icon>

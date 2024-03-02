@@ -18,7 +18,12 @@
 		<CheckCircle />
 	</Icon>
 </div>
-<div class={cn('mb-10', index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end')}>
+<div
+	class={cn(
+		'mb-10',
+		index % 2 === 0 ? 'timeline-start md:text-end' : 'timeline-end'
+	)}
+>
 	<time class="font-mono italic">{time}</time>
 	<p class="text-lg font-semibold">{title}</p>
 	<p>{description}</p>

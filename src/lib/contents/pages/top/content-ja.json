@@ -33,7 +33,12 @@
 		{
 			"title": "Uses",
 			"element": "ul",
-			"items": ["TypeScript", "Svelte + SvelteKit", "Tailwind CSS + DaisyUI", "Vercel"]
+			"items": [
+				"TypeScript",
+				"Svelte + SvelteKit",
+				"Tailwind CSS + DaisyUI",
+				"Vercel"
+			]
 		}
 	]
 }
