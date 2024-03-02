@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '$lib/utils/tw-helper';
+	import { cn } from '$lib/utils/tailwind-helper';
 	import Icon from '$lib/styles/icon.svelte';
 	import CheckCircle from '$lib/components/svgs/check-circle.svelte';
 

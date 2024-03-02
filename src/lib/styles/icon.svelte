@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Inputs, cn } from '$lib/utils/tw-helper';
+	import { type Inputs, cn } from '$lib/utils/tailwind-helper';
 
 	export let className: Inputs;
 </script>
