@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ExternalLink from '$lib/components/atoms/external-link.svelte';
+	import ExternalLink from '$lib/components/ui/external-link.svelte';
 
 	export let href: string;
 	export let linkText: string;

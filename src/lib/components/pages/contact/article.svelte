@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Heading from '$lib/components/atoms/heading.svelte';
+	import Heading from '$lib/components/ui/heading.svelte';
 
 	import Form from './form/index.svelte';
 </script>

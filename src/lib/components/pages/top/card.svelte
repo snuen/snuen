@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ExternalLink from '$lib/components/atoms/external-link.svelte';
-	import Heading from '$lib/components/atoms/heading.svelte';
+	import ExternalLink from '$lib/components/ui/external-link.svelte';
+	import Heading from '$lib/components/ui/heading.svelte';
 
 	import contentJa from '$lib/contents/pages/top/content-ja.json';
 
