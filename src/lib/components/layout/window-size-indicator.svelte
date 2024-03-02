@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import { getIsMobile } from '$lib/utils/ua-helper';
+	import { debounce } from '$lib/utils/callback-helper';
 
 	const isMobile = getIsMobile();
 
@@ -10,7 +11,7 @@
 	let windowWidth = window.innerWidth;
 	let windowHeight = window.innerHeight;
 
-	window.addEventListener('resize', () => {
+	const handleResize = debounce(() => {
 		isShow = true;
 
 		let newWidth = window.innerWidth;
@@ -25,24 +26,17 @@
 		}
 
 		setTimeout(() => {
-			isShow && (isShow = false);
+			isShow = false;
 		}, 1500);
-	});
+	}, 100);
+
+	window.addEventListener('resize', handleResize);
 </script>
 
 {#if !isMobile && isShow}
-	<div transition:fade={{ duration: 100 }}>
+	<div class="fixed bottom-[12px] left-[12px] z-[9999]" transition:fade={{ duration: 100 }}>
 		<span class="badge badge-info">
 			{windowWidth}px &times; {windowHeight}px
 		</span>
 	</div>
 {/if}
-
-<style>
-	div {
-		position: fixed;
-		bottom: 12px;
-		left: 12px;
-		z-index: 9999;
-	}
-</style>
