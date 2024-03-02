@@ -17,6 +17,7 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
+		"@vercel/speed-insights": "^1.0.10",
 		"theme-change": "^2.5.0",
 		"ua-parser-js": "2.0.0-beta.2",
 		"zod": "^3.22.4"

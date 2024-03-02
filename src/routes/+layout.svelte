@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import { fly } from 'svelte/transition';
 
 	import { browser } from '$app/environment';
@@ -9,6 +10,8 @@
 	import Footer from '$lib/components/layout/footer/index.svelte';
 
 	import type { LayoutData } from './$types';
+
+	injectSpeedInsights();
 
 	export let data: LayoutData;
 </script>
