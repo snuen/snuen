@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { inject as injectAnalytics } from '@vercel/analytics';
 	import { fly } from 'svelte/transition';
 
-	import { browser } from '$app/environment';
+	import { dev, browser } from '$app/environment';
 
 	import '$lib/styles/app.css';
 	import WindowSizeIndicator from '$lib/components/layout/window-size-indicator.svelte';
@@ -12,6 +13,7 @@
 	import type { LayoutData } from './$types';
 
 	injectSpeedInsights();
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	export let data: LayoutData;
 </script>
