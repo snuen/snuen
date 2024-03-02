@@ -8,6 +8,9 @@ dependencies:
   theme-change:
     specifier: ^2.5.0
     version: 2.5.0
+  ua-parser-js:
+    specifier: 2.0.0-beta.2
+    version: 2.0.0-beta.2
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -2779,6 +2782,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
+
+  /ua-parser-js@2.0.0-beta.2:
+    resolution: {integrity: sha512-v1tudz3YJqB2lFtmhs/Wh2aPNsOatJBeCQp5s67rgx7UprG1pkOgzm8H1jXabaMZBXH9cWU3gePSgBTe3lFeRA==}
+    dev: false
 
   /ufo@1.4.0:
     resolution: {integrity: sha512-Hhy+BhRBleFjpJ2vchUNN40qgkh0366FWJGqVLYBHev0vpHTrXSA0ryT+74UiW6KWsldNurQMKGqCm1M2zBciQ==}

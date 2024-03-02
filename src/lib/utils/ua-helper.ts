@@ -1,21 +1,8 @@
+import { UAParser } from 'ua-parser-js';
+
 export const getIsMobile = (): boolean => {
-	const userAgent = navigator.userAgent;
+	const parser = new UAParser();
+	const result = parser.getResult();
 
-	// Check for iOS devices
-	if (/iPad|iPhone|iPod/.test(userAgent)) {
-		return true;
-	}
-
-	// Check for Android devices
-	if (/android/i.test(userAgent)) {
-		return true;
-	}
-
-	// Check for Windows devices
-	if (/windows phone/i.test(userAgent)) {
-		return true;
-	}
-
-	// If none of the above, it's probably not a mobile device
-	return false;
+	return typeof result.device.type !== 'undefined';
 };
