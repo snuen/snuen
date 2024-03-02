@@ -13,6 +13,23 @@
 	} from './util';
 
 	const form = getContext<ActionData>(contextKey);
+
+	let nameErrorText =
+		form === null
+			? undefined
+			: form.errors?.find((err) => err.path[0] === nameFieldValue)?.message;
+	let emailErrorText =
+		form === null
+			? undefined
+			: form.errors?.find((err) => err.path[0] === emailFieldValue)?.message;
+	let websiteErrorText =
+		form === null
+			? undefined
+			: form.errors?.find((err) => err.path[0] === websiteFieldValue)?.message;
+	let contentErrorText =
+		form === null
+			? undefined
+			: form.errors?.find((err) => err.path[0] === contentFieldValue)?.message;
 </script>
 
 <form
@@ -25,39 +42,43 @@
 		name="name"
 		labelText="お名前"
 		placeholder=""
-		errorText={form === null
-			? undefined
-			: form.errors?.find((err) => err.path[0] === nameFieldValue)?.message}
+		errorText={nameErrorText}
 		isRequired
+		on:focus={() => {
+			nameErrorText = undefined;
+		}}
 	/>
 	<FormTextInput
 		type="text"
 		name="email"
 		labelText="メールアドレス"
 		placeholder="info@example.com"
-		errorText={form === null
-			? undefined
-			: form.errors?.find((err) => err.path[0] === emailFieldValue)?.message}
+		errorText={emailErrorText}
 		isRequired
+		on:focus={() => {
+			emailErrorText = undefined;
+		}}
 	/>
 	<FormTextInput
 		type="text"
 		name="website"
 		labelText="Webサイト"
 		placeholder="https://example.com"
-		errorText={form === null
-			? undefined
-			: form.errors?.find((err) => err.path[0] === websiteFieldValue)?.message}
+		errorText={websiteErrorText}
 		isRequired={false}
+		on:focus={() => {
+			websiteErrorText = undefined;
+		}}
 	/>
 	<FormTextarea
 		name="content"
 		placeholder=""
 		labelText="本文"
-		errorText={form === null
-			? undefined
-			: form.errors?.find((err) => err.path[0] === contentFieldValue)?.message}
+		errorText={contentErrorText}
 		isRequired
+		on:focus={() => {
+			contentErrorText = undefined;
+		}}
 	/>
 	<button type="submit" class="btn mt-2">送信する</button>
 </form>

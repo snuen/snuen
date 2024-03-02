@@ -18,8 +18,14 @@
 			{/if}
 		</span>
 	</div>
-	<input {type} {name} {placeholder} class="input input-bordered w-full" />
-	{#if errorText}
+	<input
+		{type}
+		{name}
+		{placeholder}
+		class="input input-bordered w-full"
+		on:focus
+	/>
+	{#if typeof errorText !== 'undefined'}
 		<div class="label">
 			<span class="label-text text-error">{errorText}</span>
 		</div>
