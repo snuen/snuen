@@ -77,20 +77,20 @@
   <li
     class="flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
   >
-    <p class="text-sm">Personal Colors</p>
+    <p class="text-sm">My<br />Personal Colors</p>
   </li>
   {#each colorList as { name, hex, textColor } ({ hex })}
     <li
       class="col-span-1 flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
       style={`background-color: ${hex}; color: ${textColor};`}
     >
-      {name}
+      <span class="flex items-center h-10">{name}</span>
       <div class="tooltip tooltip-bottom" data-tip="copy">
         <button
           type="button"
           on:click={(ev) => handleClickButton(hex, ev.currentTarget)}
           on:mouseleave={(ev) => handleMouseLeaveButton(ev.currentTarget)}
-          class="btn btn-sm glass w-fit h-8 text-sm"
+          class="btn btn-sm glass w-fit h-8 px-2 text-sm"
         >
           <Icon className={['w-4', 'h-4']}>
             <ClipBoardDocument />

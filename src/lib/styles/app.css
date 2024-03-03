@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply leading-relaxed;
+@font-face {
+  font-family: 'LINESeedJPStd';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  /* IE9 Compat Modes */
+  src: url('/fonts/LINESeedJP_TTF_Rg.eot');
+  src:
+    local(''),
+    /* Super Modern Browsers */ url('/fonts/LINESeedJP_OTF_Rg.woff2')
+      format('woff2'),
+    /* Modern Browsers */ url('/fonts/LINESeedJP_OTF_Rg.woff') format('woff'),
+    /* Safari, Android, iOS */ url('/fonts/LINESeedJP_TTF_Rg.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'LINESeedJPStd';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  /* IE9 Compat Modes */
+  src: url('/fonts/LINESeedJP_TTF_Bd.eot');
+  src:
+    local(''),
+    /* Super Modern Browsers */ url('/fonts/LINESeedJP_OTF_Bd.woff2')
+      format('woff2'),
+    /* Modern Browsers */ url('/fonts/LINESeedJP_OTF_Bd.woff') format('woff'),
+    /* Safari, Android, iOS */ url('/fonts/LINESeedJP_TTF_Bd.ttf')
+      format('truetype');
 }
