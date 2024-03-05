@@ -6,7 +6,8 @@
 
 <article>
   <Heading level={2}>Contact</Heading>
-  <p class="my-6">🚧作成途中です🚧</p>
-  <!-- <p class="my-6">お気軽にご連絡ください。</p> -->
-  <Form />
+  <p class="my-6">お気軽にご連絡ください。</p>
+  <div class="mb-8">
+    <Form />
+  </div>
 </article>

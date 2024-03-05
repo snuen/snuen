@@ -5,6 +5,7 @@
 
   import FormTextInput from './form-text-input.svelte';
   import FormTextarea from './form-textarea.svelte';
+  import FormAlert from './form-alert.svelte';
   import {
     nameFieldValue,
     emailFieldValue,
@@ -14,22 +15,18 @@
 
   const form = getContext<ActionData>(contextKey);
 
-  let nameErrorText =
-    form === null
-      ? undefined
-      : form.errors?.find((err) => err.path[0] === nameFieldValue)?.message;
-  let emailErrorText =
-    form === null
-      ? undefined
-      : form.errors?.find((err) => err.path[0] === emailFieldValue)?.message;
-  let websiteErrorText =
-    form === null
-      ? undefined
-      : form.errors?.find((err) => err.path[0] === websiteFieldValue)?.message;
-  let contentErrorText =
-    form === null
-      ? undefined
-      : form.errors?.find((err) => err.path[0] === contentFieldValue)?.message;
+  let nameErrorText = form?.errors?.find(
+    (err) => err.field === nameFieldValue
+  )?.message;
+  let emailErrorText = form?.errors?.find(
+    (err) => err.field === emailFieldValue
+  )?.message;
+  let websiteErrorText = form?.errors?.find(
+    (err) => err.field === websiteFieldValue
+  )?.message;
+  let contentErrorText = form?.errors?.find(
+    (err) => err.field === contentFieldValue
+  )?.message;
 </script>
 
 <form
@@ -82,3 +79,7 @@
   />
   <button type="submit" class="btn mt-2">送信する</button>
 </form>
+
+{#if form !== null && form.success}
+  <FormAlert text="送信されました！" className={['mt-6']} />
+{/if}
