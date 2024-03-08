@@ -11,6 +11,9 @@ dependencies:
   '@vercel/speed-insights':
     specifier: ^1.0.10
     version: 1.0.10(@sveltejs/kit@2.5.2)(react@18.2.0)(svelte@4.2.12)
+  debounce:
+    specifier: ^2.0.0
+    version: 2.0.0
   resend:
     specifier: ^3.2.0
     version: 3.2.0
@@ -1170,6 +1173,11 @@ packages:
     transitivePeerDependencies:
       - postcss
     dev: true
+
+  /debounce@2.0.0:
+    resolution: {integrity: sha512-xRetU6gL1VJbs85Mc4FoEGSjQxzpdxRyFhe3lmWFyy2EzydIcD4xzUvRJMD+NPDfMwKNhxa3PvsIOU32luIWeA==}
+    engines: {node: '>=18'}
+    dev: false
 
   /debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}

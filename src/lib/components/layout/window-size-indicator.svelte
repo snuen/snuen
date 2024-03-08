@@ -1,8 +1,8 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
+  import debounce from 'debounce';
 
   import { getIsMobile } from '$lib/utils/ua-helper';
-  import { debounce } from '$lib/utils/callback-helper';
 
   const isMobile = getIsMobile();
 
