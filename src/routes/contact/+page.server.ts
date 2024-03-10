@@ -19,6 +19,12 @@ export const actions = {
     | { success: true }
     | ActionFailure<{
         success: false;
+        data: {
+          [nameFieldValue]: string;
+          [emailFieldValue]: string;
+          [websiteFieldValue]: string;
+          [contentFieldValue]: string;
+        };
         errors: Array<{
           field:
             | typeof nameFieldValue
@@ -30,23 +36,26 @@ export const actions = {
         }>;
       }>
   > => {
-    const data = await request.formData();
+    const formData = await request.formData();
 
-    const name = data.get(nameFieldValue);
-    const email = data.get(emailFieldValue);
-    const website = data.get(websiteFieldValue);
-    const content = data.get(contentFieldValue);
+    const name = formData.get(nameFieldValue) as string;
+    const email = formData.get(emailFieldValue) as string;
+    const website = formData.get(websiteFieldValue) as string;
+    const content = formData.get(contentFieldValue) as string;
 
-    const formParsedResult = contactFormSchema.safeParse({
+    const data = {
       [nameFieldValue]: name,
       [emailFieldValue]: email,
       [websiteFieldValue]: website,
       [contentFieldValue]: content
-    });
+    };
+
+    const formParsedResult = contactFormSchema.safeParse(data);
 
     if (!formParsedResult.success) {
       return fail(400, {
         success: false,
+        data,
         errors: formParsedResult.error.errors.map((err) => ({
           field: err.path[0] as
             | typeof nameFieldValue
@@ -75,6 +84,7 @@ export const actions = {
     if (resendError) {
       return fail(400, {
         success: false,
+        data,
         errors: [
           {
             field: 'resendError',

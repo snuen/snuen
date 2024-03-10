@@ -15,6 +15,11 @@
 
   const form = getContext<ActionData>(contextKey);
 
+  let nameValue = form?.data?.[nameFieldValue] ?? '';
+  let emailValue = form?.data?.[emailFieldValue] ?? '';
+  let websiteValue = form?.data?.[websiteFieldValue] ?? '';
+  let contentValue = form?.data?.[contentFieldValue] ?? '';
+
   let nameErrorText = form?.errors?.find(
     (err) => err.field === nameFieldValue
   )?.message;
@@ -35,7 +40,7 @@
   class="flex flex-col gap-4 items-start mt-6"
 >
   <FormTextInput
-    type="text"
+    bind:value={nameValue}
     name="name"
     labelText="お名前"
     placeholder=""
@@ -46,7 +51,7 @@
     }}
   />
   <FormTextInput
-    type="text"
+    bind:value={emailValue}
     name="email"
     labelText="メールアドレス"
     placeholder="info@example.com"
@@ -57,7 +62,7 @@
     }}
   />
   <FormTextInput
-    type="text"
+    bind:value={websiteValue}
     name="website"
     labelText="Webサイト"
     placeholder="https://example.com"
@@ -68,6 +73,7 @@
     }}
   />
   <FormTextarea
+    bind:value={contentValue}
     name="content"
     placeholder=""
     labelText="本文"

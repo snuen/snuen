@@ -1,7 +1,5 @@
 <script lang="ts">
-  import type { HTMLInputTypeAttribute } from 'svelte/elements';
-
-  export let type: HTMLInputTypeAttribute;
+  export let value: string;
   export let name: string;
   export let placeholder: string;
   export let labelText: string;
@@ -19,7 +17,8 @@
     </span>
   </div>
   <input
-    {type}
+    bind:value
+    type="text"
     {name}
     {placeholder}
     class="input input-bordered w-full"

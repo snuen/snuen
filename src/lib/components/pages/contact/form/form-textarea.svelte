@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let value: string;
   export let name: string;
   export let placeholder: string;
   export let labelText: string;
@@ -16,6 +17,7 @@
     </span>
   </div>
   <textarea
+    bind:value
     {name}
     {placeholder}
     class="textarea textarea-bordered w-full h-24"
