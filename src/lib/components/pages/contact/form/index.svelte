@@ -15,6 +15,14 @@
 
   const form = getContext<ActionData>(contextKey);
 
+  let isSubmitting = false;
+
+  $: {
+    if (isSubmitting && form !== null) {
+      isSubmitting = false;
+    }
+  }
+
   let nameValue = form?.data?.[nameFieldValue] ?? '';
   let emailValue = form?.data?.[emailFieldValue] ?? '';
   let websiteValue = form?.data?.[websiteFieldValue] ?? '';
@@ -38,6 +46,9 @@
   method="POST"
   autocomplete="off"
   class="flex flex-col gap-4 items-start mt-6"
+  on:submit={() => {
+    isSubmitting = true;
+  }}
 >
   <FormTextInput
     bind:value={nameValue}
@@ -83,7 +94,9 @@
       contentErrorText = undefined;
     }}
   />
-  <button type="submit" class="btn mt-2">送信する</button>
+  <button type="submit" disabled={isSubmitting} class="btn mt-2"
+    >送信する</button
+  >
 </form>
 
 {#if form !== null && form.success}
