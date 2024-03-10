@@ -6,8 +6,8 @@ export const websiteFieldValue = 'website';
 export const contentFieldValue = 'content';
 
 const nameErrorMessage = 'お名前を入力してください';
-const emailErrorMessage = 'メールアドレスを入力してください';
-const websiteErrorMessage = 'WebサイトのURLを入力してください';
+const emailErrorMessage = 'メールアドレスを正しい形式で入力してください';
+const websiteErrorMessage = 'WebサイトのURLを正しい形式で入力してください';
 const contentErrorMessage = '本文を入力してください';
 
 export const contactFormSchema = z.object({
