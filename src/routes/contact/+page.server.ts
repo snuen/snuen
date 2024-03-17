@@ -20,10 +20,7 @@ export const actions = {
     | ActionFailure<{
         success: false;
         data: {
-          [nameFieldValue]: string;
-          [emailFieldValue]: string;
-          [websiteFieldValue]: string;
-          [contentFieldValue]: string;
+          [k: string]: FormDataEntryValue;
         };
         errors: Array<{
           field:
@@ -37,18 +34,7 @@ export const actions = {
       }>
   > => {
     const formData = await request.formData();
-
-    const name = formData.get(nameFieldValue) as string;
-    const email = formData.get(emailFieldValue) as string;
-    const website = formData.get(websiteFieldValue) as string;
-    const content = formData.get(contentFieldValue) as string;
-
-    const data = {
-      [nameFieldValue]: name,
-      [emailFieldValue]: email,
-      [websiteFieldValue]: website,
-      [contentFieldValue]: content
-    };
+    const data = Object.fromEntries(formData);
 
     const formParsedResult = contactFormSchema.safeParse(data);
 
@@ -68,6 +54,7 @@ export const actions = {
     }
 
     const resend = new Resend(RESEND_API_KEY);
+    const { name, email, website, content } = data;
 
     const { error: resendError } = await resend.emails.send({
       from: `Resend via ${new URL(request.url).hostname} <onboarding@resend.dev>`,
