@@ -23,10 +23,10 @@
     }
   }
 
-  let nameValue = form?.data?.[nameFieldValue] ?? '';
-  let emailValue = form?.data?.[emailFieldValue] ?? '';
-  let websiteValue = form?.data?.[websiteFieldValue] ?? '';
-  let contentValue = form?.data?.[contentFieldValue] ?? '';
+  let nameValue = (form?.data?.[nameFieldValue] ?? '') as string;
+  let emailValue = (form?.data?.[emailFieldValue] ?? '') as string;
+  let websiteValue = (form?.data?.[websiteFieldValue] ?? '') as string;
+  let contentValue = (form?.data?.[contentFieldValue] ?? '') as string;
 
   let nameErrorText = form?.errors?.find(
     (err) => err.field === nameFieldValue
