@@ -56,6 +56,8 @@
     }
   ] as const satisfies ColorListItem[];
 
+  const shuffledColorList = colorList.sort(() => Math.random() - 0.5);
+
   const handleClickButton = (
     hex: (typeof colorList)[number]['hex'],
     currentTarget: EventTarget & HTMLButtonElement
@@ -79,7 +81,7 @@
   >
     <p class="text-sm">My<br />Personal Colors</p>
   </li>
-  {#each colorList as { name, hex, textColor } ({ hex })}
+  {#each shuffledColorList as { name, hex, textColor } ({ hex })}
     <li
       class="col-span-1 flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
       style={`background-color: ${hex}; color: ${textColor};`}
