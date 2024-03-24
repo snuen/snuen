@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import daisyui from 'daisyui';
+import containerQueries from '@tailwindcss/container-queries';
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -16,7 +17,7 @@ export default {
       }
     }
   },
-  plugins: [daisyui],
+  plugins: [daisyui, containerQueries],
   daisyui: {
     themes: ['autumn', 'dim']
   }
