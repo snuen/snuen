@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 
 import { RESEND_API_KEY, EMAIL_RECIPIENT } from '$env/static/private';
 import {
+  honeyPotFieldValue,
   nameFieldValue,
   emailFieldValue,
   websiteFieldValue,
@@ -24,6 +25,7 @@ export const actions = {
         };
         errors: Array<{
           field:
+            | typeof honeyPotFieldValue
             | typeof nameFieldValue
             | typeof emailFieldValue
             | typeof websiteFieldValue
@@ -44,6 +46,7 @@ export const actions = {
         data,
         errors: formParsedResult.error.errors.map((err) => ({
           field: err.path[0] as
+            | typeof honeyPotFieldValue
             | typeof nameFieldValue
             | typeof emailFieldValue
             | typeof websiteFieldValue
@@ -53,16 +56,28 @@ export const actions = {
       });
     }
 
+    if (data[honeyPotFieldValue] !== '') {
+      return fail(400, {
+        success: false,
+        data,
+        errors: [
+          {
+            field: honeyPotFieldValue,
+            message: 'Bot detected in honeypot field'
+          }
+        ]
+      });
+    }
+
     const resend = new Resend(RESEND_API_KEY);
-    const { name, email, website, content } = data;
 
     const { error: resendError } = await resend.emails.send({
       from: `Resend via ${new URL(request.url).hostname} <onboarding@resend.dev>`,
       to: EMAIL_RECIPIENT,
-      subject: `Contact form submission from ${name} <${email}>`,
-      html: `<p><strong>Message:</strong></p><p>${content}</p>${
-        website
-          ? `<p style="margin-top: 3em;"><strong>Website:</strong></p><p>${website}</p>`
+      subject: `Contact form submission from ${data[nameFieldValue]} <${data[emailFieldValue]}>`,
+      html: `<p><strong>Message:</strong></p><p>${data[contentFieldValue]}</p>${
+        data[websiteFieldValue]
+          ? `<p style="margin-top: 3em;"><strong>Website:</strong></p><p>${data[websiteFieldValue]}</p>`
           : ''
       }
     `
@@ -71,7 +86,12 @@ export const actions = {
     if (resendError) {
       return fail(400, {
         success: false,
-        data,
+        data: {
+          [nameFieldValue]: data[nameFieldValue],
+          [emailFieldValue]: data[emailFieldValue],
+          [websiteFieldValue]: data[websiteFieldValue],
+          [contentFieldValue]: data[contentFieldValue]
+        },
         errors: [
           {
             field: 'resendError',

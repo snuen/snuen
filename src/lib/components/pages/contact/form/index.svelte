@@ -7,6 +7,7 @@
   import FormTextarea from './form-textarea.svelte';
   import FormAlert from './form-alert.svelte';
   import {
+    honeyPotFieldValue,
     nameFieldValue,
     emailFieldValue,
     websiteFieldValue,
@@ -50,9 +51,14 @@
     isSubmitting = true;
   }}
 >
+  <p class="hidden">
+    <label>
+      Don’t fill this out if you’re human: <input name={honeyPotFieldValue} />
+    </label>
+  </p>
   <FormTextInput
     bind:value={nameValue}
-    name="name"
+    name={nameFieldValue}
     labelText="お名前"
     placeholder=""
     errorText={nameErrorText}
@@ -63,7 +69,7 @@
   />
   <FormTextInput
     bind:value={emailValue}
-    name="email"
+    name={emailFieldValue}
     labelText="メールアドレス"
     placeholder="info@example.com"
     errorText={emailErrorText}
@@ -74,7 +80,7 @@
   />
   <FormTextInput
     bind:value={websiteValue}
-    name="website"
+    name={websiteFieldValue}
     labelText="Webサイト"
     placeholder="https://example.com"
     errorText={websiteErrorText}
@@ -85,7 +91,7 @@
   />
   <FormTextarea
     bind:value={contentValue}
-    name="content"
+    name={contentFieldValue}
     placeholder=""
     labelText="本文"
     errorText={contentErrorText}
