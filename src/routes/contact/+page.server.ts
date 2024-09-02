@@ -3,7 +3,6 @@ import { Resend } from 'resend';
 
 import { RESEND_API_KEY, EMAIL_RECIPIENT } from '$env/static/private';
 import {
-  honeyPotFieldValue,
   nameFieldValue,
   emailFieldValue,
   websiteFieldValue,
@@ -25,7 +24,6 @@ export const actions = {
         };
         errors: Array<{
           field:
-            | typeof honeyPotFieldValue
             | typeof nameFieldValue
             | typeof emailFieldValue
             | typeof websiteFieldValue
@@ -46,26 +44,12 @@ export const actions = {
         data,
         errors: formParsedResult.error.errors.map((err) => ({
           field: err.path[0] as
-            | typeof honeyPotFieldValue
             | typeof nameFieldValue
             | typeof emailFieldValue
             | typeof websiteFieldValue
             | typeof contentFieldValue,
           message: err.message
         }))
-      });
-    }
-
-    if (data[honeyPotFieldValue] !== '') {
-      return fail(400, {
-        success: false,
-        data,
-        errors: [
-          {
-            field: honeyPotFieldValue,
-            message: 'Bot detected in honeypot field'
-          }
-        ]
       });
     }
 

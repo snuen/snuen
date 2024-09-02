@@ -1,13 +1,13 @@
 <script lang="ts">
   import { getContext } from 'svelte';
 
+  import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
   import { type ActionData, contextKey } from '$routes/contact/util';
 
   import FormTextInput from './form-text-input.svelte';
   import FormTextarea from './form-textarea.svelte';
   import FormAlert from './form-alert.svelte';
   import {
-    honeyPotFieldValue,
     nameFieldValue,
     emailFieldValue,
     websiteFieldValue,
@@ -51,11 +51,6 @@
     isSubmitting = true;
   }}
 >
-  <p class="hidden">
-    <label>
-      Don’t fill this out if you’re human: <input name={honeyPotFieldValue} />
-    </label>
-  </p>
   <FormTextInput
     bind:value={nameValue}
     name={nameFieldValue}
@@ -100,6 +95,9 @@
       contentErrorText = undefined;
     }}
   />
+  <!-- The following line controls and configures the Turnstile widget. -->
+  <div class="cf-turnstile" data-sitekey={PUBLIC_TURNSTILE_SITE_KEY}></div>
+  <!-- end. -->
   <button type="submit" disabled={isSubmitting} class="btn mt-2"
     >送信する</button
   >

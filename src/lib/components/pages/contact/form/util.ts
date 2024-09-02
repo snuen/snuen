@@ -1,7 +1,5 @@
 import { z } from 'zod';
 
-export const honeyPotFieldValue = 'bot_field';
-
 export const nameFieldValue = 'name';
 export const emailFieldValue = 'email';
 export const websiteFieldValue = 'website';
