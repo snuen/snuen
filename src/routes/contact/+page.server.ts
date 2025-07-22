@@ -43,7 +43,7 @@ export const actions = {
       return fail(400, {
         success: false,
         data,
-        errors: formParsedResult.error.errors.map((err) => ({
+        errors: formParsedResult.error.issues.map((err) => ({
           field: err.path[0] as
             | typeof nameFieldValue
             | typeof emailFieldValue
