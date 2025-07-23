@@ -35,7 +35,7 @@
 
 {#if !isMobile && isShow}
   <div
-    class="fixed bottom-[12px] left-[12px] z-[9999]"
+    class="fixed bottom-[12px] left-[12px] z-9999"
     transition:fade={{ duration: 100 }}
   >
     <span class="badge badge-info text-xs">
