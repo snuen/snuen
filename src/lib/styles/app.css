@@ -1,4 +1,10 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: 'LINESeedJPStd', ui-sans-serif, system-ui, sans-serif;
+  --grid-template-columns-layout: 16rem 1fr 16rem;
+}
+
 @plugin 'daisyui' {
   themes:
     autumn --default,
