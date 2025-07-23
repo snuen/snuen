@@ -22,7 +22,7 @@
     {placeholder}
     class="textarea textarea-bordered w-full h-24"
     on:focus
-  />
+  ></textarea>
   {#if typeof errorText !== 'undefined'}
     <div class="label">
       <span class="label-text text-error">{errorText}</span>
