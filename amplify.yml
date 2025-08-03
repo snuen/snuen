@@ -3,6 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
+        - echo "Node version $(node --version)"
         - corepack enable
         - corepack use pnpm@10.13.1
         - pnpm install
