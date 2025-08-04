@@ -1,9 +1,5 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
-
   import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
-
-  import { type ActionData, contextKey } from '$routes/contact/util';
 
   import FormTextInput from './form-text-input.svelte';
   import FormTextarea from './form-textarea.svelte';
@@ -15,42 +11,37 @@
     contentFieldValue
   } from './util';
 
-  const form = getContext<ActionData>(contextKey);
-
   let isSubmitting = false;
+  let submitSuccess = false;
+  let submitError = '';
 
-  $: {
-    if (isSubmitting && form !== null) {
+  let nameValue = '';
+  let emailValue = '';
+  let websiteValue = '';
+  let contentValue = '';
+
+  let nameErrorText: string | undefined;
+  let emailErrorText: string | undefined;
+  let websiteErrorText: string | undefined;
+  let contentErrorText: string | undefined;
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    isSubmitting = true;
+
+    // For now, just show a message that the form is disabled
+    // In the future, this could call an API endpoint
+    setTimeout(() => {
       isSubmitting = false;
-    }
+      submitError = 'コンタクトフォームは現在使えません。直接メールください。';
+    }, 1000);
   }
-
-  let nameValue = (form?.data?.[nameFieldValue] ?? '') as string;
-  let emailValue = (form?.data?.[emailFieldValue] ?? '') as string;
-  let websiteValue = (form?.data?.[websiteFieldValue] ?? '') as string;
-  let contentValue = (form?.data?.[contentFieldValue] ?? '') as string;
-
-  let nameErrorText = form?.errors?.find(
-    (err) => err.field === nameFieldValue
-  )?.message;
-  let emailErrorText = form?.errors?.find(
-    (err) => err.field === emailFieldValue
-  )?.message;
-  let websiteErrorText = form?.errors?.find(
-    (err) => err.field === websiteFieldValue
-  )?.message;
-  let contentErrorText = form?.errors?.find(
-    (err) => err.field === contentFieldValue
-  )?.message;
 </script>
 
 <form
-  method="POST"
   autocomplete="off"
   class="flex flex-col gap-4 items-start mt-6"
-  on:submit={() => {
-    isSubmitting = true;
-  }}
+  on:submit={handleSubmit}
 >
   <FormTextInput
     bind:value={nameValue}
@@ -104,6 +95,10 @@
   >
 </form>
 
-{#if form !== null && form.success}
-  <FormAlert text="送信されました！" className={['mt-6']} />
+{#if submitSuccess}
+  <FormAlert text="送信されました！" className={['alert-success', 'mt-6']} />
+{/if}
+
+{#if submitError}
+  <FormAlert text={submitError} className={['alert-warning', 'mt-6']} />
 {/if}
