@@ -12,14 +12,9 @@
 
 See [CLAUDE.md](./CLAUDE.md) for comprehensive development documentation.
 
-## AWS Deployment
+## Deployment
 
-This project is configured for AWS Amplify deployment with hybrid rendering:
-
-### Prerequisites
-
-- AWS account with Amplify access
-- Resend API key for contact form functionality
+This project is deployed on Vercel. To set up your own deployment:
 
 ### Environment Variables
 
@@ -30,10 +25,10 @@ RESEND_API_KEY=your_resend_api_key_here
 EMAIL_RECIPIENT=your_email@example.com
 ```
 
-### Deployment Steps
+### Deploy to Vercel
 
-1. Connect repository to AWS Amplify
-2. Configure environment variables in Amplify console
-3. Deploy using the included `amplify.yml` build configuration
+1. Connect repository to Vercel
+2. Configure environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
 
-The build uses Node.js adapter for server-side contact form processing while prerendering static pages for optimal performance.
+The build uses `@sveltejs/adapter-auto` which automatically detects Vercel for optimal deployment.
