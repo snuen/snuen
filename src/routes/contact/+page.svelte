@@ -4,11 +4,11 @@
 
   import Contact from '$lib/components/pages/contact/index.svelte';
 
-  import { contextKey } from './util';
+  import { type ActionData, contextKey } from './util';
 
-  export let form: unknown;
+  export let form: ActionData;
 
-  const contactForm = writable<unknown>();
+  const contactForm = writable<ActionData>();
   $: contactForm.set(form);
 
   setContext(contextKey, form);
