@@ -107,4 +107,3 @@ External links are consistently handled through the `ExternalLink` component wit
 ### Grid Layout System
 
 Custom Tailwind configuration defines a 3-column layout grid that adapts responsively. The layout uses CSS Grid with named areas for semantic layout structure.
-
