@@ -1,14 +1,18 @@
 <script lang="ts">
+  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+  import { inject as injectAnalytics } from '@vercel/analytics';
   import { fly } from 'svelte/transition';
 
-  import { browser } from '$app/environment';
+  import { dev } from '$app/environment';
 
   import '$lib/styles/app.css';
-  import WindowSizeIndicator from '$lib/components/layout/window-size-indicator.svelte';
   import Header from '$lib/components/layout/header/index.svelte';
   import Footer from '$lib/components/layout/footer/index.svelte';
 
   import type { LayoutData } from './$types';
+
+  injectSpeedInsights();
+  injectAnalytics({ mode: dev ? 'development' : 'production' });
 
   export let data: LayoutData;
 </script>
@@ -34,9 +38,6 @@
 </svelte:head>
 
 <div class="min-h-screen md:grid md:grid-cols-layout md:max-w-7xl md:mx-auto">
-  {#if browser}
-    <WindowSizeIndicator />
-  {/if}
   <Header />
   <div class="col-start-2 col-end-4 xl:col-end-3">
     {#key data.pageName}
