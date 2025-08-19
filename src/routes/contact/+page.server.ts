@@ -1,7 +1,10 @@
 import { type ActionFailure, type Actions, fail } from '@sveltejs/kit';
-import { Resend } from 'resend';
 
-import { RESEND_API_KEY, EMAIL_RECIPIENT } from '$env/static/private';
+// Uncomment the following lines if you want to use Resend for sending emails
+
+// import { Resend } from 'resend';
+
+// import { RESEND_API_KEY, EMAIL_RECIPIENT } from '$env/static/private';
 
 import {
   nameFieldValue,
@@ -52,37 +55,37 @@ export const actions = {
       });
     }
 
-    const resend = new Resend(RESEND_API_KEY);
+    // const resend = new Resend(RESEND_API_KEY);
 
-    const { error: resendError } = await resend.emails.send({
-      from: `Resend via ${new URL(request.url).hostname} <onboarding@resend.dev>`,
-      to: EMAIL_RECIPIENT,
-      subject: `Contact form submission from ${data[nameFieldValue]} <${data[emailFieldValue]}>`,
-      html: `<p><strong>Message:</strong></p><p>${data[contentFieldValue]}</p>${
-        data[websiteFieldValue]
-          ? `<p style="margin-top: 3em;"><strong>Website:</strong></p><p>${data[websiteFieldValue]}</p>`
-          : ''
-      }
-    `
-    });
+    // const { error: resendError } = await resend.emails.send({
+    //   from: `Resend via ${new URL(request.url).hostname} <onboarding@resend.dev>`,
+    //   to: EMAIL_RECIPIENT,
+    //   subject: `Contact form submission from ${data[nameFieldValue]} <${data[emailFieldValue]}>`,
+    //   html: `<p><strong>Message:</strong></p><p>${data[contentFieldValue]}</p>${
+    //     data[websiteFieldValue]
+    //       ? `<p style="margin-top: 3em;"><strong>Website:</strong></p><p>${data[websiteFieldValue]}</p>`
+    //       : ''
+    //   }
+    // `
+    // });
 
-    if (resendError) {
-      return fail(400, {
-        success: false,
-        data: {
-          [nameFieldValue]: data[nameFieldValue],
-          [emailFieldValue]: data[emailFieldValue],
-          [websiteFieldValue]: data[websiteFieldValue],
-          [contentFieldValue]: data[contentFieldValue]
-        },
-        errors: [
-          {
-            field: 'resendError',
-            message: resendError.message
-          }
-        ]
-      });
-    }
+    // if (resendError) {
+    //   return fail(400, {
+    //     success: false,
+    //     data: {
+    //       [nameFieldValue]: data[nameFieldValue],
+    //       [emailFieldValue]: data[emailFieldValue],
+    //       [websiteFieldValue]: data[websiteFieldValue],
+    //       [contentFieldValue]: data[contentFieldValue]
+    //     },
+    //     errors: [
+    //       {
+    //         field: 'resendError',
+    //         message: resendError.message
+    //       }
+    //     ]
+    //   });
+    // }
 
     return { success: true };
   }
