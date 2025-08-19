@@ -1,4 +1,4 @@
-# Hi, [Sungjoon](https://snuen.dev/) here 🎐
+# Hi, [Sungjoon](https://snuen.com/) here 🎐
 
 <img src="./concept-image.jpg" alt="concept image" width="240" height="192" align="right" />
 
