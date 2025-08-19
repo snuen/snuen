@@ -2,10 +2,10 @@
 
 <img src="./concept-image.jpg" alt="concept image" width="240" height="192" align="right" />
 
-- 💻 Freelance front-end developer building a internal operations support SasS for travel industry
-- ⚛️ Uses declarative UI frameworks like React, Vue, Svelte
-- 📷 Logs his life with compact digital camera
-- 🌱 Seeks a right sized life
+- 💻 Front-end developer building a SaaS that helps retailers turn inventory into profit
+- ⚛️ Uses declarative UI frameworks like React, Vue, and Svelte
+- 📷 Logs his life with a compact digital camera
+- 🌱 Seeks a right-sized life
 - 😄 Pronouns: he/him
 
 ## Development
