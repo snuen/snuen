@@ -6,8 +6,9 @@
 }
 
 @plugin 'daisyui' {
-  /* biome-ignore lint/correctness/noUnknownProperty: DaisyUI plugin config */
-  themes: autumn --default dim --prefersdark;
+  themes:
+    autumn --default,
+    dim --prefersdark;
 }
 
 @font-face {
