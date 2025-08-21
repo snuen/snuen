@@ -85,9 +85,11 @@ Full-stack contact form implementation:
 - Environment variable configuration required
 
 To enable email sending:
+
 1. Set RESEND_API_KEY and EMAIL_RECIPIENT in your environment.
 2. Uncomment the Resend imports/usages in src/routes/contact/+page.server.ts.
 3. Deploy with those environment variables configured.
+
 ### Testing Setup
 
 - **Vitest** for unit tests (`src/**/*.{test,spec}.{js,ts}`)
