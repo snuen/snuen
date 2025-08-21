@@ -23,6 +23,7 @@ Copy `.env.example` to `.env.local` and configure:
 ```bash
 RESEND_API_KEY=your_resend_api_key_here
 EMAIL_RECIPIENT=your_email@example.com
+PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key_here
 ```
 
 ### Deploy to Vercel
