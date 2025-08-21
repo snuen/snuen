@@ -8,7 +8,6 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...svelte.configs['flat/recommended'],
-  prettier,
   {
     languageOptions: {
       ecmaVersion: 2020,
@@ -44,5 +43,6 @@ export default tseslint.config(
       '*.html',
       '*.md'
     ]
-  }
+  },
+  prettier
 );
