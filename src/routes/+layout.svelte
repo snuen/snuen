@@ -26,16 +26,23 @@
   >
   <meta name="description" content="パク ソンジュンのポートフォリオサイト" />
   <script>
-    const theme = localStorage.getItem('theme');
-    document.documentElement.setAttribute(
-      'data-theme',
-      theme ??
+    try {
+      const stored = localStorage.getItem('theme');
+      const resolved =
+        stored ??
         (window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dim'
-          : 'autumn')
-    );
-  </script>
-</svelte:head>
+          : 'autumn');
+      document.documentElement.setAttribute('data-theme', resolved);
+    } catch {
+      // Fallback without storage
+      const fallback = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dim'
+        : 'autumn';
+      document.documentElement.setAttribute('data-theme', fallback);
+    }
+  </script></svelte:head
+>
 
 <div class="min-h-screen md:grid md:grid-cols-layout md:max-w-7xl md:mx-auto">
   <Header />
