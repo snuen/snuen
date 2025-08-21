@@ -22,7 +22,6 @@
     {placeholder}
     class="textarea textarea-bordered w-full h-24"
     on:focus
-    required={isRequired}
     aria-invalid={typeof errorText !== 'undefined'}
     aria-describedby={typeof errorText !== 'undefined'
       ? `${name}-error`
