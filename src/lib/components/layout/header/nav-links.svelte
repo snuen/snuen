@@ -21,9 +21,7 @@
 
 {#each navList as { label, href, Svg }, i ({ href })}
   <li
-    class={'grow md:grow-0 px-2' +
-      ' ' +
-      (i === navList.length - 1 ? 'md:mb-auto' : 'md:mb-2')}
+    class={`grow md:grow-0 px-2 ${i === navList.length - 1 ? 'md:mb-auto' : 'md:mb-2'}`}
   >
     <a
       {href}
