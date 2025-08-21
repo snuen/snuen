@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"],
+      "description": "Context7 MCP server for accessing up-to-date documentation and code examples for libraries and frameworks"
+    }
+  }
+}

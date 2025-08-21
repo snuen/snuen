@@ -22,10 +22,16 @@
     {placeholder}
     class="textarea textarea-bordered w-full h-24"
     on:focus
-  />
+    required={isRequired}
+    aria-invalid={typeof errorText !== 'undefined'}
+    aria-describedby={typeof errorText !== 'undefined'
+      ? `${name}-error`
+      : undefined}
+  ></textarea>
   {#if typeof errorText !== 'undefined'}
     <div class="label">
-      <span class="label-text text-error">{errorText}</span>
+      <span id={`${name}-error`} class="label-text text-error">{errorText}</span
+      >
     </div>
   {/if}
 </label>

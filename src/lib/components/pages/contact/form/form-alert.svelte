@@ -1,11 +1,11 @@
 <script lang="ts">
   import { type Inputs, cn } from '$lib/utils/tailwind-helper';
 
-  export let className: Inputs;
+  export let className: Inputs = [];
   export let text: string;
 </script>
 
-<div role="alert" class={cn(['alert', 'alert-success', ...className])}>
+<div role="alert" clas s={cn('alert', className)}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="stroke-current shrink-0 h-6 w-6"

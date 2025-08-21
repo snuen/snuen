@@ -12,7 +12,7 @@
     class="flex flex-col @[532px]:flex-row @[532px]:items-center gap-6 @[532px]:gap-8 mb-6 @[532px]:mb-8"
   >
     <figure class="min-w-[250px] min-h-[250px] overflow-hidden">
-      <img src="/avatar.jpg" alt="avatar" width="250" height="250" />
+      <img src="/avatar.png" alt="avatar" width="250" height="250" />
     </figure>
     <div class="min-w-fit">
       <Heading level={1}>{content.heading}</Heading>

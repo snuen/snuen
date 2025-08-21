@@ -11,7 +11,7 @@
   <ExternalLink {href} text={linkText} />
   <p class="mt-2">{description}</p>
   <p class="flex gap-2 mt-2">
-    {#each tags as tag}
+    {#each tags as tag, i (`${tag}-${i}`)}
       <span class="badge border-current">{tag}</span>
     {/each}
   </p>

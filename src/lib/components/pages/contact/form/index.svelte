@@ -105,5 +105,8 @@
 </form>
 
 {#if form !== null && form.success}
-  <FormAlert text="送信されました！" className={['mt-6']} />
+  <FormAlert
+    text="お問い合わせありがとうございます！ もし本気でしたら sungjoon512[at]gmail.com まで人力でご連絡ください"
+    className={['alert-success', 'mt-6']}
+  />
 {/if}
