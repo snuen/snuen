@@ -36,9 +36,9 @@ pnpm run test:integration  # Run Playwright E2E tests only
 
 ### Build System
 
-- **SvelteKit 2.5** with Vite as build tool
-- **pnpm** as package manager (version 10.13.1)
-- **TypeScript** with strict configuration
+- **SvelteKit 2.5** with Vite as the build tool
+- **pnpm (10.13.1)** as the package manager
+- **TypeScript** with a strict configuration
 - Uses `@sveltejs/adapter-auto` for deployment flexibility
 
 ### Routing Structure
@@ -71,6 +71,7 @@ JSON-driven content system:
 
 - **Tailwind CSS** with custom grid configuration
 - **DaisyUI** themes: 'autumn' (light) and 'dim' (dark)
+  (DaisyUI is configured via the Tailwind CSS plugin block in `src/lib/styles/app.css`)
 - Custom fonts: LINESeedJPStd for Japanese typography
 - Utility functions: `cn()` from `tailwind-helper.ts` (combines clsx + tailwind-merge)
 - Theme switching with localStorage persistence and SSR safety
