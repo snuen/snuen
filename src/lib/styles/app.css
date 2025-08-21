@@ -6,7 +6,7 @@
 }
 
 @plugin 'daisyui' {
-  /* biome-ignore lint/correctness/noUnknownProperty -- DaisyUI plugin config */
+  /* biome-ignore lint/correctness/noUnknownProperty: DaisyUI plugin config */
   themes: autumn --default dim --prefersdark;
 }
 
