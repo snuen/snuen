@@ -36,7 +36,8 @@ pnpm run test:integration  # Run Playwright E2E tests only
 
 ### Build System
 
-- **SvelteKit 2.5** with Vite as the build tool
+- **SvelteKit ^2.25.1** with Vite as the build tool
+- **Node >=22.18.0** as the runtime engine requirement
 - **pnpm (10.13.1)** as the package manager
 - **TypeScript** with a strict configuration
 - Uses `@sveltejs/adapter-auto` for deployment flexibility
