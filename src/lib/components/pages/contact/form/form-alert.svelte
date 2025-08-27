@@ -5,7 +5,7 @@
   export let text: string;
 </script>
 
-<div role="alert" clas s={cn('alert', className)}>
+<div role="alert" class={cn('alert', className)}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="stroke-current shrink-0 h-6 w-6"
