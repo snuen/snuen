@@ -1,8 +1,12 @@
 <script lang="ts">
   import { type Inputs, cn } from '$lib/utils/tailwind-helper';
 
-  export let className: Inputs = [];
-  export let text: string;
+  interface Props {
+    className?: Inputs;
+    text: string;
+  }
+
+  let { className = [], text }: Props = $props();
 </script>
 
 <div role="alert" class={cn('alert', className)}>

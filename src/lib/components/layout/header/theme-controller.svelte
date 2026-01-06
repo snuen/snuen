@@ -1,16 +1,20 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { themeChange } from 'theme-change';
 
   import Icon from '$lib/styles/icon.svelte';
   import Sun from '$lib/components/svgs/sun.svelte';
   import Moon from '$lib/components/svgs/moon.svelte';
 
-  let themeTarget: string | undefined;
-  let currentTheme: string | undefined;
-  if (typeof window !== 'undefined') {
-    currentTheme = localStorage.getItem('theme') ?? undefined;
-    switch (currentTheme) {
+  let themeTarget = $state<string | undefined>(undefined);
+  let currentTheme = $state<string | undefined>(undefined);
+
+  function initializeTheme() {
+    if (typeof window === 'undefined') return;
+
+    const storedTheme = localStorage.getItem('theme') ?? undefined;
+    currentTheme = storedTheme;
+
+    switch (storedTheme) {
       case 'autumn':
         themeTarget = 'dim';
         break;
@@ -22,17 +26,17 @@
           localStorage.setItem('theme', 'dim');
           themeTarget = 'autumn';
           currentTheme = 'dim';
-          break;
+        } else {
+          localStorage.setItem('theme', 'autumn');
+          themeTarget = 'dim';
+          currentTheme = 'autumn';
         }
-
-        localStorage.setItem('theme', 'autumn');
-        themeTarget = 'dim';
-        currentTheme = 'autumn';
         break;
     }
   }
 
-  onMount(() => {
+  $effect(() => {
+    initializeTheme();
     themeChange(false);
   });
 </script>

@@ -1,9 +1,15 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import { type Inputs, cn } from '$lib/utils/tailwind-helper';
 
-  export let className: Inputs;
+  interface Props {
+    className: Inputs;
+    children: Snippet;
+  }
+
+  let { className, children }: Props = $props();
 </script>
 
 <span class={cn(className)}>
-  <slot />
+  {@render children()}
 </span>

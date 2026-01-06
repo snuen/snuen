@@ -1,17 +1,15 @@
 <script lang="ts">
   import { setContext } from 'svelte';
-  import { writable } from 'svelte/store';
 
   import Contact from '$lib/components/pages/contact/index.svelte';
 
   import { type ActionData, contextKey } from './util';
 
-  export let form: ActionData;
+  let { form }: { form: ActionData } = $props();
 
-  const contactForm = writable<ActionData>();
-  $: contactForm.set(form);
-
-  setContext(contextKey, form);
+  // Context must be set synchronously during component initialization
+  // In Svelte 5, we pass a function to get the reactive value
+  setContext(contextKey, () => form);
 </script>
 
 <svelte:head>
