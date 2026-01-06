@@ -116,3 +116,49 @@ External links are consistently handled through the `ExternalLink` component wit
 ### Grid Layout System
 
 Custom Tailwind configuration defines a 3-column layout grid that adapts responsively. The layout uses CSS Grid with named areas for semantic layout structure.
+
+## Svelte 5 and SvelteKit Coding Rules
+
+This project uses **Svelte 5** and **SvelteKit** with modern patterns including **Runes** and **Universal Reactivity**.
+
+### 1. Reactivity via Svelte 5 Runes
+
+Svelte 5 moves away from the `$:` syntax and `let` variable reactivity in favor of **Runes**, which provide more explicit and powerful control over state.
+
+- **State Declaration:** Use the **`$state`** rune to declare reactive variables. For deeply nested objects or arrays, `$state` provides deep reactivity by default.
+- **Performance Optimization:** Use **`$state.raw`** for large data structures where you do not need deep reactivity. This improves performance by only triggering updates when the entire object is reassigned.
+- **Derived State:** Always use **`$derived`** (for simple expressions) or **`$derived.by`** (for complex logic) to create values that depend on other state.
+  - **Rule:** **Never use `$effect` to synchronize state.** Use `$derived` instead to avoid "circles of hell" where state becomes out of sync or difficult to trace.
+- **Side Effects:** Use **`$effect`** sparingly as an "escape hatch" for direct DOM manipulation or synchronizing with external systems (like APIs).
+- **Debugging:** Utilize the **`$inspect`** rune instead of `console.log`. It automatically tracks reactive values and logs their status (init vs. update) whenever they change.
+
+### 2. Modern Component Patterns
+
+- **Props:** Declare component inputs using the **`$props()`** rune.
+- **Two-Way Binding:** If a component needs to mutate a prop and have that change reflected in the parent, wrap the prop in the **`$bindable()`** rune.
+- **Snippets over Slots:** Favor **Snippets** (`{#snippet ...}`) for reusable UI chunks or passing UI as props. They are more flexible than the legacy slot system and behave like regular JavaScript functions.
+- **Universal Reactivity:** Move state logic out of `.svelte` files and into **`.svelte.js`** or **`.svelte.ts`** files. This allows you to share reactive state across multiple components or even global modules easily.
+- **Classes for State:** For complex state logic, use **Classes** with `$state` fields. This provides a clean, encapsulated API using standard Getters and Setters.
+
+### 3. SvelteKit Data Loading and Routing
+
+- **Remote Functions (Experimental):** Use **Remote Functions** (queries and mutations) as the modern alternative to `load` functions and form actions. They provide an RPC-style experience that is fully type-safe from server to client without manual fetch calls.
+- **Server Boundary:** Always put sensitive logic (database calls, secret keys) in **`.server.ts`** files to ensure it never runs on the client.
+- **Route Safety:** Use the **`resolve`** function from `$app/paths` when creating links. This provides compile-time / dev-time checks to ensure you aren't linking to a non-existent route.
+- **Middleware:** Utilize **`hooks.server.ts`** for cross-cutting concerns like authentication, session management, and passing data to the `locals` object for use in server functions.
+
+### 4. Forms and User Interaction
+
+- **Progressive Enhancement:** Spread remote function results into standard HTML forms (`<form {...createPost}>`) to automatically gain **progressive enhancement**, field validation, and type safety.
+- **View Transitions:** Use the **View Transitions API** via the `onNavigate` hook in SvelteKit for seamless animations between pages.
+- **Data Binding:** Use `bind:value` for simple two-way data binding in inputs. For complex transformations (e.g., an input that forces uppercase), use **Function Bindings** with custom get/set logic.
+
+### 5. Styling and Performance
+
+- **Scoped CSS:** Leverage Svelte's default **scoped styling**. Only use `:global()` or global stylesheets when necessary to prevent style leakage.
+- **Conditional Classes:** Use the `class:` directive (e.g., `class:active={isActive}`) or pass an object/array to the `class` attribute for cleaner dynamic styling.
+- **State Snapshots:** When sending reactive state to a non-Svelte system (like a database or `structuredClone`), use **`$state.snapshot()`** to strip the reactive proxy and get a plain JavaScript object.
+
+### Philosophy
+
+**Analogy:** If Svelte 4 was like a set of automatic doors that opened whenever they sensed movement nearby, Svelte 5 is like a smart home system where you explicitly define which sensors (runes) trigger which actions, making the whole house (application) much more predictable and easier to maintain.
