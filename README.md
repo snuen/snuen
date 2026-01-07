@@ -10,7 +10,7 @@
 
 ## Development
 
-See [CLAUDE.md](./CLAUDE.md) for comprehensive development documentation.
+See [AGENTS.md](./AGENTS.md) for guidance for AI coding agents and comprehensive development documentation.
 
 ## Deployment
 
