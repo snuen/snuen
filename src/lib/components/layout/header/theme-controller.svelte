@@ -58,7 +58,9 @@
       'h-5',
       'md:w-6',
       'md:h-6',
-      currentTheme === 'autumn' ? 'swap-on' : 'swap-off'
+      currentTheme === 'autumn' || currentTheme === undefined
+        ? 'swap-on'
+        : 'swap-off'
     ]}
   >
     <Sun />
