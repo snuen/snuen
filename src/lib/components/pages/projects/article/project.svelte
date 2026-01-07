@@ -1,10 +1,14 @@
 <script lang="ts">
   import ExternalLink from '$lib/components/ui/external-link.svelte';
 
-  export let href: string;
-  export let linkText: string;
-  export let description: string;
-  export let tags: string[];
+  interface Props {
+    href: string;
+    linkText: string;
+    description: string;
+    tags: string[];
+  }
+
+  let { href, linkText, description, tags }: Props = $props();
 </script>
 
 <section class="mt-4 pb-4 border-b border-gray-600 border-dashed">

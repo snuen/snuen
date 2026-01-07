@@ -2,8 +2,12 @@
   import Icon from '$lib/styles/icon.svelte';
   import ArrowTopRightOnSquare from '$lib/components/svgs/arrow-top-right-on-square.svelte';
 
-  export let href: string;
-  export let text: string;
+  interface Props {
+    href: string;
+    text: string;
+  }
+
+  let { href, text }: Props = $props();
 </script>
 
 <a

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import Icon from '$lib/styles/icon.svelte';
   import User from '$lib/components/svgs/user.svelte';
   import Squares2x2 from '$lib/components/svgs/squares-2x2.svelte';
@@ -7,7 +8,7 @@
 
   type NavListItem = {
     label: string;
-    href: string;
+    href: '/' | '/projects' | '/work' | '/contact';
     Svg: unknown;
   };
 
@@ -24,7 +25,7 @@
     class={`grow md:grow-0 px-2 ${i === navList.length - 1 ? 'md:mb-auto' : 'md:mb-2'}`}
   >
     <a
-      {href}
+      href={resolve(href)}
       class="flex justify-center md:justify-start w-full h-full px-0 md:px-2 uppercase"
     >
       <Icon className={['w-4', 'h-4']}>

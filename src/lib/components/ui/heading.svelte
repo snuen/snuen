@@ -1,7 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import { type Inputs, cn } from '$lib/utils/tailwind-helper';
 
-  export let level: 1 | 2 | 3;
+  interface Props {
+    level: 1 | 2 | 3;
+    children: Snippet;
+  }
+
+  let { level, children }: Props = $props();
 
   const baseClassArray = [
     'font-semibold',
@@ -11,14 +17,14 @@
 
 {#if level === 1}
   <h1 class={cn([...baseClassArray, 'text-3xl'])}>
-    <slot />
+    {@render children()}
   </h1>
 {:else if level === 2}
   <h2 class={cn([...baseClassArray, 'text-2xl'])}>
-    <slot />
+    {@render children()}
   </h2>
 {:else if level === 3}
   <h3 class={cn([...baseClassArray, 'text-xl'])}>
-    <slot />
+    {@render children()}
   </h3>
 {/if}

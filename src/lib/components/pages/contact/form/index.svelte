@@ -15,40 +15,57 @@
     contentFieldValue
   } from './util';
 
-  const form = getContext<ActionData>(contextKey);
+  const getForm = getContext<() => ActionData>(contextKey);
+  let form = $derived(getForm());
 
-  let isSubmitting = false;
+  let isSubmitting = $state(false);
 
-  $: {
+  $effect(() => {
     if (isSubmitting && form !== null) {
       isSubmitting = false;
     }
-  }
+  });
 
-  let nameValue = (form?.data?.[nameFieldValue] ?? '') as string;
-  let emailValue = (form?.data?.[emailFieldValue] ?? '') as string;
-  let websiteValue = (form?.data?.[websiteFieldValue] ?? '') as string;
-  let contentValue = (form?.data?.[contentFieldValue] ?? '') as string;
+  let nameValue = $state('');
+  let emailValue = $state('');
+  let websiteValue = $state('');
+  let contentValue = $state('');
 
-  let nameErrorText = form?.errors?.find(
-    (err) => err.field === nameFieldValue
-  )?.message;
-  let emailErrorText = form?.errors?.find(
-    (err) => err.field === emailFieldValue
-  )?.message;
-  let websiteErrorText = form?.errors?.find(
-    (err) => err.field === websiteFieldValue
-  )?.message;
-  let contentErrorText = form?.errors?.find(
-    (err) => err.field === contentFieldValue
-  )?.message;
+  let nameErrorText = $state<string | undefined>(undefined);
+  let emailErrorText = $state<string | undefined>(undefined);
+  let websiteErrorText = $state<string | undefined>(undefined);
+  let contentErrorText = $state<string | undefined>(undefined);
+
+  // Sync form data when form changes (e.g., after server response)
+  $effect(() => {
+    if (form?.data) {
+      nameValue = (form.data[nameFieldValue] ?? '') as string;
+      emailValue = (form.data[emailFieldValue] ?? '') as string;
+      websiteValue = (form.data[websiteFieldValue] ?? '') as string;
+      contentValue = (form.data[contentFieldValue] ?? '') as string;
+    }
+    if (form?.errors) {
+      nameErrorText = form.errors.find(
+        (err) => err.field === nameFieldValue
+      )?.message;
+      emailErrorText = form.errors.find(
+        (err) => err.field === emailFieldValue
+      )?.message;
+      websiteErrorText = form.errors.find(
+        (err) => err.field === websiteFieldValue
+      )?.message;
+      contentErrorText = form.errors.find(
+        (err) => err.field === contentFieldValue
+      )?.message;
+    }
+  });
 </script>
 
 <form
   method="POST"
   autocomplete="off"
   class="flex flex-col gap-4 items-start mt-6"
-  on:submit={() => {
+  onsubmit={() => {
     isSubmitting = true;
   }}
 >
@@ -59,7 +76,7 @@
     placeholder=""
     errorText={nameErrorText}
     isRequired
-    on:focus={() => {
+    onfocus={() => {
       nameErrorText = undefined;
     }}
   />
@@ -70,7 +87,7 @@
     placeholder="info@example.com"
     errorText={emailErrorText}
     isRequired
-    on:focus={() => {
+    onfocus={() => {
       emailErrorText = undefined;
     }}
   />
@@ -81,7 +98,7 @@
     placeholder="https://example.com"
     errorText={websiteErrorText}
     isRequired={false}
-    on:focus={() => {
+    onfocus={() => {
       websiteErrorText = undefined;
     }}
   />
@@ -92,7 +109,7 @@
     labelText="本文"
     errorText={contentErrorText}
     isRequired
-    on:focus={() => {
+    onfocus={() => {
       contentErrorText = undefined;
     }}
   />

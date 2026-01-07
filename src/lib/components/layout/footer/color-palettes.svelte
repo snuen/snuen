@@ -56,7 +56,7 @@
     }
   ] as const satisfies ColorListItem[];
 
-  const shuffledColorList = colorList.sort(() => Math.random() - 0.5);
+  const shuffledColorList = [...colorList].sort(() => Math.random() - 0.5);
 
   const handleClickButton = (
     hex: (typeof colorList)[number]['hex'],
@@ -81,7 +81,7 @@
   >
     <p class="text-sm">My<br />Personal Colors</p>
   </li>
-  {#each shuffledColorList as { name, hex, textColor } ({ hex })}
+  {#each shuffledColorList as { name, hex, textColor } (hex)}
     <li
       class="col-span-1 flex flex-col gap-2 px-2 justify-center items-center text-center text-sm"
       style={`background-color: ${hex}; color: ${textColor};`}
@@ -90,8 +90,8 @@
       <div class="tooltip tooltip-bottom" data-tip="copy">
         <button
           type="button"
-          on:click={(ev) => handleClickButton(hex, ev.currentTarget)}
-          on:mouseleave={(ev) => handleMouseLeaveButton(ev.currentTarget)}
+          onclick={(ev) => handleClickButton(hex, ev.currentTarget)}
+          onmouseleave={(ev) => handleMouseLeaveButton(ev.currentTarget)}
           class="btn btn-sm glass w-fit h-8 px-2 text-sm"
         >
           <Icon className={['w-4', 'h-4']}>

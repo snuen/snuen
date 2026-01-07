@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
   import { inject as injectAnalytics } from '@vercel/analytics';
   import { fly } from 'svelte/transition';
@@ -11,10 +12,15 @@
 
   import type { LayoutData } from './$types';
 
+  interface Props {
+    data: LayoutData;
+    children: Snippet;
+  }
+
+  let { data, children }: Props = $props();
+
   injectSpeedInsights();
   injectAnalytics({ mode: dev ? 'development' : 'production' });
-
-  export let data: LayoutData;
 </script>
 
 <svelte:head>
@@ -46,7 +52,7 @@
         out:fly={{ y: -20, duration: 200 }}
         class="flex flex-col max-w-3xl pt-4 md:pt-8 px-4 md:px-8 lg:px-12 pb-12 md:pb-0"
       >
-        <slot />
+        {@render children()}
       </main>
     {/key}
   </div>

@@ -1,10 +1,23 @@
 <script lang="ts">
-  export let value: string;
-  export let name: string;
-  export let placeholder: string;
-  export let labelText: string;
-  export let errorText: string | undefined;
-  export let isRequired: boolean;
+  interface Props {
+    value: string;
+    name: string;
+    placeholder: string;
+    labelText: string;
+    errorText: string | undefined;
+    isRequired: boolean;
+    onfocus?: (event: FocusEvent) => void;
+  }
+
+  let {
+    value = $bindable(),
+    name,
+    placeholder,
+    labelText,
+    errorText,
+    isRequired,
+    onfocus
+  }: Props = $props();
 </script>
 
 <label class="form-control w-full max-w-xs">
@@ -22,7 +35,7 @@
     {name}
     {placeholder}
     class="input input-bordered w-full"
-    on:focus
+    {onfocus}
   />
   {#if typeof errorText !== 'undefined'}
     <div class="label">

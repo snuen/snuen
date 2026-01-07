@@ -3,11 +3,15 @@
   import Icon from '$lib/styles/icon.svelte';
   import CheckCircle from '$lib/components/svgs/check-circle.svelte';
 
-  export let index: number;
-  export let type: 'start' | 'end' | 'middle';
-  export let time: string;
-  export let title: string;
-  export let description: string;
+  interface Props {
+    index: number;
+    type: 'start' | 'end' | 'middle';
+    time: string;
+    title: string;
+    description: string;
+  }
+
+  let { index, type, time, title, description }: Props = $props();
 </script>
 
 {#if type === 'end' || type === 'middle'}
