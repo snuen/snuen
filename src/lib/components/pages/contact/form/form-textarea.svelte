@@ -6,7 +6,7 @@
     labelText: string;
     errorText: string | undefined;
     isRequired: boolean;
-    onfocus?: () => void;
+    onfocus?: (event: FocusEvent) => void;
   }
 
   let {

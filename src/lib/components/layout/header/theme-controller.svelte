@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from 'svelte';
   import { themeChange } from 'theme-change';
 
   import Icon from '$lib/styles/icon.svelte';
@@ -35,9 +36,12 @@
     }
   }
 
+  // Use untrack to ensure single initialization and prevent re-runs
   $effect(() => {
-    initializeTheme();
-    themeChange(false);
+    untrack(() => {
+      initializeTheme();
+      themeChange(false);
+    });
   });
 </script>
 
