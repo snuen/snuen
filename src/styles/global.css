@@ -47,15 +47,15 @@
     --accent-deep: color-mix(in oklch, var(--accent) 75%, oklch(0.18 0.03 55));
     --accent-wash: color-mix(in oklch, var(--accent) 12%, var(--bg));
 
-    /* Neutrals: warm-toned, never pure grey */
-    --bg: oklch(0.974 0.009 78);
-    --surface: oklch(0.96 0.013 74);
+    /* Neutrals: warm amber paper — blue channel naturally reduced */
+    --bg: oklch(0.967 0.020 63);
+    --surface: oklch(0.952 0.026 60);
     --border: color-mix(in oklch, var(--accent) 22%, var(--bg));
     --border-strong: color-mix(in oklch, var(--accent) 40%, var(--bg));
 
-    --text: oklch(0.2 0.025 55);
-    --text-muted: oklch(0.5 0.035 60);
-    --text-faint: oklch(0.7 0.025 68);
+    --text: oklch(0.19 0.030 52);
+    --text-muted: oklch(0.48 0.038 58);
+    --text-faint: oklch(0.68 0.028 65);
 
     /* Typography */
     --font-serif:
