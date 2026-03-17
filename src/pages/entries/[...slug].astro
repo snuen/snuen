@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries', ({ data }) => data.published);
@@ -11,28 +12,36 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const statusLabels: Record<string, string> = {
+  reading: '読中',
+  finished: '読了',
+  paused: '中断',
+};
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{entry.data.title}</title>
-  </head>
-  <body>
-    <main>
-      <a href="/">← 一覧に戻る</a>
-      <h1>{entry.data.title}</h1>
-      {entry.data.author && <p>{entry.data.author}</p>}
-      <p>
-        <time datetime={entry.data.date.toISOString()}>
-          {entry.data.date.toLocaleDateString('ja-JP')}
-        </time>
-        — {entry.data.status}
-      </p>
-      <article>
-        <Content />
-      </article>
-    </main>
-  </body>
-</html>
+<BaseLayout title={entry.data.title}>
+  <a href="/" class="back-link">
+    <span class="back-arrow">←</span>
+    一覧に戻る
+  </a>
+
+  <header class="entry-header">
+    <h1>{entry.data.title}</h1>
+    <div class="entry-header-meta">
+      {entry.data.author && (
+        <span class="entry-author-name">{entry.data.author}</span>
+      )}
+      <time datetime={entry.data.date.toISOString()}>
+        {entry.data.date.toLocaleDateString('ja-JP')}
+      </time>
+      <span class="entry-status-badge" data-status={entry.data.status}>
+        {statusLabels[entry.data.status] ?? entry.data.status}
+      </span>
+    </div>
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+</BaseLayout>
