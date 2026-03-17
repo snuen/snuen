@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+
+const allEntries = await getCollection('entries', ({ data }) => data.published);
+const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>snuen</title>
+  </head>
+  <body>
+    <main>
+      <h1>読書記録</h1>
+      <ul>
+        {sorted.map((entry) => (
+          <li>
+            <a href={`/entries/${entry.id}`}>
+              {entry.data.title}
+            </a>
+            {entry.data.author && <span> — {entry.data.author}</span>}
+            <time datetime={entry.data.date.toISOString()}>
+              {entry.data.date.toLocaleDateString('ja-JP')}
+            </time>
+            <span>[{entry.data.status}]</span>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>
