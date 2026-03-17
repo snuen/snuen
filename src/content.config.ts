@@ -1,14 +1,14 @@
-import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 const entries = defineCollection({
-  loader: glob({ base: './content/entries', pattern: '**/*.md' }),
+  loader: glob({ base: "./content/entries", pattern: "**/*.md" }),
   schema: z.object({
     title: z.string(),
     author: z.string().optional(),
     date: z.coerce.date(),
-    status: z.enum(['reading', 'finished', 'paused']).default('reading'),
+    status: z.enum(["reading", "finished", "paused"]).default("reading"),
     published: z.boolean().default(true),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),

@@ -59,9 +59,9 @@
 
     /* Typography */
     --font-serif:
-      'Noto Serif JP', '游明朝', 'YuMincho', 'Hiragino Mincho ProN', serif;
-    --font-display: 'Zen Old Mincho', 'Noto Serif JP', serif;
-    --font-mono: 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+      "Noto Serif JP", "游明朝", "YuMincho", "Hiragino Mincho ProN", serif;
+    --font-display: "Zen Old Mincho", "Noto Serif JP", serif;
+    --font-mono: "Fira Code", "Cascadia Code", ui-monospace, monospace;
 
     /* Spacing & measure */
     --measure: 64ch;
@@ -233,13 +233,13 @@
       color: var(--text-faint);
       background: var(--accent-wash);
 
-      &[data-status='reading'] {
+      &[data-status="reading"] {
         border-color: color-mix(in oklch, var(--accent) 50%, var(--bg));
         color: var(--accent-deep);
         background: color-mix(in oklch, var(--accent) 10%, var(--bg));
       }
 
-      &[data-status='finished'] {
+      &[data-status="finished"] {
         color: var(--text-faint);
       }
     }

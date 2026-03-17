@@ -128,8 +128,8 @@ Preferred fields:
 
 ```yaml
 ---
-title: ''
-author: ''
+title: ""
+author: ""
 date: YYYY-MM-DD
 status: reading
 published: true

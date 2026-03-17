@@ -1,36 +1,40 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const allEntries = await getCollection('entries', ({ data }) => data.published);
-const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const allEntries = await getCollection("entries", ({ data }) => data.published);
+const sorted = allEntries.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 
 const statusLabels: Record<string, string> = {
-  reading: '読中',
-  finished: '読了',
-  paused: '中断',
+  reading: "読中",
+  finished: "読了",
+  paused: "中断",
 };
 ---
 
 <BaseLayout title="snuen">
   <ul class="entry-list">
-    {sorted.map((entry) => (
-      <li class="entry-item">
-        <a href={`/entries/${entry.id}`} class="entry-link">
-          {entry.data.title}
-        </a>
-        <div class="entry-meta">
-          {entry.data.author && (
-            <span class="entry-author">{entry.data.author}</span>
-          )}
-          <time class="entry-date" datetime={entry.data.date.toISOString()}>
-            {entry.data.date.toLocaleDateString('ja-JP')}
-          </time>
-          <span class="entry-status-badge" data-status={entry.data.status}>
-            {statusLabels[entry.data.status] ?? entry.data.status}
-          </span>
-        </div>
-      </li>
-    ))}
+    {
+      sorted.map((entry) => (
+        <li class="entry-item">
+          <a href={`/entries/${entry.id}`} class="entry-link">
+            {entry.data.title}
+          </a>
+          <div class="entry-meta">
+            {entry.data.author && (
+              <span class="entry-author">{entry.data.author}</span>
+            )}
+            <time class="entry-date" datetime={entry.data.date.toISOString()}>
+              {entry.data.date.toLocaleDateString("ja-JP")}
+            </time>
+            <span class="entry-status-badge" data-status={entry.data.status}>
+              {statusLabels[entry.data.status] ?? entry.data.status}
+            </span>
+          </div>
+        </li>
+      ))
+    }
   </ul>
 </BaseLayout>

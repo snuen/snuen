@@ -64,8 +64,8 @@ bun run build
 
 ```yaml
 ---
-title: ''
-author: ''
+title: ""
+author: ""
 date: YYYY-MM-DD
 status: reading # reading / finished / paused
 published: true
