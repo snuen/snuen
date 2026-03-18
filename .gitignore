@@ -22,6 +22,9 @@ pnpm-debug.log*
 # macOS
 .DS_Store
 
+# obsidian
+.obsidian/
+
 # editor
 .vscode/
 .idea/
