@@ -25,6 +25,9 @@ pnpm-debug.log*
 # obsidian
 .obsidian/
 
+# skill eval workspaces
+.claude/skills/*-workspace/
+
 # editor
 .vscode/
 .idea/
