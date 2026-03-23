@@ -48,12 +48,12 @@
     --accent-wash: color-mix(in oklch, var(--accent) 12%, var(--bg));
 
     /* Neutrals: warm amber paper — blue channel naturally reduced */
-    --bg: oklch(0.967 0.020 63);
+    --bg: oklch(0.967 0.02 63);
     --surface: oklch(0.952 0.026 60);
     --border: color-mix(in oklch, var(--accent) 22%, var(--bg));
     --border-strong: color-mix(in oklch, var(--accent) 40%, var(--bg));
 
-    --text: oklch(0.19 0.030 52);
+    --text: oklch(0.19 0.03 52);
     --text-muted: oklch(0.48 0.038 58);
     --text-faint: oklch(0.68 0.028 65);
 
@@ -98,7 +98,7 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      opacity: 0.045;
+      opacity: 0.12;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
