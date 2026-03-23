@@ -6,6 +6,7 @@ const entries = defineCollection({
   loader: glob({ base: "./content/entries", pattern: "**/*.md" }),
   schema: z.object({
     title: z.string(),
+    entry_title: z.string().optional(),
     author: z.string().optional(),
     date: z.coerce.date(),
     status: z.enum(["reading", "finished", "paused"]).default("reading"),

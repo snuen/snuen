@@ -20,7 +20,7 @@ const statusLabels: Record<string, string> = {
       sorted.map((entry) => (
         <li class="entry-item">
           <a href={`/entries/${entry.id}`} class="entry-link">
-            {entry.data.title}
+            {entry.data.entry_title ?? entry.data.title}
           </a>
           <div class="entry-meta">
             {entry.data.author && (
