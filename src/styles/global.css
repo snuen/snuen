@@ -299,6 +299,12 @@
       color: var(--text);
     }
 
+    & .entry-book-title {
+      color: var(--text-muted);
+      font-size: 0.83rem;
+      font-family: var(--font-serif);
+    }
+
     & time {
       color: var(--accent);
       font-variant-numeric: tabular-nums;
