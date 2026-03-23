@@ -121,7 +121,8 @@
   }
 
   ::selection {
-    background: color-mix(in oklch, var(--accent) 22%, var(--bg));
+    background: color-mix(in oklch, var(--accent) 35%, var(--bg));
+    color: var(--text);
   }
 }
 
