@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snuen.com/sitemap-index.xml

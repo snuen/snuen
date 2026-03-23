@@ -20,9 +20,12 @@ const statusLabels: Record<string, string> = {
 };
 
 const displayTitle = entry.data.entry_title ?? entry.data.title;
+const description = entry.data.author
+  ? `${entry.data.title} — ${entry.data.author} の読書記録。`
+  : `${entry.data.title} の読書記録。`;
 ---
 
-<BaseLayout title={displayTitle}>
+<BaseLayout title={displayTitle} description={description}>
   <a href="/" class="back-link">
     <span class="back-arrow">←</span>
     一覧に戻る
