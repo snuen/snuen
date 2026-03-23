@@ -185,10 +185,18 @@
 
   .entry-item {
     padding-block: 1.6rem;
+    padding-inline: 0.5rem;
+    margin-inline: -0.5rem;
     border-block-end: 1px solid var(--border);
+    border-radius: 3px;
+    transition: background 0.2s var(--ease-expo);
 
     &:first-child {
       border-block-start: 1px solid var(--border);
+    }
+
+    &:hover {
+      background: var(--accent-wash);
     }
 
     & .entry-link {
