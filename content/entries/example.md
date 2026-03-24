@@ -2,7 +2,6 @@
 title: "サンプル：キッチン"
 author: "吉本ばなな"
 date: 2026-03-17
-status: finished
 published: true
 ---
 
