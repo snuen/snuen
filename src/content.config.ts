@@ -9,7 +9,7 @@ const entries = defineCollection({
     entry_title: z.string().optional(),
     author: z.string().optional(),
     date: z.coerce.date(),
-published: z.boolean().default(true),
+    published: z.boolean().default(true),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
     isbn: z.string().optional(),
