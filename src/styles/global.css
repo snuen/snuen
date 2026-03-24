@@ -47,9 +47,9 @@
     --accent-deep: color-mix(in oklch, var(--accent) 75%, oklch(0.18 0.03 55));
     --accent-wash: color-mix(in oklch, var(--accent) 12%, var(--bg));
 
-    /* Neutrals: warm amber paper — blue channel naturally reduced */
-    --bg: oklch(0.967 0.02 63);
-    --surface: oklch(0.952 0.026 60);
+    /* Neutrals: parchment — cooler cream hue contrasts warm accent */
+    --bg: oklch(0.968 0.011 100);
+    --surface: oklch(0.952 0.018 96);
     --border: color-mix(in oklch, var(--accent) 22%, var(--bg));
     --border-strong: color-mix(in oklch, var(--accent) 40%, var(--bg));
 
@@ -88,19 +88,30 @@
 
   body {
     min-height: 100dvh;
-    position: relative;
-    isolation: isolate;
 
-    /* Paper grain overlay — letterpress texture */
+    /* Paper grain — 3 layers at prime intervals create interference */
     &::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
       pointer-events: none;
-      opacity: 0.12;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
+      z-index: 9999;
+      opacity: 0.1;
+      mix-blend-mode: multiply;
+
+      /* Stipple grain — 3 dot grids at prime intervals, staggered positions */
+      background-image:
+        radial-gradient(circle, oklch(0.62 0.07 58) 0.6px, transparent 0.6px),
+        radial-gradient(circle, oklch(0.65 0.05 64) 0.6px, transparent 0.6px),
+        radial-gradient(circle, oklch(0.58 0.08 54) 0.6px, transparent 0.6px);
+      background-size:
+        3px 3px,
+        5px 5px,
+        7px 7px;
+      background-position:
+        0 0,
+        2px 1px,
+        1px 4px;
     }
   }
 
