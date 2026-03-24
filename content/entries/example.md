@@ -2,7 +2,7 @@
 title: "サンプル：キッチン"
 author: "吉本ばなな"
 date: 2026-03-17
-published: true
+published: false
 ---
 
 このファイルはサンプルです。実際の読書記録に置き換えてください。
