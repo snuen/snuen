@@ -29,6 +29,7 @@ const description = entry.data.author
   </a>
 
   <header class="entry-header">
+    <p class="entry-kicker">reading record</p>
     <h1>{displayTitle}</h1>
     <div class="entry-header-meta">
       {
@@ -53,4 +54,10 @@ const description = entry.data.author
   <article class="prose">
     <Content />
   </article>
+
+  <p class="entry-colophon" aria-label="記録の終わり">
+    <span class="colophon-rule" aria-hidden="true"></span>
+    <span class="colophon-text">この記録を閉じる</span>
+    <span class="colophon-rule" aria-hidden="true"></span>
+  </p>
 </BaseLayout>

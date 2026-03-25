@@ -14,10 +14,24 @@ const sorted = allEntries
 ---
 
 <BaseLayout title="snuen">
+  <section class="catalog-intro" aria-label="索引案内">
+    <p class="catalog-label">catalogue</p>
+    <p class="catalog-copy">
+      読んだ本や、読んでいる本についての断片的な記録。<br />
+      静かな私設図書室の目録のように並べています。
+    </p>
+  </section>
+
   <ul class="entry-list">
     {
-      sorted.map(({ entry, updatedAt }) => (
+      sorted.map(({ entry, updatedAt }, index) => (
         <li class="entry-item">
+          <span class="entry-spine" aria-hidden="true">
+            <span class="entry-spine-index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </span>
+
           <a href={`/entries/${entry.id}`} class="entry-link">
             {entry.data.entry_title ?? entry.data.title}
           </a>

@@ -10,6 +10,7 @@ const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = title === "snuen" ? "snuen" : `${title} — snuen`;
 const pageDescription = description ?? "読書記録";
+const isHome = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
@@ -45,8 +46,22 @@ const pageDescription = description ?? "読書記録";
   <body>
     <div class="site-wrapper">
       <header class="site-header">
-        <a href="/" class="site-title">snuen</a>
-        <p class="site-description">読書記録</p>
+        <div class="site-header-row">
+          <div class="site-heading">
+            <p class="site-kicker">private reading room</p>
+            <a href="/" class="site-title">snuen</a>
+            <p class="site-description">読書記録</p>
+          </div>
+
+          <aside class="site-bookplate" aria-label="蔵書票">
+            <p class="bookplate-mark">EX LIBRIS</p>
+            <p class="bookplate-owner">snuen archive</p>
+            <p class="bookplate-index">
+              <span>section</span>
+              <span>{isHome ? "catalog" : "entry"}</span>
+            </p>
+          </aside>
+        </div>
       </header>
 
       <main>
