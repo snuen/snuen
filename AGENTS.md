@@ -183,20 +183,9 @@ When working with Astro-related code:
 - keep content loading simple and predictable
 - prefer standard Astro content collections or straightforward Markdown loading
 - avoid unnecessary complexity in build logic
-- optimize for maintainability and easy deployment to Cloudflare
+- optimize for maintainability and easy deployment
 
 The website exists to publish the reading entries, not to become a complex application.
-
----
-
-## Cloudflare Guidance
-
-When preparing deployment for Cloudflare:
-
-- prefer static-friendly architecture
-- avoid unnecessary server-side complexity unless explicitly needed
-- keep deployment configuration understandable
-- do not introduce infrastructure complexity beyond the actual needs of a reading log site
 
 ---
 
