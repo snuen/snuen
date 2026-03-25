@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { statSync } from "fs";
+import { resolve } from "path";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("entries", ({ data }) => data.published);
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const updatedAt = statSync(resolve(`content/entries/${entry.id}.md`)).mtime;
+const displayTitle = entry.data.entry_title ?? entry.data.title;
+const description = entry.data.author
+  ? `${entry.data.title} — ${entry.data.author} の読書記録。`
+  : `${entry.data.title} の読書記録。`;
+---
+
+<BaseLayout title={displayTitle} description={description}>
+  <a href="/" class="back-link">
+    <span class="back-arrow">←</span>
+    一覧に戻る
+  </a>
+
+  <header class="entry-header">
+    <h1>{displayTitle}</h1>
+    <div class="entry-header-meta">
+      {
+        entry.data.entry_title && (
+          <span class="entry-book-title">{entry.data.title}</span>
+        )
+      }
+      {
+        entry.data.author && (
+          <span class="entry-author-name">{entry.data.author}</span>
+        )
+      }
+      <time class="entry-date" datetime={entry.data.date.toISOString()}>
+        作成 {entry.data.date.toLocaleDateString("ja-JP")}
+      </time>
+      <time class="entry-updated" datetime={updatedAt.toISOString()}>
+        更新 {updatedAt.toLocaleDateString("ja-JP")}
+      </time>
+    </div>
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+</BaseLayout>

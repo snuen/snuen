@@ -1,8 +1,11 @@
 {
-  "useTabs": false,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "printWidth": 80,
-  "plugins": ["prettier-plugin-svelte"],
-  "overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

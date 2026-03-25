@@ -1,35 +1,74 @@
-# Hi, [Sungjoon](https://snuen.com/) here 🎐
+# snuen
 
-<img src="./concept-image.jpg" alt="concept image" width="240" height="192" align="right" />
+本や文章を読んで、感じたことや気づいたことを残しておく場所。
 
-- 💻 Front-end developer building a SaaS that helps retailers turn inventory into profit
-- ⚛️ Uses declarative UI frameworks like React, Vue, and Svelte
-- 📷 Logs his life with a compact digital camera
-- 🌱 Seeks a right-sized life
-- 😄 Pronouns: he/him
+仕事に役立ちそうなものも、ただ好きで読んだものも、どちらも同じように記録する。ジャンルは問わない。読んで、書いて、少しずつ積み重ねていく、それだけ。
 
-## Development
+ObsidianでMarkdownに書き、AstroでWebに公開する。小さくてわかりやすい構成を、これからも大切にしていきたい。
 
-See [AGENTS.md](./AGENTS.md) for guidance for AI coding agents and comprehensive development documentation.
+---
 
-## Deployment
+## セットアップ
 
-This project is deployed on Vercel. To set up your own deployment:
+### 必要なもの
 
-### Environment Variables
+- [Obsidian](https://obsidian.md) — 読書記録を書くエディタ
+- [mise](https://mise.jdx.dev) — Bunのバージョン管理
+- [Bun](https://bun.sh) — パッケージ管理とビルドに使用
 
-Copy `.env.example` to `.env.local` and configure:
+### 手順
+
+**1. リポジトリをクローンする**
 
 ```bash
-RESEND_API_KEY=your_resend_api_key_here
-EMAIL_RECIPIENT=your_email@example.com
-PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key_here
+git clone <repository-url>
+cd snuen
 ```
 
-### Deploy to Vercel
+**2. Bunをmiseでインストールする**
 
-1. Connect repository to Vercel
-2. Configure environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
+Bunのバージョンはプロジェクトルートの `.mise.toml` で管理している。
 
-The build uses `@sveltejs/adapter-auto` which automatically detects Vercel for optimal deployment.
+```bash
+mise install
+```
+
+**3. 依存パッケージをインストールする**
+
+```bash
+bun install
+```
+
+**4. ObsidianでこのフォルダをVaultとして開く**
+
+`content/entries/` に読書記録のMarkdownファイルを作って書いていく。
+
+**5. ローカルで確認する**
+
+```bash
+bun run dev
+```
+
+**6. ビルドする**
+
+```bash
+bun run build
+```
+
+---
+
+## 記録のフォーマット
+
+フロントマターはシンプルに。
+
+```yaml
+---
+title: ""
+author: ""
+date: YYYY-MM-DD
+status: reading # reading / finished / paused
+published: true
+---
+```
+
+あとは自由に書く。感想でも、引用でも、断片的なメモでも。

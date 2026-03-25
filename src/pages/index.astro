@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { statSync } from "fs";
+import { resolve } from "path";
+
+const allEntries = await getCollection("entries", ({ data }) => data.published);
+const sorted = allEntries
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .map((entry) => ({
+    entry,
+    updatedAt: statSync(resolve(`content/entries/${entry.id}.md`)).mtime,
+  }));
+---
+
+<BaseLayout title="snuen">
+  <ul class="entry-list">
+    {
+      sorted.map(({ entry, updatedAt }) => (
+        <li class="entry-item">
+          <a href={`/entries/${entry.id}`} class="entry-link">
+            {entry.data.entry_title ?? entry.data.title}
+          </a>
+          <div class="entry-meta">
+            {entry.data.author && (
+              <span class="entry-author">{entry.data.author}</span>
+            )}
+            <time class="entry-date" datetime={entry.data.date.toISOString()}>
+              作成 {entry.data.date.toLocaleDateString("ja-JP")}
+            </time>
+            <time class="entry-updated" datetime={updatedAt.toISOString()}>
+              更新 {updatedAt.toLocaleDateString("ja-JP")}
+            </time>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
