@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import { statSync } from "fs";
 import { resolve } from "path";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allEntries = await getCollection("entries", ({ data }) => data.published);
 const sorted = allEntries

@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import { statSync } from "fs";
 import { resolve } from "path";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("entries", ({ data }) => data.published);

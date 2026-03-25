@@ -90,14 +90,13 @@
   body {
     min-height: 100dvh;
     position: relative;
-    background-image:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 2.35rem,
-        color-mix(in oklch, var(--accent) 7%, transparent) 2.35rem,
-        transparent 2.42rem
-      );
+    background-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2.35rem,
+      color-mix(in oklch, var(--accent) 7%, transparent) 2.35rem,
+      transparent 2.42rem
+    );
     background-size: 100% 2.65rem;
 
     /* Paper grain — 3 layers at prime intervals create interference */
@@ -131,17 +130,16 @@
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      background:
-        linear-gradient(
-          90deg,
-          transparent 0,
-          transparent min(100% - var(--page-line-offset) - 1px, 100%),
-          color-mix(in oklch, var(--accent) 10%, transparent)
-            min(100% - var(--page-line-offset) - 1px, 100%),
-          color-mix(in oklch, var(--accent) 10%, transparent)
-            min(100% - var(--page-line-offset), 100%),
-          transparent min(100% - var(--page-line-offset), 100%)
-        );
+      background: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent min(100% - var(--page-line-offset) - 1px, 100%),
+        color-mix(in oklch, var(--accent) 10%, transparent)
+          min(100% - var(--page-line-offset) - 1px, 100%),
+        color-mix(in oklch, var(--accent) 10%, transparent)
+          min(100% - var(--page-line-offset), 100%),
+        transparent min(100% - var(--page-line-offset), 100%)
+      );
       opacity: 0.65;
     }
   }
@@ -207,13 +205,23 @@
 
     &::before {
       content: "folio 01";
-      left: max(1rem, calc((100vw - min(100% - var(--gutter) * 2, var(--page-max))) / 2 - 5.5rem));
+      left: max(
+        1rem,
+        calc(
+          (100vw - min(100% - var(--gutter) * 2, var(--page-max))) / 2 - 5.5rem
+        )
+      );
       writing-mode: vertical-rl;
     }
 
     &::after {
       content: "reading notes";
-      right: max(1rem, calc((100vw - min(100% - var(--gutter) * 2, var(--page-max))) / 2 - 5.8rem));
+      right: max(
+        1rem,
+        calc(
+          (100vw - min(100% - var(--gutter) * 2, var(--page-max))) / 2 - 5.8rem
+        )
+      );
       writing-mode: vertical-rl;
     }
   }
@@ -270,12 +278,11 @@
       padding: 0.85rem 0.95rem 0.8rem;
       border: 1px solid var(--border-strong);
       border-radius: 4px;
-      background:
-        linear-gradient(
-          180deg,
-          color-mix(in oklch, var(--surface) 75%, white),
-          color-mix(in oklch, var(--surface) 92%, var(--bg))
-        );
+      background: linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--surface) 75%, white),
+        color-mix(in oklch, var(--surface) 92%, var(--bg))
+      );
       box-shadow: 0 10px 24px color-mix(in oklch, var(--accent) 8%, transparent);
     }
 
@@ -457,7 +464,6 @@
     & .entry-author {
       color: var(--text-muted);
     }
-
   }
 
   /* ── Back link ── */
@@ -690,6 +696,45 @@
 
     .entry-item {
       gap: 0.85rem;
+
+      & .entry-spine {
+        inline-size: 1.5rem;
+        min-block-size: 3.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    .entry-item {
+      grid-template-columns: 1.25rem 1fr;
+      gap: 0.75rem;
+      padding-inline: 0.25rem;
+      margin-inline: -0.25rem;
+
+      & .entry-spine {
+        grid-row: 1 / span 2;
+      }
+
+      & .entry-link {
+        grid-column: 2;
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+      }
+
+      & .entry-spine {
+        inline-size: 1.25rem;
+        min-block-size: 3.4rem;
+      }
+
+      & .entry-meta {
+        grid-column: 2;
+        gap: 0.4rem 0.7rem;
+      }
+
+      & .entry-author {
+        display: block;
+        flex-basis: 100%;
+      }
     }
   }
 }
