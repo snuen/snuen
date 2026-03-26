@@ -649,6 +649,25 @@
     }
   }
 
+  .entry-cover-link,
+  .entry-cover {
+    display: block;
+    margin-block-end: 2.75rem;
+  }
+
+  .entry-cover {
+    height: 200px;
+    width: auto;
+    box-shadow: 0 4px 16px oklch(0 0 0 / 0.15);
+    border-radius: 2px;
+  }
+
+  .entry-cover-link:hover .entry-cover {
+    box-shadow: 0 6px 24px oklch(0 0 0 / 0.22);
+    translate: 0 -2px;
+    transition: box-shadow 0.2s ease, translate 0.2s ease;
+  }
+
   .entry-colophon {
     display: flex;
     align-items: center;

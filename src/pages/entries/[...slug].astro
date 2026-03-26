@@ -51,6 +51,19 @@ const description = entry.data.author
     </div>
   </header>
 
+  {
+    entry.data.cover && entry.data.amazon_url && (
+      <a href={entry.data.amazon_url} class="entry-cover-link" target="_blank" rel="noopener noreferrer">
+        <img src={entry.data.cover} alt={entry.data.title} class="entry-cover" />
+      </a>
+    )
+  }
+  {
+    entry.data.cover && !entry.data.amazon_url && (
+      <img src={entry.data.cover} alt={entry.data.title} class="entry-cover" />
+    )
+  }
+
   <article class="prose">
     <Content />
   </article>

@@ -2,6 +2,8 @@
 entry_title: 目的を達成するための『モデル』を描ける者こそが、UIとAIを制する
 title: モデルベースUIデザイン
 author: 丸 怜里
+cover: https://m.media-amazon.com/images/I/71TB-v9s6zL._SY522_.jpg
+amazon_url: https://amzn.asia/d/0cYs3hqN
 date: 2026-03-18
 published: true
 ---
