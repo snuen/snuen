@@ -480,6 +480,10 @@
     min-height: 44px;
     transition: color 0.2s var(--ease-expo);
 
+    &.back-link--bottom {
+      margin-block: 2rem 0;
+    }
+
     & .back-arrow {
       display: inline-block;
       transition: transform 0.2s var(--ease-expo);
