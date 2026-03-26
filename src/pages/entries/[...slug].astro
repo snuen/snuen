@@ -15,7 +15,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const updatedAt = statSync(resolve(`content/entries/${entry.id}.md`)).mtime;
+const mdxPath = resolve(`content/entries/${entry.id}.mdx`);
+const mdPath = resolve(`content/entries/${entry.id}.md`);
+const entryFilePath = (() => {
+  try { statSync(mdxPath); return mdxPath; } catch { return mdPath; }
+})();
+const updatedAt = statSync(entryFilePath).mtime;
 const displayTitle = entry.data.entry_title ?? entry.data.title;
 const description = entry.data.author
   ? `${entry.data.title} — ${entry.data.author} の読書記録。`

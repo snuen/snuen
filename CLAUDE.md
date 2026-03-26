@@ -1,105 +1,75 @@
-Default to using Bun instead of Node.js.
+# snuen — CLAUDE.md
 
-- Use `bun <file>` instead of `node <file>` or `ts-node <file>`
-- Use `bun test` instead of `jest` or `vitest`
-- Use `bun build <file.html|file.ts|file.css>` instead of `webpack` or `esbuild`
-- Use `bun install` instead of `npm install` or `yarn install` or `pnpm install`
-- Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or `pnpm run <script>`
-- Use `bunx <package> <command>` instead of `npx <package> <command>`
-- Bun automatically loads .env, so don't use dotenv.
+Project: personal reading log built with Astro. Entries are authored in MDX under `content/entries/`.
 
-## APIs
+## Tooling
 
-- `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express`.
-- `bun:sqlite` for SQLite. Don't use `better-sqlite3`.
-- `Bun.redis` for Redis. Don't use `ioredis`.
-- `Bun.sql` for Postgres. Don't use `pg` or `postgres.js`.
-- `WebSocket` is built-in. Don't use `ws`.
-- Prefer `Bun.file` over `node:fs`'s readFile/writeFile
-- Bun.$`ls` instead of execa.
+Use Bun for all package management and script execution.
 
-## Testing
+- `bun install` — install dependencies
+- `bun run dev` — start dev server
+- `bun run build` — production build
+- `bunx <pkg>` — run a package binary (instead of npx)
 
-Use `bun test` to run tests.
+## Design language
 
-```ts#index.test.ts
-import { test, expect } from "bun:test";
+Theme: **Warm Letterpress** — warm paper-texture UI inspired by letterpress printing.
 
-test("hello world", () => {
-  expect(1).toBe(1);
-});
+All tokens are defined in `src/styles/global.css`.
+
+### Color tokens
+
+```
+--accent          oklch(0.67 0.09 62)          Warm caramel — the only true color in the palette
+--accent-dim      color-mix(accent 45%, white)
+--accent-deep     color-mix(accent 75%, dark)
+--accent-wash     color-mix(accent 12%, bg)    Tinted backgrounds, hover states
+
+--bg              oklch(0.968 0.011 100)        Parchment
+--surface         oklch(0.952 0.018 96)         Card and panel backgrounds
+--border          color-mix(accent 22%, bg)
+--border-strong   color-mix(accent 40%, bg)
+
+--text            oklch(0.19 0.03 52)           Body text
+--text-muted      oklch(0.48 0.038 58)          Secondary / meta text
+--text-faint      oklch(0.68 0.028 65)          Labels, decorative text
 ```
 
-## Frontend
+### Typography
 
-Use HTML imports with `Bun.serve()`. Don't use `vite`. HTML imports fully support React, CSS, Tailwind.
-
-Server:
-
-```ts#index.ts
-import index from "./index.html"
-
-Bun.serve({
-  routes: {
-    "/": index,
-    "/api/users/:id": {
-      GET: (req) => {
-        return new Response(JSON.stringify({ id: req.params.id }));
-      },
-    },
-  },
-  // optional websocket support
-  websocket: {
-    open: (ws) => {
-      ws.send("Hello, world!");
-    },
-    message: (ws, message) => {
-      ws.send(message);
-    },
-    close: (ws) => {
-      // handle close
-    }
-  },
-  development: {
-    hmr: true,
-    console: true,
-  }
-})
+```
+--font-serif    Noto Serif JP, YuMincho, …    Body text, lists
+--font-display  Zen Old Mincho, …             Headings, titles
+--font-mono     Fira Code, Cascadia Code, …   Code
 ```
 
-HTML files can import .tsx, .jsx or .js files directly and Bun's bundler will transpile & bundle automatically. `<link>` tags can point to stylesheets and Bun's CSS bundler will bundle.
+Base font size: `clamp(15.5px, 1.1vw + 0.4rem, 17.5px)` / `line-height: 2`
 
-```html#index.html
-<html>
-  <body>
-    <h1>Hello, world!</h1>
-    <script type="module" src="./frontend.tsx"></script>
-  </body>
-</html>
+### Spacing
+
+```
+--measure    64ch                          Max line length for body text
+--gutter     clamp(1.25rem, 4vw, 2rem)
+--page-max   740px
 ```
 
-With the following `frontend.tsx`:
+### Motion
 
-```tsx#frontend.tsx
-import React from "react";
-import { createRoot } from "react-dom/client";
-
-// import .css files directly and it works
-import './index.css';
-
-const root = createRoot(document.body);
-
-export default function Frontend() {
-  return <h1>Hello, world!</h1>;
-}
-
-root.render(<Frontend />);
+```
+--ease-expo   cubic-bezier(0.16, 1, 0.3, 1)   Use for all transitions
 ```
 
-Then, run index.ts
+### CSS conventions
 
-```sh
-bun --hot ./index.ts
-```
+- Always use `oklch()` + `color-mix()` for colors — no hex or rgb values.
+- Use CSS nesting (`& .child {}`).
+- Breakpoints: `720px` (tablet) / `520px` (small mobile).
+- Scope component styles inside Astro `<style>` blocks.
+- Maintain `@layer` order: `reset, base, theme, layout, components`.
 
-For more information, read the Bun API docs in `node_modules/bun-types/docs/**.mdx`.
+### Component conventions
+
+- Elements inside `.prose` use `margin-block` for vertical rhythm (~`2.5rem`).
+- Box components (diagrams, callouts, etc.): `border: 1px solid var(--border)` + `border-radius: 6px` + `background: var(--surface)`.
+- Labels: `font-size: 0.68–0.72rem` / `letter-spacing: 0.14–0.22em` / `text-transform: uppercase` / `color: var(--text-faint)`.
+- Use accent color sparingly — numbers, dates, and emphasis borders only.

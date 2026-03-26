@@ -7,10 +7,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allEntries = await getCollection("entries", ({ data }) => data.published);
 const sorted = allEntries
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .map((entry) => ({
-    entry,
-    updatedAt: statSync(resolve(`content/entries/${entry.id}.md`)).mtime,
-  }));
+  .map((entry) => {
+    const mdxPath = resolve(`content/entries/${entry.id}.mdx`);
+    const mdPath = resolve(`content/entries/${entry.id}.md`);
+    const filePath = (() => {
+      try { statSync(mdxPath); return mdxPath; } catch { return mdPath; }
+    })();
+    return { entry, updatedAt: statSync(filePath).mtime };
+  });
 ---
 
 <BaseLayout title="snuen">

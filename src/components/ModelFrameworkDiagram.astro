@@ -1,0 +1,226 @@
+---
+// UXをUIに変換する4つのモデル — フレームワーク図
+---
+
+<figure class="model-diagram" aria-label="UXをUIに変換する4つのモデルのフレームワーク図">
+  <div class="model-diagram__flow">
+
+    <!-- Input -->
+    <div class="model-diagram__node model-diagram__node--input">
+      <span class="model-diagram__node-label">UXリサーチ成果物</span>
+      <ul class="model-diagram__node-items">
+        <li>ユーザーストーリー</li>
+        <li>カスタマージャーニーマップ</li>
+      </ul>
+    </div>
+
+    <div class="model-diagram__arrow" aria-hidden="true">↓</div>
+
+    <!-- 4 Models -->
+    <div class="model-diagram__models">
+      <span class="model-diagram__models-label">4つのモデルへ変換</span>
+      <ol class="model-diagram__model-list">
+        <li class="model-diagram__model">
+          <span class="model-diagram__model-num">01</span>
+          <div class="model-diagram__model-body">
+            <strong>概念オブジェクト</strong>
+            <span>名詞を抽出 → ソフトウェアが扱う「もの」を特定</span>
+          </div>
+        </li>
+        <li class="model-diagram__model">
+          <span class="model-diagram__model-num">02</span>
+          <div class="model-diagram__model-body">
+            <strong>ユースケース</strong>
+            <span>誰が・何を・どのオブジェクトに対してできるか</span>
+          </div>
+        </li>
+        <li class="model-diagram__model">
+          <span class="model-diagram__model-num">03</span>
+          <div class="model-diagram__model-body">
+            <strong>タスク整理</strong>
+            <span>動詞を構造化 → CRUD原則で仕様を精緻化</span>
+          </div>
+        </li>
+        <li class="model-diagram__model">
+          <span class="model-diagram__model-num">04</span>
+          <div class="model-diagram__model-body">
+            <strong>コンセプト</strong>
+            <span>体験・哲学・目的・イメージの4つの柱で方向性を定義</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="model-diagram__arrow" aria-hidden="true">↓</div>
+
+    <!-- Output -->
+    <div class="model-diagram__node model-diagram__node--output">
+      <span class="model-diagram__node-label">UIデザイン</span>
+      <ul class="model-diagram__node-items">
+        <li>情報設計</li>
+        <li>インタラクション</li>
+        <li>ルック&フィール</li>
+      </ul>
+    </div>
+
+  </div>
+  <figcaption class="model-diagram__caption">
+    UXは直接デザインできない。4つのモデルが変換の橋渡しをする。
+  </figcaption>
+</figure>
+
+<style>
+  .model-diagram {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .model-diagram__flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .model-diagram__arrow {
+    font-size: 1rem;
+    color: var(--accent-dim);
+    line-height: 1;
+    padding-block: 0.4rem;
+  }
+
+  /* Input / Output nodes */
+  .model-diagram__node {
+    width: 100%;
+    max-width: 28rem;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg);
+  }
+
+  .model-diagram__node-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-block-end: 0.45rem;
+    padding-block-end: 0.4rem;
+    border-block-end: 1px solid var(--border);
+  }
+
+  .model-diagram__node--output .model-diagram__node-label {
+    color: var(--accent);
+  }
+
+  .model-diagram__node-items {
+    list-style: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.8rem;
+
+    & li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0 !important;
+
+      &::before {
+        content: "· ";
+        color: var(--text-faint);
+      }
+    }
+  }
+
+  /* 4 Models panel */
+  .model-diagram__models {
+    width: 100%;
+    max-width: 28rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: color-mix(in oklch, var(--accent-wash) 60%, var(--bg));
+    overflow: hidden;
+  }
+
+  .model-diagram__models-label {
+    display: block;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border-block-end: 1px solid var(--border);
+    background: color-mix(in oklch, var(--surface) 70%, transparent);
+  }
+
+  .model-diagram__model-list {
+    list-style: none !important;
+    padding: 0.35rem 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .model-diagram__model {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    align-items: start;
+    padding: 0.55rem 1.1rem 0.55rem 0;
+    border-block-end: 1px solid var(--border);
+    margin: 0 !important;
+
+    &:last-child {
+      border-block-end: none;
+    }
+  }
+
+  .model-diagram__model-num {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    padding-inline: 1.1rem 0;
+    padding-block-start: 0.15rem;
+    line-height: 1.4;
+  }
+
+  .model-diagram__model-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+
+    & strong {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+    }
+
+    & span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+  }
+
+  .model-diagram__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+</style>
