@@ -9,9 +9,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.2",
-    "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.5"
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.1"
   },
   "devDependencies": {
     "@types/bun": "latest",
