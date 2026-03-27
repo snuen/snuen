@@ -9,6 +9,8 @@ published: true
 ---
 
 import ModelFrameworkDiagram from "../../src/components/ModelFrameworkDiagram.astro";
+import UseCaseDiagram from "../../src/components/UseCaseDiagram.astro";
+import TaskTableDiagram from "../../src/components/TaskTableDiagram.astro";
 
 ## 読むきっかけ
 
@@ -52,11 +54,19 @@ import ModelFrameworkDiagram from "../../src/components/ModelFrameworkDiagram.as
 
 「〈購入者〉が〈購入履歴〉を〈閲覧〉できる」のような形だ。この言語的アプローチにより、ユーザーの目的と必要な機能を明確にでき、チーム内での認識合わせにも有効に機能する。
 
+「誰」はユーザーペルソナ（前工程で定義した主語）、「何」は概念オブジェクト（名詞として抽出したもの）、「行動」は後述するタスク（動詞）にそれぞれ対応している。機能一覧ではなく「用途の文」として定義するため、何を・なぜ作るのかという意図がチーム全体で揃いやすい。
+
+<UseCaseDiagram />
+
 ### 3. タスク整理（Task Organization）
 
 UXドキュメントから抽出した**動詞**を構造化するモデルだ。ユーザーのアクションをシステムの機能にマッピングし、**CRUDの原則**（Create・Read・Update・Delete）を活用して仕様を精緻に定義する。
 
 「閲覧する」はRead、「登録する」はCreate、という形で整理することで、必要な機能の抜け漏れを防ぎ、実装仕様の粒度を揃えることができる。
+
+ユーザー側の動詞とシステム側の処理を対にして表に並べ、そこへCRUDのラベルを付与するのが基本的な作り方だ。これにより、似たような言葉でも「更新（U）なのか削除（D）なのか」を明確に区別でき、実装の仕様漏れや粒度のばらつきが起きにくくなる。
+
+<TaskTableDiagram />
 
 ### 4. コンセプト（Concept）
 

@@ -1,0 +1,280 @@
+---
+// ユースケースの構文構造と例 — 図解
+---
+
+<figure class="uc-diagram" aria-label="ユースケースの構文構造を示す図">
+  <div class="uc-diagram__inner">
+
+    <!-- Syntax template -->
+    <div class="uc-diagram__syntax">
+      <span class="uc-diagram__section-label">構文テンプレート</span>
+      <div class="uc-diagram__formula">
+        <div class="uc-diagram__token uc-diagram__token--who">
+          <span class="uc-diagram__token-bracket">〈</span>誰<span class="uc-diagram__token-bracket">〉</span>が
+        </div>
+        <div class="uc-diagram__formula-sep" aria-hidden="true">·</div>
+        <div class="uc-diagram__token uc-diagram__token--what">
+          <span class="uc-diagram__token-bracket">〈</span>何<span class="uc-diagram__token-bracket">〉</span>を
+        </div>
+        <div class="uc-diagram__formula-sep" aria-hidden="true">·</div>
+        <div class="uc-diagram__token uc-diagram__token--action">
+          <span class="uc-diagram__token-bracket">〈</span>行動<span class="uc-diagram__token-bracket">〉</span>できる
+        </div>
+      </div>
+      <div class="uc-diagram__roles">
+        <div class="uc-diagram__role">
+          <span class="uc-diagram__role-name">ユーザーペルソナ</span>
+          <span class="uc-diagram__role-note">主語</span>
+        </div>
+        <div class="uc-diagram__role-spacer" aria-hidden="true"></div>
+        <div class="uc-diagram__role">
+          <span class="uc-diagram__role-name">概念オブジェクト</span>
+          <span class="uc-diagram__role-note">目的語 / モノ</span>
+        </div>
+        <div class="uc-diagram__role-spacer" aria-hidden="true"></div>
+        <div class="uc-diagram__role">
+          <span class="uc-diagram__role-name">タスク</span>
+          <span class="uc-diagram__role-note">動詞 / コト</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="uc-diagram__divider" aria-hidden="true">↓</div>
+
+    <!-- Example -->
+    <div class="uc-diagram__example">
+      <span class="uc-diagram__section-label">記述例</span>
+      <div class="uc-diagram__example-row">
+        <span class="uc-diagram__ex-token uc-diagram__ex-token--who">〈購入者〉</span>
+        <span class="uc-diagram__ex-particle">が</span>
+        <span class="uc-diagram__ex-token uc-diagram__ex-token--what">〈購入履歴〉</span>
+        <span class="uc-diagram__ex-particle">を</span>
+        <span class="uc-diagram__ex-token uc-diagram__ex-token--action">〈閲覧〉</span>
+        <span class="uc-diagram__ex-particle">できる</span>
+      </div>
+    </div>
+
+  </div>
+  <figcaption class="uc-diagram__caption">
+    機能一覧ではなく「用途の文」で定義することで、何を作るべきかの意図がチーム全体で揃う。
+  </figcaption>
+</figure>
+
+<style>
+  .uc-diagram {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .uc-diagram__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .uc-diagram__section-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-block-end: 0.85rem;
+    text-align: center;
+  }
+
+  /* Syntax block */
+  .uc-diagram__syntax {
+    width: 100%;
+    max-width: 32rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg);
+    padding: 1.1rem 1.25rem 1rem;
+  }
+
+  .uc-diagram__formula {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    margin-block-end: 0.9rem;
+  }
+
+  .uc-diagram__token {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .uc-diagram__token-bracket {
+    color: var(--text-faint);
+  }
+
+  .uc-diagram__token--who {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 70%, transparent);
+    border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent);
+  }
+
+  .uc-diagram__token--what {
+    color: var(--text);
+    background: color-mix(in oklch, var(--surface) 60%, var(--bg));
+    border: 1px solid var(--border);
+  }
+
+  .uc-diagram__token--action {
+    color: var(--text-muted);
+    background: color-mix(in oklch, var(--surface) 60%, var(--bg));
+    border: 1px solid var(--border);
+  }
+
+  .uc-diagram__formula-sep {
+    color: var(--text-faint);
+    font-size: 0.9rem;
+    padding-inline: 0.1rem;
+  }
+
+  .uc-diagram__roles {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px dashed var(--border);
+  }
+
+  .uc-diagram__role {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .uc-diagram__role-spacer {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
+  }
+
+  .uc-diagram__role-name {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .uc-diagram__role-note {
+    font-size: 0.66rem;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  /* Divider arrow */
+  .uc-diagram__divider {
+    font-size: 1rem;
+    color: var(--accent-dim);
+    line-height: 1;
+    padding-block: 0.4rem;
+  }
+
+  /* Example block */
+  .uc-diagram__example {
+    width: 100%;
+    max-width: 32rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: color-mix(in oklch, var(--accent-wash) 50%, var(--bg));
+    padding: 1.1rem 1.25rem 1rem;
+  }
+
+  .uc-diagram__example-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.25rem;
+  }
+
+  .uc-diagram__ex-token {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  .uc-diagram__ex-token--who {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 80%, transparent);
+    border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+
+  .uc-diagram__ex-token--what {
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+  }
+
+  .uc-diagram__ex-token--action {
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+  }
+
+  .uc-diagram__ex-particle {
+    font-size: 0.88rem;
+    color: var(--text-faint);
+    line-height: 1.6;
+  }
+
+  /* Caption */
+  .uc-diagram__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .uc-diagram__formula {
+      gap: 0.15rem;
+    }
+
+    .uc-diagram__token {
+      font-size: 0.9rem;
+    }
+
+    .uc-diagram__roles {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .uc-diagram__role-spacer {
+      display: none;
+    }
+
+    .uc-diagram__role {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,244 @@
+---
+// タスク整理表 — ユーザータスク → システムタスク / CRUD分類の図解
+---
+
+<figure class="tt-diagram" aria-label="タスク整理表の構造を示す図">
+  <div class="tt-diagram__inner">
+
+    <span class="tt-diagram__title-label">タスク整理表の構造</span>
+
+    <div class="tt-diagram__table-wrap">
+      <table class="tt-diagram__table">
+        <thead>
+          <tr>
+            <th class="tt-diagram__th tt-diagram__th--user">ユーザーのタスク</th>
+            <th class="tt-diagram__th tt-diagram__th--system">システム側のタスク</th>
+            <th class="tt-diagram__th tt-diagram__th--crud">CRUD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tt-diagram__td">購入履歴を確認する</td>
+            <td class="tt-diagram__td">購入データを取得し一覧表示する</td>
+            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--r">R</span></td>
+          </tr>
+          <tr>
+            <td class="tt-diagram__td">配送先を登録する</td>
+            <td class="tt-diagram__td">住所データを新規作成・保存する</td>
+            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--c">C</span></td>
+          </tr>
+          <tr>
+            <td class="tt-diagram__td">配送先を変更する</td>
+            <td class="tt-diagram__td">住所データを更新する</td>
+            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--u">U</span></td>
+          </tr>
+          <tr>
+            <td class="tt-diagram__td">カートを空にする</td>
+            <td class="tt-diagram__td">選択中の商品データを削除する</td>
+            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--d">D</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CRUD legend -->
+    <div class="tt-diagram__legend">
+      <span class="tt-diagram__legend-label">CRUD</span>
+      <ul class="tt-diagram__legend-list">
+        <li><span class="tt-diagram__crud tt-diagram__crud--c">C</span> Create — 作成</li>
+        <li><span class="tt-diagram__crud tt-diagram__crud--r">R</span> Read — 参照</li>
+        <li><span class="tt-diagram__crud tt-diagram__crud--u">U</span> Update — 更新</li>
+        <li><span class="tt-diagram__crud tt-diagram__crud--d">D</span> Delete — 削除</li>
+      </ul>
+    </div>
+
+  </div>
+  <figcaption class="tt-diagram__caption">
+    ユーザー視点の動詞をCRUDで分類することで、機能の抜け漏れと粒度のばらつきを防ぐ。
+  </figcaption>
+</figure>
+
+<style>
+  .tt-diagram {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .tt-diagram__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .tt-diagram__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  /* Table */
+  .tt-diagram__table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+  }
+
+  .tt-diagram__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    background: var(--bg);
+  }
+
+  .tt-diagram__th {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    border-block-end: 1px solid var(--border-strong);
+    white-space: nowrap;
+  }
+
+  .tt-diagram__th--user {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 60%, var(--bg));
+  }
+
+  .tt-diagram__th--system {
+    color: var(--text-muted);
+    background: color-mix(in oklch, var(--surface) 80%, var(--bg));
+  }
+
+  .tt-diagram__th--crud {
+    color: var(--text-faint);
+    background: color-mix(in oklch, var(--surface) 80%, var(--bg));
+    text-align: center;
+    width: 4rem;
+  }
+
+  .tt-diagram__td {
+    padding: 0.55rem 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    border-block-end: 1px solid var(--border);
+    vertical-align: middle;
+
+    &:last-child {
+      text-align: center;
+    }
+  }
+
+  tr:last-child .tt-diagram__td {
+    border-block-end: none;
+  }
+
+  tr:nth-child(even) .tt-diagram__td {
+    background: color-mix(in oklch, var(--surface) 40%, transparent);
+  }
+
+  /* CRUD badges */
+  .tt-diagram__crud {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tt-diagram__crud--c {
+    color: color-mix(in oklch, var(--accent-deep) 90%, oklch(0.4 0.15 145));
+    background: color-mix(in oklch, oklch(0.88 0.08 145) 30%, var(--bg));
+    border: 1px solid color-mix(in oklch, oklch(0.7 0.1 145) 30%, transparent);
+  }
+
+  .tt-diagram__crud--r {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 80%, transparent);
+    border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+
+  .tt-diagram__crud--u {
+    color: color-mix(in oklch, var(--text-muted) 90%, oklch(0.45 0.12 240));
+    background: color-mix(in oklch, oklch(0.87 0.06 240) 30%, var(--bg));
+    border: 1px solid color-mix(in oklch, oklch(0.6 0.1 240) 25%, transparent);
+  }
+
+  .tt-diagram__crud--d {
+    color: var(--text-faint);
+    background: color-mix(in oklch, var(--surface) 80%, transparent);
+    border: 1px solid var(--border);
+  }
+
+  /* Legend */
+  .tt-diagram__legend {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tt-diagram__legend-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  .tt-diagram__legend-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+
+    & li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin: 0 !important;
+      line-height: 1.4;
+    }
+  }
+
+  /* Caption */
+  .tt-diagram__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .tt-diagram__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .tt-diagram__td,
+    .tt-diagram__th {
+      padding: 0.5rem 0.65rem;
+    }
+  }
+</style>
