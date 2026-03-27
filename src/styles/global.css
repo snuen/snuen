@@ -335,9 +335,14 @@
 
     & .footer-byline-label {
       font-family: var(--font-serif);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.14em;
       color: var(--text-faint);
+
+      &::after {
+        content: " ·";
+        margin-inline-end: 0.3em;
+      }
     }
 
     & .footer-bio {
@@ -403,6 +408,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      align-self: stretch;
       inline-size: 2rem;
       min-block-size: 4.5rem;
       border-inline-start: 1px solid var(--border-strong);
@@ -423,6 +429,12 @@
       font-variant-numeric: tabular-nums;
     }
 
+    & .entry-content {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
     & .entry-link {
       display: inline-block;
       font-family: var(--font-display);
@@ -430,13 +442,31 @@
       letter-spacing: 0.04em;
       color: var(--text);
       text-decoration: none;
-      margin-block-end: 0.45rem;
+      margin-block-end: 0.3rem;
       transition: color 0.18s var(--ease-expo);
 
       @media (hover: hover) {
         &:hover {
           color: var(--accent-deep);
         }
+      }
+    }
+
+    & .entry-book-title {
+      display: block;
+      font-size: 0.8rem;
+      font-family: var(--font-serif);
+      color: var(--text-faint);
+      letter-spacing: 0.06em;
+      margin-block-end: 0.4rem;
+      line-height: 1.5;
+
+      &::before {
+        content: "書 ·";
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        margin-inline-end: 0.3em;
+        color: var(--text-faint);
       }
     }
 
@@ -735,22 +765,16 @@
       margin-inline: -0.25rem;
 
       & .entry-spine {
-        grid-row: 1 / span 2;
-      }
-
-      & .entry-link {
-        grid-column: 2;
-        font-size: 1rem;
-        letter-spacing: 0.02em;
-      }
-
-      & .entry-spine {
         inline-size: 1.25rem;
         min-block-size: 3.4rem;
       }
 
+      & .entry-link {
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+      }
+
       & .entry-meta {
-        grid-column: 2;
         gap: 0.4rem 0.7rem;
       }
 
