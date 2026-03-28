@@ -12,7 +12,7 @@ const entries = defineCollection({
     published: z.boolean().default(true),
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
-    amazon_url: z.string().url().optional(),
+    amazon_url: z.url().optional(),
     isbn: z.string().optional(),
     started_at: z.coerce.date().optional(),
     finished_at: z.coerce.date().optional(),
