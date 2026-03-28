@@ -11,7 +11,12 @@ const sorted = allEntries
     const mdxPath = resolve(`content/entries/${entry.id}.mdx`);
     const mdPath = resolve(`content/entries/${entry.id}.md`);
     const filePath = (() => {
-      try { statSync(mdxPath); return mdxPath; } catch { return mdPath; }
+      try {
+        statSync(mdxPath);
+        return mdxPath;
+      } catch {
+        return mdPath;
+      }
     })();
     return { entry, updatedAt: statSync(filePath).mtime };
   });
@@ -38,19 +43,37 @@ const sorted = allEntries
 
           <div class="entry-content">
             <a href={`/entries/${entry.id}`} class="entry-link">
-              {entry.data.entry_title ?? entry.data.title}
+              {entry.data.title}
             </a>
-            {entry.data.entry_title && (
-              <span class="entry-book-title meta-stamp meta-stamp--faint" data-prefix="書">{entry.data.title}</span>
+            {entry.data.book_title && (
+              <span
+                class="entry-book-title meta-stamp meta-stamp--faint"
+                data-prefix="書"
+              >
+                {entry.data.book_title}
+              </span>
             )}
             <div class="entry-meta">
               {entry.data.author && (
-                <span class="entry-author meta-stamp meta-stamp--muted" data-prefix="著">{entry.data.author}</span>
+                <span
+                  class="entry-author meta-stamp meta-stamp--muted"
+                  data-prefix="著"
+                >
+                  {entry.data.author}
+                </span>
               )}
-              <time class="entry-date meta-stamp meta-stamp--accent" data-prefix="作成" datetime={entry.data.date.toISOString()}>
+              <time
+                class="entry-date meta-stamp meta-stamp--accent"
+                data-prefix="作成"
+                datetime={entry.data.date.toISOString()}
+              >
                 {entry.data.date.toLocaleDateString("ja-JP")}
               </time>
-              <time class="entry-updated meta-stamp meta-stamp--faint" data-prefix="更新" datetime={updatedAt.toISOString()}>
+              <time
+                class="entry-updated meta-stamp meta-stamp--faint"
+                data-prefix="更新"
+                datetime={updatedAt.toISOString()}
+              >
                 {updatedAt.toLocaleDateString("ja-JP")}
               </time>
             </div>

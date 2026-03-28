@@ -1,5 +1,6 @@
 ---
 title: "サンプル：キッチン"
+book_title: "キッチン"
 author: "吉本ばなな"
 date: 2026-03-17
 published: false

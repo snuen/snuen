@@ -18,16 +18,21 @@ const { Content } = await render(entry);
 const mdxPath = resolve(`content/entries/${entry.id}.mdx`);
 const mdPath = resolve(`content/entries/${entry.id}.md`);
 const entryFilePath = (() => {
-  try { statSync(mdxPath); return mdxPath; } catch { return mdPath; }
+  try {
+    statSync(mdxPath);
+    return mdxPath;
+  } catch {
+    return mdPath;
+  }
 })();
 const updatedAt = statSync(entryFilePath).mtime;
-const displayTitle = entry.data.entry_title ?? entry.data.title;
-const description = entry.data.author
-  ? `${entry.data.title} — ${entry.data.author} の読書記録。`
-  : `${entry.data.title} の読書記録。`;
+
+const description = entry.data.book_title
+  ? `${entry.data.book_title}${entry.data.author ? ` — ${entry.data.author}` : ""} の読書記録。`
+  : `${entry.data.title} の記録。`;
 ---
 
-<BaseLayout title={displayTitle} description={description}>
+<BaseLayout title={entry.data.title} description={description}>
   <a href="/" class="back-link">
     <span class="back-arrow">←</span>
     一覧に戻る
@@ -35,22 +40,40 @@ const description = entry.data.author
 
   <header class="entry-header">
     <p class="entry-kicker">reading record</p>
-    <h1>{displayTitle}</h1>
+    <h1>{entry.data.title}</h1>
     <div class="entry-header-meta">
       {
-        entry.data.entry_title && (
-          <span class="entry-book-title meta-stamp meta-stamp--faint" data-prefix="書">{entry.data.title}</span>
+        entry.data.book_title && (
+          <span
+            class="entry-book-title meta-stamp meta-stamp--faint"
+            data-prefix="書"
+          >
+            {entry.data.book_title}
+          </span>
         )
       }
       {
         entry.data.author && (
-          <span class="entry-author meta-stamp meta-stamp--muted" data-prefix="著">{entry.data.author}</span>
+          <span
+            class="entry-author meta-stamp meta-stamp--muted"
+            data-prefix="著"
+          >
+            {entry.data.author}
+          </span>
         )
       }
-      <time class="entry-date meta-stamp meta-stamp--accent" data-prefix="作成" datetime={entry.data.date.toISOString()}>
+      <time
+        class="entry-date meta-stamp meta-stamp--accent"
+        data-prefix="作成"
+        datetime={entry.data.date.toISOString()}
+      >
         {entry.data.date.toLocaleDateString("ja-JP")}
       </time>
-      <time class="entry-updated meta-stamp meta-stamp--faint" data-prefix="更新" datetime={updatedAt.toISOString()}>
+      <time
+        class="entry-updated meta-stamp meta-stamp--faint"
+        data-prefix="更新"
+        datetime={updatedAt.toISOString()}
+      >
         {updatedAt.toLocaleDateString("ja-JP")}
       </time>
     </div>
@@ -58,14 +81,27 @@ const description = entry.data.author
 
   {
     entry.data.cover && entry.data.amazon_url && (
-      <a href={entry.data.amazon_url} class="entry-cover-link" target="_blank" rel="noopener noreferrer">
-        <img src={entry.data.cover} alt={entry.data.title} class="entry-cover" />
+      <a
+        href={entry.data.amazon_url}
+        class="entry-cover-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={entry.data.cover}
+          alt={entry.data.book_title ?? entry.data.title}
+          class="entry-cover"
+        />
       </a>
     )
   }
   {
     entry.data.cover && !entry.data.amazon_url && (
-      <img src={entry.data.cover} alt={entry.data.title} class="entry-cover" />
+      <img
+        src={entry.data.cover}
+        alt={entry.data.book_title ?? entry.data.title}
+        class="entry-cover"
+      />
     )
   }
 
