@@ -129,17 +129,20 @@ Preferred fields:
 ```yaml
 ---
 title: ""
+book_title: ""
 author: ""
 date: YYYY-MM-DD
-status: reading
 published: true
 ---
 ```
+
+`title` はエントリ自体の見出し（記録のタイトル）、`book_title` は読んだ本や文章のタイトル。
 
 Optional fields may include:
 
 - tags
 - cover
+- amazon_url
 - isbn
 - started_at
 - finished_at

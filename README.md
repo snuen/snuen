@@ -89,11 +89,15 @@ bunx vercel --prod
 ```yaml
 ---
 title: ""
+book_title: ""
 author: ""
 date: YYYY-MM-DD
-status: reading # reading / finished / paused
 published: true
 ---
 ```
+
+`title` はエントリ自体の見出し、`book_title` は読んだ本や文章のタイトル。
+
+必要に応じてオプションフィールドも使える: `tags`, `cover`, `amazon_url`, `isbn`, `started_at`, `finished_at`
 
 あとは自由に書く。感想でも、引用でも、断片的なメモでも。
