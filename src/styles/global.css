@@ -333,18 +333,6 @@
       margin-block-end: 0.55rem;
     }
 
-    & .footer-byline-label {
-      font-family: var(--font-serif);
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      color: var(--text-faint);
-
-      &::after {
-        content: " ·";
-        margin-inline-end: 0.3em;
-      }
-    }
-
     & .footer-bio {
       line-height: 1.85;
     }
@@ -355,6 +343,56 @@
    Components
    ---------------------------------------------------------- */
 @layer components {
+  /* ── Meta stamp (書·, 記· prefix labels) ──
+     Usage: <span class="meta-stamp meta-stamp--{skin}" data-prefix="書">…</span>
+     Skins: --faint (book title), --muted (author/名前)
+  ── */
+
+  .meta-stamp {
+    font-size: 0.8rem;
+    font-family: var(--font-serif);
+    letter-spacing: 0.06em;
+
+    &::before {
+      content: attr(data-prefix) " ·";
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      margin-inline-end: 0.3em;
+    }
+
+    &.meta-stamp--faint {
+      color: var(--text-faint);
+
+      &::before {
+        color: var(--text-faint);
+      }
+    }
+
+    &.meta-stamp--muted {
+      color: var(--text-muted);
+
+      &::before {
+        color: var(--text-faint);
+      }
+    }
+
+    &.meta-stamp--accent {
+      color: var(--accent);
+
+      &::before {
+        color: var(--text-faint);
+      }
+    }
+  }
+
+  /* ── Shared meta items (used on both index and entry pages) ── */
+
+  .entry-date,
+  .entry-updated {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+  }
+
   /* ── Entry list (index page) ── */
 
   .entry-list {
@@ -454,20 +492,8 @@
 
     & .entry-book-title {
       display: block;
-      font-size: 0.8rem;
-      font-family: var(--font-serif);
-      color: var(--text-faint);
-      letter-spacing: 0.06em;
       margin-block-end: 0.4rem;
       line-height: 1.5;
-
-      &::before {
-        content: "書 ·";
-        font-size: 0.68rem;
-        letter-spacing: 0.14em;
-        margin-inline-end: 0.3em;
-        color: var(--text-faint);
-      }
     }
 
     & .entry-meta {
@@ -476,22 +502,6 @@
       gap: 0.6rem 1rem;
       flex-wrap: wrap;
       font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    & .entry-date {
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 0.03em;
-    }
-
-    & .entry-updated {
-      color: var(--text-faint);
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 0.03em;
-    }
-
-    & .entry-author {
       color: var(--text-muted);
     }
   }
@@ -559,37 +569,6 @@
       flex-wrap: wrap;
       font-size: 0.82rem;
       color: var(--text-muted);
-    }
-
-    & .entry-author-name {
-      color: var(--text-muted);
-    }
-
-    & .entry-book-title {
-      color: var(--text-faint);
-      font-size: 0.8rem;
-      font-family: var(--font-serif);
-      letter-spacing: 0.06em;
-
-      &::before {
-        content: "書 ·";
-        font-size: 0.68rem;
-        letter-spacing: 0.14em;
-        margin-inline-end: 0.3em;
-        color: var(--text-faint);
-      }
-    }
-
-    & .entry-date {
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 0.03em;
-    }
-
-    & .entry-updated {
-      color: var(--text-faint);
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 0.03em;
     }
   }
 

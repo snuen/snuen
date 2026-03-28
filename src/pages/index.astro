@@ -41,17 +41,17 @@ const sorted = allEntries
               {entry.data.entry_title ?? entry.data.title}
             </a>
             {entry.data.entry_title && (
-              <span class="entry-book-title">{entry.data.title}</span>
+              <span class="entry-book-title meta-stamp meta-stamp--faint" data-prefix="書">{entry.data.title}</span>
             )}
             <div class="entry-meta">
               {entry.data.author && (
-                <span class="entry-author">{entry.data.author}</span>
+                <span class="entry-author meta-stamp meta-stamp--muted" data-prefix="著">{entry.data.author}</span>
               )}
-              <time class="entry-date" datetime={entry.data.date.toISOString()}>
-                作成 {entry.data.date.toLocaleDateString("ja-JP")}
+              <time class="entry-date meta-stamp meta-stamp--accent" data-prefix="作成" datetime={entry.data.date.toISOString()}>
+                {entry.data.date.toLocaleDateString("ja-JP")}
               </time>
-              <time class="entry-updated" datetime={updatedAt.toISOString()}>
-                更新 {updatedAt.toLocaleDateString("ja-JP")}
+              <time class="entry-updated meta-stamp meta-stamp--faint" data-prefix="更新" datetime={updatedAt.toISOString()}>
+                {updatedAt.toLocaleDateString("ja-JP")}
               </time>
             </div>
           </div>
