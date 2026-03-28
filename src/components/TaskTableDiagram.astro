@@ -4,15 +4,17 @@
 
 <figure class="tt-diagram" aria-label="タスク整理表の構造を示す図">
   <div class="tt-diagram__inner">
-
     <span class="tt-diagram__title-label">タスク整理表の構造</span>
 
     <div class="tt-diagram__table-wrap">
       <table class="tt-diagram__table">
         <thead>
           <tr>
-            <th class="tt-diagram__th tt-diagram__th--user">ユーザーのタスク</th>
-            <th class="tt-diagram__th tt-diagram__th--system">システム側のタスク</th>
+            <th class="tt-diagram__th tt-diagram__th--user">ユーザーのタスク</th
+            >
+            <th class="tt-diagram__th tt-diagram__th--system"
+              >システム側のタスク</th
+            >
             <th class="tt-diagram__th tt-diagram__th--crud">CRUD</th>
           </tr>
         </thead>
@@ -20,22 +22,30 @@
           <tr>
             <td class="tt-diagram__td">購入履歴を確認する</td>
             <td class="tt-diagram__td">購入データを取得し一覧表示する</td>
-            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--r">R</span></td>
+            <td class="tt-diagram__td"
+              ><span class="tt-diagram__crud tt-diagram__crud--r">R</span></td
+            >
           </tr>
           <tr>
             <td class="tt-diagram__td">配送先を登録する</td>
             <td class="tt-diagram__td">住所データを新規作成・保存する</td>
-            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--c">C</span></td>
+            <td class="tt-diagram__td"
+              ><span class="tt-diagram__crud tt-diagram__crud--c">C</span></td
+            >
           </tr>
           <tr>
             <td class="tt-diagram__td">配送先を変更する</td>
             <td class="tt-diagram__td">住所データを更新する</td>
-            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--u">U</span></td>
+            <td class="tt-diagram__td"
+              ><span class="tt-diagram__crud tt-diagram__crud--u">U</span></td
+            >
           </tr>
           <tr>
             <td class="tt-diagram__td">カートを空にする</td>
             <td class="tt-diagram__td">選択中の商品データを削除する</td>
-            <td class="tt-diagram__td"><span class="tt-diagram__crud tt-diagram__crud--d">D</span></td>
+            <td class="tt-diagram__td"
+              ><span class="tt-diagram__crud tt-diagram__crud--d">D</span></td
+            >
           </tr>
         </tbody>
       </table>
@@ -45,13 +55,20 @@
     <div class="tt-diagram__legend">
       <span class="tt-diagram__legend-label">CRUD</span>
       <ul class="tt-diagram__legend-list">
-        <li><span class="tt-diagram__crud tt-diagram__crud--c">C</span> Create — 作成</li>
-        <li><span class="tt-diagram__crud tt-diagram__crud--r">R</span> Read — 参照</li>
-        <li><span class="tt-diagram__crud tt-diagram__crud--u">U</span> Update — 更新</li>
-        <li><span class="tt-diagram__crud tt-diagram__crud--d">D</span> Delete — 削除</li>
+        <li>
+          <span class="tt-diagram__crud tt-diagram__crud--c">C</span> Create — 作成
+        </li>
+        <li>
+          <span class="tt-diagram__crud tt-diagram__crud--r">R</span> Read — 参照
+        </li>
+        <li>
+          <span class="tt-diagram__crud tt-diagram__crud--u">U</span> Update — 更新
+        </li>
+        <li>
+          <span class="tt-diagram__crud tt-diagram__crud--d">D</span> Delete — 削除
+        </li>
       </ul>
     </div>
-
   </div>
   <figcaption class="tt-diagram__caption">
     ユーザー視点の動詞をCRUDで分類することで、機能の抜け漏れと粒度のばらつきを防ぐ。

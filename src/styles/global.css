@@ -689,7 +689,9 @@
   .entry-cover-link:hover .entry-cover {
     box-shadow: 0 6px 24px oklch(0 0 0 / 0.22);
     translate: 0 -2px;
-    transition: box-shadow 0.2s ease, translate 0.2s ease;
+    transition:
+      box-shadow 0.2s ease,
+      translate 0.2s ease;
   }
 
   .entry-colophon {
