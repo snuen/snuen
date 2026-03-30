@@ -33,12 +33,10 @@ const sorted = allEntries
 
   <ul class="entry-list">
     {
-      sorted.map(({ entry, updatedAt }, index) => (
+      sorted.map(({ entry, updatedAt }) => (
         <li class="entry-item">
           <span class="entry-spine" aria-hidden="true">
-            <span class="entry-spine-index">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+            <span class="entry-spine-mark">◆</span>
           </span>
 
           <div class="entry-content">

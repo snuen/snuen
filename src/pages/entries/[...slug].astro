@@ -106,6 +106,15 @@ const description = entry.data.book_title
   }
 
   <article class="prose">
+    {
+      entry.data.url && (
+        <p class="entry-source-url">
+          <a href={entry.data.url} target="_blank" rel="noopener noreferrer">
+            {entry.data.url}
+          </a>
+        </p>
+      )
+    }
     <Content />
   </article>
 
