@@ -1,0 +1,188 @@
+---
+// 戦略的コンパクト化 — 手動コンパクトの推奨タイミング
+---
+
+<figure class="compact" aria-label="手動コンパクトの推奨タイミング">
+  <div class="compact__inner">
+    <span class="compact__title-label">手動コンパクトのタイミング</span>
+
+    <div class="compact__config">
+      <span class="compact__config-key">autoCompact: false</span>
+      <span class="compact__config-note">を設定し、手動でコンパクトを行う</span>
+    </div>
+
+    <ol class="compact__list">
+      <li class="compact__item">
+        <span class="compact__num">01</span>
+        <div class="compact__body">
+          <strong>探索フェーズ終了後</strong>
+          <span>大量の調査内容を圧縮</span>
+        </div>
+      </li>
+      <li class="compact__item">
+        <span class="compact__num">02</span>
+        <div class="compact__body">
+          <strong>マイルストーン完了後</strong>
+          <span>次フェーズに向けてリセット</span>
+        </div>
+      </li>
+      <li class="compact__item">
+        <span class="compact__num">03</span>
+        <div class="compact__body">
+          <strong>エラー解決後</strong>
+          <span>デバッグの試行錯誤を捨てる</span>
+        </div>
+      </li>
+      <li class="compact__item compact__item--accent">
+        <span class="compact__num">04</span>
+        <div class="compact__body">
+          <strong>使用率 60% を超えたら</strong>
+          <span>新しいセッションを開始する</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <figcaption class="compact__caption">
+    <code>/context</code> で現在のトークン使用率を確認できる。
+  </figcaption>
+</figure>
+
+<style>
+  .compact {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .compact__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .compact__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .compact__config {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg);
+  }
+
+  .compact__config-key {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .compact__config-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .compact__list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .compact__item {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    align-items: start;
+    border-block-end: 1px solid var(--border);
+    margin: 0 !important;
+
+    &:last-child {
+      border-block-end: none;
+    }
+  }
+
+  .compact__item--accent {
+    background: color-mix(in oklch, var(--accent-wash) 50%, var(--bg));
+  }
+
+  .compact__num {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    padding-inline: 1.1rem 0;
+    padding-block: 0.65rem 0;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .compact__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.6rem 1.1rem 0.6rem 0;
+
+    & strong {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+    }
+
+    & span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  }
+
+  .compact__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+
+    & code {
+      font-size: 0.78rem;
+      font-style: normal;
+      color: var(--accent-deep);
+      background: color-mix(in oklch, var(--accent-wash) 60%, var(--bg));
+      padding: 0.05rem 0.35rem;
+      border-radius: 3px;
+      border: 1px solid color-mix(in oklch, var(--accent) 20%, transparent);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .compact__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+  }
+</style>

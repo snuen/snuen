@@ -1,0 +1,164 @@
+---
+// WSCEフレームワーク — コンテキスト最適化の4戦略
+---
+
+<figure class="wsce" aria-label="WSCEフレームワーク：コンテキスト最適化の4戦略">
+  <div class="wsce__inner">
+    <span class="wsce__title-label">WSCE フレームワーク</span>
+
+    <div class="wsce__table-wrap">
+      <table class="wsce__table">
+        <thead>
+          <tr>
+            <th class="wsce__th wsce__th--strategy">戦略</th>
+            <th class="wsce__th wsce__th--desc">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="wsce__td wsce__td--key">
+              <span class="wsce__key">Write</span>
+            </td>
+            <td class="wsce__td">情報を構造化してからコンテキストに入れる</td>
+          </tr>
+          <tr>
+            <td class="wsce__td wsce__td--key">
+              <span class="wsce__key">Select</span>
+            </td>
+            <td class="wsce__td">必要なセクションだけを選んで読み込む</td>
+          </tr>
+          <tr>
+            <td class="wsce__td wsce__td--key">
+              <span class="wsce__key">Compress</span>
+            </td>
+            <td class="wsce__td">冗長な情報を凝縮して密度を上げる</td>
+          </tr>
+          <tr>
+            <td class="wsce__td wsce__td--key">
+              <span class="wsce__key">Isolate</span>
+            </td>
+            <td class="wsce__td">サブエージェントでコンテキストを分離する</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <figcaption class="wsce__caption">
+    4つのうちどれか1つを意識するだけでも、コンテキストの質は大きく変わる。
+  </figcaption>
+</figure>
+
+<style>
+  .wsce {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .wsce__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .wsce__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .wsce__table-wrap {
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .wsce__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--bg);
+  }
+
+  .wsce__th {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    border-block-end: 1px solid var(--border-strong);
+    white-space: nowrap;
+    color: var(--text-faint);
+    background: color-mix(in oklch, var(--surface) 80%, var(--bg));
+  }
+
+  .wsce__th--strategy {
+    width: 7rem;
+  }
+
+  .wsce__td {
+    padding: 0.7rem 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    border-block-end: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  tr:last-child .wsce__td {
+    border-block-end: none;
+  }
+
+  tr:nth-child(even) .wsce__td {
+    background: color-mix(in oklch, var(--surface) 40%, transparent);
+  }
+
+  .wsce__td--key {
+    vertical-align: middle;
+    background: color-mix(in oklch, var(--accent-wash) 55%, var(--bg));
+  }
+
+  tr:nth-child(even) .wsce__td--key {
+    background: color-mix(in oklch, var(--accent-wash) 75%, var(--bg));
+  }
+
+  .wsce__key {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .wsce__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .wsce__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .wsce__td,
+    .wsce__th {
+      padding: 0.5rem 0.7rem;
+    }
+  }
+</style>

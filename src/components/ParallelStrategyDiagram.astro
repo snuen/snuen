@@ -1,0 +1,218 @@
+---
+// 並列化戦略 — メインチャットとforkの役割分担
+---
+
+<figure class="parallel" aria-label="並列化戦略：メインチャットとforkの役割分担">
+  <div class="parallel__inner">
+    <span class="parallel__title-label">並列化戦略</span>
+
+    <div class="parallel__diagram">
+      <!-- Main chat -->
+      <div class="parallel__node parallel__node--main">
+        <span class="parallel__node-name">メインチャット</span>
+        <span class="parallel__node-role">コード変更に集中</span>
+      </div>
+
+      <!-- Fork branch -->
+      <div class="parallel__branch" aria-hidden="true">
+        <div class="parallel__branch-line">
+          <div class="parallel__branch-vert"></div>
+          <div class="parallel__branch-horiz"></div>
+        </div>
+      </div>
+
+      <div class="parallel__fork-row">
+        <div class="parallel__fork-label">
+          <code class="parallel__fork-cmd">/fork</code>
+        </div>
+        <div class="parallel__node parallel__node--fork">
+          <span class="parallel__node-name">サブチャット</span>
+          <span class="parallel__node-role">調査・リサーチ・ドキュメント参照</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallel__rule">
+      <span class="parallel__rule-label">原則</span>
+      <span class="parallel__rule-text">最小限の並列化で最大の成果。同時に抱えるタスクは 3〜4 つまで。</span>
+    </div>
+  </div>
+  <figcaption class="parallel__caption">
+    複数インスタンスが同じコードベースを触る場合は Git Worktrees でコンフリクトを防ぐ。
+  </figcaption>
+</figure>
+
+<style>
+  .parallel {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .parallel__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .parallel__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .parallel__diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 28rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  /* Nodes */
+  .parallel__node {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg);
+    flex-wrap: wrap;
+  }
+
+  .parallel__node--main {
+    align-self: stretch;
+  }
+
+  .parallel__node--fork {
+    flex: 1;
+    border-color: color-mix(in oklch, var(--accent) 30%, var(--border));
+    background: color-mix(in oklch, var(--accent-wash) 40%, var(--bg));
+  }
+
+  .parallel__node-name {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .parallel__node-role {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Branch lines */
+  .parallel__branch {
+    padding-inline-start: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+  }
+
+  .parallel__branch-line {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 1.2rem;
+    width: 1.5rem;
+    height: 100%;
+  }
+
+  .parallel__branch-vert {
+    width: 1px;
+    height: 100%;
+    background: var(--border-strong);
+    margin-inline-start: 0;
+  }
+
+  /* Fork row */
+  .parallel__fork-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-inline-start: 1.2rem;
+  }
+
+  .parallel__fork-label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0.9rem;
+      height: 1px;
+      background: var(--border-strong);
+    }
+  }
+
+  .parallel__fork-cmd {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 60%, var(--bg));
+    border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  /* Rule box */
+  .parallel__rule {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    flex-wrap: wrap;
+  }
+
+  .parallel__rule-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  .parallel__rule-text {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .parallel__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .parallel__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+  }
+</style>

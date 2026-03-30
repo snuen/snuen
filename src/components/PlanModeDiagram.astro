@@ -1,0 +1,214 @@
+---
+// 探索→計画→実装→コミット — Planモードと通常モードのフロー図
+---
+
+<figure class="planmode" aria-label="PlanモードとPlanモードのフロー図">
+  <div class="planmode__inner">
+    <span class="planmode__title-label">探索 → 計画 → 実装 → コミット</span>
+
+    <div class="planmode__flow">
+      <!-- Plan mode -->
+      <div class="planmode__phase planmode__phase--plan">
+        <span class="planmode__phase-label">Plan モード</span>
+        <div class="planmode__steps">
+          <div class="planmode__step">探索</div>
+          <div class="planmode__step-arrow" aria-hidden="true">↓</div>
+          <div class="planmode__step">計画</div>
+        </div>
+      </div>
+
+      <!-- Approval bridge -->
+      <div class="planmode__bridge" aria-hidden="true">
+        <span class="planmode__bridge-label">承認</span>
+        <span class="planmode__bridge-arrow">→</span>
+      </div>
+
+      <!-- Normal mode -->
+      <div class="planmode__phase planmode__phase--normal">
+        <span class="planmode__phase-label">通常モード</span>
+        <div class="planmode__steps">
+          <div class="planmode__step">実装</div>
+          <div class="planmode__step-arrow" aria-hidden="true">↓</div>
+          <div class="planmode__step">コミット</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="planmode__hint">
+      <span class="planmode__hint-key">Shift + Tab</span>
+      <span class="planmode__hint-desc">でモードを切り替える</span>
+    </div>
+  </div>
+  <figcaption class="planmode__caption">
+    「diffを1文で説明できる変更」は直接実行でよい。複数ファイルにまたがる変更やアプローチが不確実なときにPlanモードを使う。
+  </figcaption>
+</figure>
+
+<style>
+  .planmode {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .planmode__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .planmode__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .planmode__flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  .planmode__phase {
+    flex: 1;
+    min-width: 8rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .planmode__phase--plan {
+    border-color: color-mix(in oklch, var(--accent) 35%, var(--border));
+  }
+
+  .planmode__phase-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    padding: 0.4rem 0.9rem;
+    border-block-end: 1px solid var(--border);
+    background: color-mix(in oklch, var(--surface) 70%, transparent);
+    text-align: center;
+  }
+
+  .planmode__phase--plan .planmode__phase-label {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 60%, transparent);
+    border-color: color-mix(in oklch, var(--accent) 25%, transparent);
+  }
+
+  .planmode__steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0.9rem;
+    gap: 0.1rem;
+  }
+
+  .planmode__step {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  .planmode__step-arrow {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    line-height: 1.2;
+  }
+
+  .planmode__bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 0.75rem;
+    gap: 0.15rem;
+  }
+
+  .planmode__bridge-label {
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+
+  .planmode__bridge-arrow {
+    font-size: 1.1rem;
+    color: var(--accent-dim);
+    line-height: 1;
+  }
+
+  .planmode__hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .planmode__hint-key {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 60%, var(--bg));
+    border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  .planmode__hint-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .planmode__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .planmode__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .planmode__flow {
+      gap: 0.5rem;
+    }
+
+    .planmode__bridge {
+      flex-direction: row;
+      padding-inline: 0.4rem;
+    }
+
+    .planmode__bridge-arrow {
+      transform: rotate(90deg);
+    }
+  }
+</style>

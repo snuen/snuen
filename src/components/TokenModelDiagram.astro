@@ -1,0 +1,280 @@
+---
+// トークン最適化 — モデルの使い分け表
+---
+
+<figure class="tokenmodel" aria-label="トークン最適化：モデルの使い分け表">
+  <div class="tokenmodel__inner">
+    <span class="tokenmodel__title-label">モデルの使い分け</span>
+
+    <div class="tokenmodel__table-wrap">
+      <table class="tokenmodel__table">
+        <thead>
+          <tr>
+            <th class="tokenmodel__th tokenmodel__th--model">モデル</th>
+            <th class="tokenmodel__th tokenmodel__th--use">用途</th>
+            <th class="tokenmodel__th tokenmodel__th--char">特性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tokenmodel__td tokenmodel__td--key">
+              <span class="tokenmodel__model tokenmodel__model--haiku">Haiku</span>
+            </td>
+            <td class="tokenmodel__td">反復タスク・明確な指示</td>
+            <td class="tokenmodel__td tokenmodel__td--char">
+              <span class="tokenmodel__tag tokenmodel__tag--speed">安い・速い</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="tokenmodel__td tokenmodel__td--key">
+              <span class="tokenmodel__model tokenmodel__model--sonnet">Sonnet</span>
+            </td>
+            <td class="tokenmodel__td">
+              一般的なコーディング
+              <span class="tokenmodel__pct">90%</span>
+            </td>
+            <td class="tokenmodel__td tokenmodel__td--char">
+              <span class="tokenmodel__tag tokenmodel__tag--balance">バランス</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="tokenmodel__td tokenmodel__td--key">
+              <span class="tokenmodel__model tokenmodel__model--opus">Opus</span>
+            </td>
+            <td class="tokenmodel__td">設計・セキュリティ・複数ファイル</td>
+            <td class="tokenmodel__td tokenmodel__td--char">
+              <span class="tokenmodel__tag tokenmodel__tag--quality">高品質</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tokenmodel__note">
+      <span class="tokenmodel__note-label">Opus を使う目安</span>
+      <ul class="tokenmodel__note-list">
+        <li>最初の試行が失敗したとき</li>
+        <li>5 ファイル以上の変更</li>
+        <li>アーキテクチャの意思決定</li>
+        <li>セキュリティクリティカルなコード</li>
+      </ul>
+    </div>
+  </div>
+  <figcaption class="tokenmodel__caption">
+    MCP の代わりに CLI コマンドを Skill でラップすると、同等の機能をより少ないトークンで実現できる。
+  </figcaption>
+</figure>
+
+<style>
+  .tokenmodel {
+    margin-block: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--surface) 80%, white),
+      var(--surface)
+    );
+    overflow: hidden;
+  }
+
+  .tokenmodel__inner {
+    padding: 1.75rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .tokenmodel__title-label {
+    display: block;
+    font-size: 0.67rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .tokenmodel__table-wrap {
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  .tokenmodel__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    background: var(--bg);
+  }
+
+  .tokenmodel__th {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    border-block-end: 1px solid var(--border-strong);
+    white-space: nowrap;
+    color: var(--text-faint);
+    background: color-mix(in oklch, var(--surface) 80%, var(--bg));
+  }
+
+  .tokenmodel__th--model {
+    width: 6rem;
+  }
+
+  .tokenmodel__th--char {
+    width: 7rem;
+  }
+
+  .tokenmodel__td {
+    padding: 0.6rem 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    border-block-end: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  tr:last-child .tokenmodel__td {
+    border-block-end: none;
+  }
+
+  tr:nth-child(even) .tokenmodel__td {
+    background: color-mix(in oklch, var(--surface) 40%, transparent);
+  }
+
+  .tokenmodel__td--key {
+    background: color-mix(in oklch, var(--surface) 60%, var(--bg));
+    vertical-align: middle;
+  }
+
+  tr:nth-child(even) .tokenmodel__td--key {
+    background: color-mix(in oklch, var(--surface) 80%, var(--bg));
+  }
+
+  .tokenmodel__td--char {
+    white-space: nowrap;
+  }
+
+  /* Model name badges */
+  .tokenmodel__model {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    display: inline-block;
+  }
+
+  .tokenmodel__model--haiku {
+    color: var(--text-muted);
+  }
+
+  .tokenmodel__model--sonnet {
+    color: var(--accent-deep);
+  }
+
+  .tokenmodel__model--opus {
+    color: color-mix(in oklch, var(--accent-deep) 80%, oklch(0.4 0.12 290));
+  }
+
+  /* Tag badges */
+  .tokenmodel__tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    line-height: 1.5;
+  }
+
+  .tokenmodel__tag--speed {
+    color: var(--text-muted);
+    background: color-mix(in oklch, var(--surface) 80%, transparent);
+    border: 1px solid var(--border-strong);
+  }
+
+  .tokenmodel__tag--balance {
+    color: var(--accent-deep);
+    background: color-mix(in oklch, var(--accent-wash) 70%, transparent);
+    border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+
+  .tokenmodel__tag--quality {
+    color: color-mix(in oklch, var(--accent-deep) 80%, oklch(0.4 0.12 290));
+    background: color-mix(in oklch, oklch(0.9 0.05 290) 40%, var(--bg));
+    border: 1px solid color-mix(in oklch, oklch(0.7 0.08 290) 30%, transparent);
+  }
+
+  .tokenmodel__pct {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    margin-inline-start: 0.3rem;
+  }
+
+  /* Note */
+  .tokenmodel__note {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .tokenmodel__note-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    flex-shrink: 0;
+    padding-block-start: 0.1rem;
+  }
+
+  .tokenmodel__note-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.25rem;
+
+    & li {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0 !important;
+
+      &::before {
+        content: "· ";
+        color: var(--text-faint);
+      }
+    }
+  }
+
+  .tokenmodel__caption {
+    padding: 0.55rem 1.5rem 0.6rem;
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    border-block-start: 1px solid var(--border);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    .tokenmodel__inner {
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .tokenmodel__td,
+    .tokenmodel__th {
+      padding: 0.5rem 0.65rem;
+    }
+  }
+</style>
