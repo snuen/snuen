@@ -7,6 +7,47 @@
 @layer reset, base, theme, layout, components;
 
 /* ----------------------------------------------------------
+   View Transitions (Astro <ClientRouter />)
+   - site-heading / site-footer: transition:animate="none" — stay put
+   - bookplate-section: rect reveal — clip-path vertical wipe
+       old: wipes upward (bottom inset grows → text peels off)
+       new: stamps down (top inset shrinks → text pressed in)
+   - main: Astro built-in fade (transition:animate="fade")
+   ---------------------------------------------------------- */
+
+/* Negative horizontal inset gives a 4px bleed so letter edges
+   never get clipped by sub-pixel rounding */
+@keyframes vt-bookplate-out {
+  from { clip-path: inset(-2px -4px -2px -4px); }
+  to   { clip-path: inset(-2px -4px 110% -4px); }
+}
+
+@keyframes vt-bookplate-in {
+  from { clip-path: inset(110% -4px -2px -4px); }
+  to   { clip-path: inset(-2px -4px -2px -4px); }
+}
+
+/* Disable group morph — prevents scaling caused by width diff
+   between "catalog" and "entry" */
+::view-transition-group(bookplate-section) {
+  animation: none;
+}
+
+::view-transition-old(bookplate-section) {
+  animation: 130ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-out;
+}
+
+::view-transition-new(bookplate-section) {
+  animation: 200ms 50ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-in;
+}
+
+/* Tune the fade timing on main content */
+::view-transition-old(main-content),
+::view-transition-new(main-content) {
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ----------------------------------------------------------
    Reset
    ---------------------------------------------------------- */
 @layer reset {

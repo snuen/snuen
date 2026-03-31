@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -36,6 +37,8 @@ const isHome = Astro.url.pathname === "/";
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
 
+    <ClientRouter />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,7 +50,11 @@ const isHome = Astro.url.pathname === "/";
     <div class="site-wrapper">
       <header class="site-header">
         <div class="site-header-row">
-          <div class="site-heading">
+          <div
+            class="site-heading"
+            transition:name="site-heading"
+            transition:animate="none"
+          >
             <p class="site-kicker">private reading room</p>
             <a href="/" class="site-title">snuen</a>
             <p class="site-description">読書記録</p>
@@ -58,17 +65,25 @@ const isHome = Astro.url.pathname === "/";
             <p class="bookplate-owner">snuen archive</p>
             <p class="bookplate-index">
               <span>section</span>
-              <span>{isHome ? "catalog" : "entry"}</span>
+              <span
+                class="bookplate-section-value"
+                transition:name="bookplate-section"
+                >{isHome ? "catalog" : "entry"}</span
+              >
             </p>
           </aside>
         </div>
       </header>
 
-      <main>
+      <main transition:name="main-content" transition:animate="fade">
         <slot />
       </main>
 
-      <footer class="site-footer">
+      <footer
+        class="site-footer"
+        transition:name="site-footer"
+        transition:animate="none"
+      >
         <p class="footer-author">
           <span
             class="footer-byline-label meta-stamp meta-stamp--muted"
