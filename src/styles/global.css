@@ -731,7 +731,7 @@
 
   .entry-cover-link,
   .entry-cover {
-    display: block;
+    display: inline-block;
     margin-block-end: 2.75rem;
   }
 
