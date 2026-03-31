@@ -775,14 +775,16 @@
     }
   }
 
-  @media (max-width: 720px) {
+  @media (width <= 960px) {
     .site-wrapper {
       &::before,
       &::after {
         display: none;
       }
     }
+  }
 
+  @media (width <= 720px) {
     .site-header {
       & .site-header-row {
         flex-direction: column;
@@ -805,7 +807,7 @@
     }
   }
 
-  @media (max-width: 520px) {
+  @media (width <= 520px) {
     .entry-item {
       grid-template-columns: 1.25rem 1fr;
       gap: 0.75rem;
