@@ -43,7 +43,7 @@
 
 /* Brown rect visible while neither old nor new image is shown */
 ::view-transition-image-pair(bookplate-section) {
-  background: var(--accent);
+  background: var(--text-faint);
   border-radius: 3px;
 }
 
