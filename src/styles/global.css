@@ -9,22 +9,30 @@
 /* ----------------------------------------------------------
    View Transitions (Astro <ClientRouter />)
    - site-heading / site-footer: transition:animate="none" — stay put
-   - bookplate-section: rect reveal — clip-path vertical wipe
-       old: wipes upward (bottom inset grows → text peels off)
-       new: stamps down (top inset shrinks → text pressed in)
+   - bookplate-section: rect reveal — horizontal wipe right→left
+       old: right side disappears first (rect enters from right)
+       new: right side appears first (rect exits to the left)
    - main: Astro built-in fade (transition:animate="fade")
    ---------------------------------------------------------- */
 
-/* Negative horizontal inset gives a 4px bleed so letter edges
+/* Negative inset gives a 4px bleed so letter edges
    never get clipped by sub-pixel rounding */
 @keyframes vt-bookplate-out {
-  from { clip-path: inset(-2px -4px -2px -4px); }
-  to   { clip-path: inset(-2px -4px 110% -4px); }
+  from {
+    clip-path: inset(-2px -4px -2px -4px);
+  }
+  to {
+    clip-path: inset(-2px 110% -2px -4px);
+  }
 }
 
 @keyframes vt-bookplate-in {
-  from { clip-path: inset(110% -4px -2px -4px); }
-  to   { clip-path: inset(-2px -4px -2px -4px); }
+  from {
+    clip-path: inset(-2px -4px -2px 110%);
+  }
+  to {
+    clip-path: inset(-2px -4px -2px -4px);
+  }
 }
 
 /* Disable group morph — prevents scaling caused by width diff
@@ -33,14 +41,19 @@
   animation: none;
 }
 
+/* Brown rect visible while neither old nor new image is shown */
+::view-transition-image-pair(bookplate-section) {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
 ::view-transition-old(bookplate-section) {
-  animation: 130ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-out;
+  animation: 160ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-out;
 }
 
 ::view-transition-new(bookplate-section) {
-  animation: 200ms 50ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-in;
+  animation: 160ms 200ms cubic-bezier(0.16, 1, 0.3, 1) both vt-bookplate-in;
 }
-
 
 /* ----------------------------------------------------------
    Reset
