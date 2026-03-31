@@ -1,8 +1,18 @@
 ---
 import { getCollection, render } from "astro:content";
+import { execSync } from "child_process";
 import { statSync } from "fs";
 import { resolve } from "path";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+function getGitUpdatedAt(filePath: string, fallback: Date): Date {
+  try {
+    const result = execSync(`git log -1 --format="%ci" -- "${filePath}"`).toString().trim();
+    return result ? new Date(result) : fallback;
+  } catch {
+    return fallback;
+  }
+}
 
 export async function getStaticPaths() {
   const entries = await getCollection("entries", ({ data }) => data.published);
@@ -25,7 +35,7 @@ const entryFilePath = (() => {
     return mdPath;
   }
 })();
-const updatedAt = statSync(entryFilePath).mtime;
+const updatedAt = getGitUpdatedAt(entryFilePath, entry.data.date);
 
 const description = entry.data.book_title
   ? `${entry.data.book_title}${entry.data.author ? ` — ${entry.data.author}` : ""} の読書記録。`

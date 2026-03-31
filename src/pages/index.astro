@@ -1,8 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+import { execSync } from "child_process";
 import { statSync } from "fs";
 import { resolve } from "path";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+function getGitUpdatedAt(filePath: string, fallback: Date): Date {
+  try {
+    const result = execSync(`git log -1 --format="%ci" -- "${filePath}"`).toString().trim();
+    return result ? new Date(result) : fallback;
+  } catch {
+    return fallback;
+  }
+}
 
 const allEntries = await getCollection("entries", ({ data }) => data.published);
 const sorted = allEntries
@@ -18,7 +28,7 @@ const sorted = allEntries
         return mdPath;
       }
     })();
-    return { entry, updatedAt: statSync(filePath).mtime };
+    return { entry, updatedAt: getGitUpdatedAt(filePath, entry.data.date) };
   });
 ---
 
