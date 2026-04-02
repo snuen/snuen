@@ -64,7 +64,6 @@ const isHome = Astro.url.pathname === "/";
             <p class="bookplate-mark">EX LIBRIS</p>
             <p class="bookplate-owner">snuen archive</p>
             <p class="bookplate-index">
-              <span>section</span>
               <span transition:name="bookplate-section"
                 >{isHome ? "catalog" : "entry"}</span
               >
