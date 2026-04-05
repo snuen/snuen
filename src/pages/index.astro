@@ -7,7 +7,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 function getGitUpdatedAt(filePath: string, fallback: Date): Date {
   try {
-    const result = execSync(`git log -1 --format="%ci" -- "${filePath}"`).toString().trim();
+    const result = execSync(`git log -1 --format="%ci" -- "${filePath}"`)
+      .toString()
+      .trim();
     return result ? new Date(result) : fallback;
   } catch {
     return fallback;
@@ -53,23 +55,30 @@ const sorted = allEntries
             <a href={`/entries/${entry.id}`} class="entry-link">
               {entry.data.title}
             </a>
-            {entry.data.book_title && (
+            {entry.data.sources && entry.data.sources.length > 0 && (
               <span
                 class="entry-book-title meta-stamp meta-stamp--faint"
                 data-prefix="書"
               >
-                {entry.data.book_title}
+                {entry.data.sources.length === 1
+                  ? entry.data.sources[0].book_title
+                  : entry.data.sources
+                      .map((s) => s.book_title)
+                      .filter(Boolean)
+                      .join(" · ")}
               </span>
             )}
             <div class="entry-meta">
-              {entry.data.author && (
-                <span
-                  class="entry-author meta-stamp meta-stamp--muted"
-                  data-prefix="著"
-                >
-                  {entry.data.author}
-                </span>
-              )}
+              {entry.data.sources &&
+                entry.data.sources.length === 1 &&
+                entry.data.sources[0].author && (
+                  <span
+                    class="entry-author meta-stamp meta-stamp--faint"
+                    data-prefix="著"
+                  >
+                    {entry.data.sources[0].author}
+                  </span>
+                )}
               <time
                 class="entry-date meta-stamp meta-stamp--accent"
                 data-prefix="作成"

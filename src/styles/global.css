@@ -77,6 +77,7 @@
   video {
     max-width: 100%;
     display: block;
+    vertical-align: bottom;
   }
 
   ul,
@@ -735,7 +736,7 @@
   .entry-cover-link,
   .entry-cover {
     display: inline-block;
-    margin-block-end: 2.75rem;
+    margin-block-end: 1rem;
   }
 
   .entry-cover {
@@ -751,6 +752,70 @@
     transition:
       box-shadow 0.2s ease,
       translate 0.2s ease;
+  }
+
+  /* ── 複数ソースブロック ── */
+
+  .entry-sources {
+    margin-block-end: 2.75rem;
+
+    & .entry-sources-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-block-end: 1.25rem;
+    }
+
+    & .entry-sources-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    & .entry-source-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 140px;
+    }
+
+    & .entry-source-cover {
+      height: 160px;
+      width: auto;
+      box-shadow: 0 4px 16px oklch(0 0 0 / 0.15);
+      border-radius: 2px;
+    }
+
+    & .entry-source-cover-link:hover .entry-source-cover {
+      box-shadow: 0 6px 24px oklch(0 0 0 / 0.22);
+      translate: 0 -2px;
+      transition:
+        box-shadow 0.2s ease,
+        translate 0.2s ease;
+    }
+
+    & .entry-source-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+    }
+
+    & .entry-source-url-link {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-all;
+
+      &:hover {
+        color: var(--text-muted);
+      }
+    }
   }
 
   .entry-colophon {
