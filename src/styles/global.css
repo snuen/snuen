@@ -357,8 +357,6 @@
 
   .site-footer {
     margin-block-start: clamp(4rem, 10vw, 6rem);
-    padding-block-start: 1.75rem;
-    border-block-start: 1px solid var(--border);
     font-size: 0.78rem;
     color: var(--text-faint);
     letter-spacing: 0.06em;
@@ -442,7 +440,7 @@
   }
 
   .catalog-intro {
-    margin-block-end: 1.8rem;
+    margin-block-end: 0.2rem;
     padding-block-end: 0.95rem;
 
     & .catalog-label {
@@ -711,10 +709,24 @@
 
     & hr {
       border: none;
-      border-block-start: 1px solid var(--border);
       margin-block: 3rem;
-      width: 5rem;
+      width: 6rem;
       margin-inline: auto;
+      height: 1px;
+      background: var(--border);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6px;
+        height: 6px;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        background: var(--accent);
+      }
     }
 
     & a {
@@ -814,6 +826,52 @@
 
       &:hover {
         color: var(--text-muted);
+      }
+    }
+  }
+
+  /* ── Diamond rule ──
+     Usage: <div class="diamond-rule" aria-hidden="true">
+              <span class="dp" data-v="sm"></span>
+              <span class="dp"></span>
+              <span class="dp" data-v="accent"></span>
+              <span class="dp"></span>
+              <span class="dp" data-v="sm"></span>
+            </div>
+  ── */
+
+  .diamond-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-block: 1.75rem;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    & .dp {
+      display: block;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      background: var(--border-strong);
+      width: 5px;
+      height: 5px;
+      flex-shrink: 0;
+
+      &[data-v="sm"] {
+        width: 3.5px;
+        height: 3.5px;
+        background: color-mix(in oklch, var(--border-strong) 70%, var(--border));
+      }
+
+      &[data-v="accent"] {
+        width: 7px;
+        height: 7px;
+        background: var(--accent);
       }
     }
   }

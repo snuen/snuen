@@ -81,6 +81,14 @@ const isHome = Astro.url.pathname === "/";
         transition:name="site-footer"
         transition:animate="none"
       >
+        <div class="diamond-rule" aria-hidden="true">
+          <span class="dp" data-v="sm"></span>
+          <span class="dp"></span>
+          <span class="dp" data-v="accent"></span>
+          <span class="dp"></span>
+          <span class="dp" data-v="sm"></span>
+        </div>
+
         <p class="footer-author">
           <span
             class="footer-byline-label meta-stamp meta-stamp--muted"
