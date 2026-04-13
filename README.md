@@ -89,15 +89,17 @@ bunx vercel --prod
 ```yaml
 ---
 title: ""
-book_title: ""
-author: ""
 date: YYYY-MM-DD
 published: true
+sources:
+  - book_title: ""
+    author: ""
+    # amazon_url: ""   # 書籍の場合
+    # url: ""          # Web記事の場合
+    # cover: ""        # 書影URLがあれば
 ---
 ```
 
-`title` はエントリ自体の見出し、`book_title` は読んだ本や文章のタイトル。
-
-必要に応じてオプションフィールドも使える: `tags`, `cover`, `amazon_url`, `isbn`, `started_at`, `finished_at`
+`title` はエントリ自体の見出し。ソース情報は `sources` 配列にまとめる。複数の書籍・記事を扱う場合は配列に要素を追加する。
 
 あとは自由に書く。感想でも、引用でも、断片的なメモでも。

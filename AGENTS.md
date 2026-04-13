@@ -122,30 +122,7 @@ The structure should help writing, not become overhead.
 
 ## Frontmatter Guidance
 
-Use minimal and stable frontmatter.
-
-Preferred fields:
-
-```yaml
----
-title: ""
-book_title: ""
-author: ""
-date: YYYY-MM-DD
-published: true
----
-```
-
-`title` はエントリ自体の見出し（記録のタイトル）、`book_title` は読んだ本や文章のタイトル。
-
-Optional fields may include:
-
-- tags
-- cover
-- amazon_url
-- isbn
-- started_at
-- finished_at
+Use minimal and stable frontmatter. Follow the format used in existing entries under `content/entries/`.
 
 Do not add fields unless they clearly improve writing, browsing, or publishing.
 
@@ -283,6 +260,20 @@ A good contribution to this repository does at least one of these:
 A bad contribution makes the system look more advanced while making it harder to write, edit, publish, or understand.
 
 When in doubt, choose the simpler path.
+
+---
+
+## Agent Skills
+
+The following skills are available in `.claude/skills/`. Use them when the situation matches.
+
+| Skill | When to use |
+|-------|-------------|
+| `reading-record-composer` | User wants to write a reading record — proposes structure and asks guiding questions. Does not write content. |
+| `reading-record-draft-creator` | User provides fragmented notes and wants a draft MDX file + Pull Request created automatically. |
+| `doc-coauthoring` | User wants to co-author a non-entry document (proposal, spec, decision doc, etc.). |
+| `find-docs` | Technical questions about Astro, libraries, or frameworks — fetches current docs via Context7. |
+| `frontend-design` | User wants to build or redesign a UI component or page on the site. |
 
 ---
 
